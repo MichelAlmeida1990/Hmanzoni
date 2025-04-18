@@ -22,23 +22,6 @@ body {
     line-height: 1.6;
     transition: background-color 0.3s ease, color 0.3s ease;
     overflow-x: hidden;
-    background-image: url('../image/fundo-azul tema claro.png');
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    position: relative;
-}
-
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(240, 249, 255, 0.3);
-    background-image: linear-gradient(to bottom, rgba(30, 58, 138, 0.05), rgba(30, 58, 138, 0.1));
-    z-index: -1;
 }
 
 a {
@@ -123,15 +106,6 @@ section {
     --dark-bg: #0A0A0A;
     --light-bg: #1A1A1A;
     --text-secondary: #adb5bd;
-    background-image: url('../image/fundo-preto-dourado.jpg');
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-}
-
-.dark-theme::before {
-    background-color: rgba(0, 0, 0, 0.85);
-    background-image: none;
 }
 
 /* =========== ANIMAÇÕES =========== */
@@ -173,6 +147,7 @@ section {
     100% { box-shadow: 0 0 5px rgba(212, 175, 55, 0.3); }
 }
 
+/* =========== PRELOADER =========== */
 .preloader {
     position: fixed;
     top: 0;
@@ -188,91 +163,31 @@ section {
     transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
-.preloader.hidden {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.preloader .logo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 30px;
-}
-
-.preloader .logo img {
-    width: 120px;
+.preloader-logo {
+    width: 150px;
     height: auto;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     animation: pulse 1.5s infinite ease-in-out;
     filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
 }
 
-.preloader .logo h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    color: var(--gold-accent);
-    letter-spacing: 2px;
-    margin: 0;
-    font-weight: 700;
-    text-transform: uppercase;
-    animation: fadeIn 1s ease-in-out;
+.preloader-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(212, 175, 55, 0.2);
+    border-top: 5px solid var(--gold-accent);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
 }
 
-.loading-bar {
-    width: 200px;
-    height: 3px;
-    background-color: rgba(212, 175, 55, 0.2);
-    border-radius: 3px;
-    position: relative;
-    overflow: hidden;
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
-.loading-bar::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -50%;
-    width: 50%;
-    height: 100%;
-    background-color: var(--gold-accent);
-    animation: loading 1.5s infinite ease;
-    box-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(1.05);
-        opacity: 0.8;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-@keyframes loading {
-    0% {
-        left: -50%;
-    }
-    100% {
-        left: 100%;
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Animação para esconder o preloader caso o JavaScript não carregue */
+@keyframes hidePreloader {
+    to { opacity: 0; visibility: hidden; }
 }
 
 .preloader.hidden {
@@ -1352,6 +1267,7 @@ textarea.form-control {
     color: var(--footer-text);
     padding: 80px 0 0;
     position: relative;
+    background-color: #0A0A0A;
     background-size: 200px;
     background-blend-mode: overlay;
 }
@@ -1364,40 +1280,6 @@ textarea.form-control {
     width: 100%;
     height: 5px;
     background: linear-gradient(90deg, transparent, var(--gold-accent), transparent);
-}
-
-/* Footer com imagem de fundo */
-footer {
-    background-image: url('../image/fundo-preto-dourado.jpg');
-    background-size: cover;
-    background-position: center;
-    position: relative;
-}
-
-footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.85);
-    z-index: 0;
-}
-
-footer .container {
-    position: relative;
-    z-index: 1;
-}
-
-/* Footer no tema claro */
-body:not(.dark-theme) footer {
-    background-image: url('../image/fundo-azul tema claro.png');
-}
-
-body:not(.dark-theme) footer::before {
-    background-color: rgba(240, 249, 255, 0.3);
-    background-image: linear-gradient(to bottom, rgba(30, 58, 138, 0.05), rgba(30, 58, 138, 0.1));
 }
 
 .footer-content {
@@ -1743,14 +1625,7 @@ body:not(.dark-theme) footer::before {
 
 /* =========== EFEITO ESFUMAÇADO PARA TEMA ESCURO =========== */
 .dark-theme {
-    background-image: url('../image/fundo-preto-dourado.jpg');
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-}
-
-.dark-theme::before {
-    background-color: rgba(0, 0, 0, 0.85);
+    background-image: linear-gradient(to bottom, #0A0A0A, #121212);
 }
 
 .dark-theme .card-bg {

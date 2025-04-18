@@ -328,7 +328,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         },
 
-        // Chatbot simples - CORRIGIDO COM FECHAMENTO AO CLICAR FORA
+        // Chatbot simples - CORRIGIDO
         setupChatbot: function() {
             const chatbotIcon = document.querySelector('.chatbot-icon');
             const chatbotContainer = document.querySelector('.chatbot-container');
@@ -336,7 +336,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const chatbotInput = document.querySelector('.chatbot-input input');
             const chatbotSend = document.querySelector('.chatbot-send');
             const chatbotMessages = document.querySelector('.chatbot-messages');
-            const chatbotBox = document.querySelector('.chatbot-box'); // O elemento interno do chatbot
             
             if (!chatbotIcon || !chatbotContainer) {
                 console.log('Elementos do chatbot não encontrados');
@@ -344,8 +343,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             // Corrigindo o evento de clique no ícone do chatbot
-            chatbotIcon.addEventListener('click', function(e) {
-                e.stopPropagation(); // Impedir propagação para não fechar imediatamente
+            chatbotIcon.addEventListener('click', function() {
                 chatbotContainer.classList.add('active');
                 chatbotIcon.style.display = 'none';
                 
@@ -362,32 +360,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 chatbotClose.addEventListener('click', function() {
                     chatbotContainer.classList.remove('active');
                     chatbotIcon.style.display = 'flex';
-                });
-            }
-            
-            // Fechar chatbot ao clicar fora dele
-            document.addEventListener('click', function(e) {
-                // Verifica se o chatbot está ativo
-                if (chatbotContainer && chatbotContainer.classList.contains('active')) {
-                    // Verifica se o clique foi fora do chatbot e não no ícone do chatbot
-                    const chatboxElement = chatbotBox || chatbotContainer;
-                    
-                    // Se chatboxElement existe e o clique não foi dentro dele nem no ícone
-                    if (chatboxElement && !chatboxElement.contains(e.target) && e.target !== chatbotIcon) {
-                        chatbotContainer.classList.remove('active');
-                        chatbotIcon.style.display = 'flex';
-                    }
-                }
-            });
-            
-            // Impedir que cliques dentro do chatbot fechem ele
-            if (chatbotBox) {
-                chatbotBox.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                });
-            } else if (chatbotContainer) {
-                chatbotContainer.addEventListener('click', function(e) {
-                    e.stopPropagation();
                 });
             }
             
@@ -444,7 +416,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
             
-            console.log('Chatbot inicializado com fechamento ao clicar fora');
+            console.log('Chatbot inicializado');
         }
     };
 

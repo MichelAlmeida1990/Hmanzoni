@@ -328,7 +328,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         },
 
-        // Chatbot simples - CORRIGIDO COM FECHAMENTO AO CLICAR FORA
+        // Chatbot simples
         setupChatbot: function() {
             const chatbotIcon = document.querySelector('.chatbot-icon');
             const chatbotContainer = document.querySelector('.chatbot-container');
@@ -336,65 +336,20 @@ document.addEventListener('DOMContentLoaded', function() {
             const chatbotInput = document.querySelector('.chatbot-input input');
             const chatbotSend = document.querySelector('.chatbot-send');
             const chatbotMessages = document.querySelector('.chatbot-messages');
-            const chatbotBox = document.querySelector('.chatbot-box'); // O elemento interno do chatbot
             
-            if (!chatbotIcon || !chatbotContainer) {
-                console.log('Elementos do chatbot não encontrados');
-                return;
-            }
+            if (!chatbotIcon || !chatbotContainer || !chatbotClose || !chatbotInput || !chatbotSend || !chatbotMessages) return;
             
-            // Corrigindo o evento de clique no ícone do chatbot
-            chatbotIcon.addEventListener('click', function(e) {
-                e.stopPropagation(); // Impedir propagação para não fechar imediatamente
+            chatbotIcon.addEventListener('click', function() {
                 chatbotContainer.classList.add('active');
                 chatbotIcon.style.display = 'none';
-                
-                // Focar no campo de input
-                if (chatbotInput) {
-                    setTimeout(() => {
-                        chatbotInput.focus();
-                    }, 300);
-                }
             });
             
-            // Corrigindo o evento de clique no botão de fechar
-            if (chatbotClose) {
-                chatbotClose.addEventListener('click', function() {
-                    chatbotContainer.classList.remove('active');
-                    chatbotIcon.style.display = 'flex';
-                });
-            }
-            
-            // Fechar chatbot ao clicar fora dele
-            document.addEventListener('click', function(e) {
-                // Verifica se o chatbot está ativo
-                if (chatbotContainer && chatbotContainer.classList.contains('active')) {
-                    // Verifica se o clique foi fora do chatbot e não no ícone do chatbot
-                    const chatboxElement = chatbotBox || chatbotContainer;
-                    
-                    // Se chatboxElement existe e o clique não foi dentro dele nem no ícone
-                    if (chatboxElement && !chatboxElement.contains(e.target) && e.target !== chatbotIcon) {
-                        chatbotContainer.classList.remove('active');
-                        chatbotIcon.style.display = 'flex';
-                    }
-                }
+            chatbotClose.addEventListener('click', function() {
+                chatbotContainer.classList.remove('active');
+                chatbotIcon.style.display = 'flex';
             });
             
-            // Impedir que cliques dentro do chatbot fechem ele
-            if (chatbotBox) {
-                chatbotBox.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                });
-            } else if (chatbotContainer) {
-                chatbotContainer.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                });
-            }
-            
-            // Função para enviar mensagem
             function sendMessage() {
-                if (!chatbotInput || !chatbotMessages) return;
-                
                 const message = chatbotInput.value.trim();
                 if (!message) return;
                 
@@ -431,20 +386,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 }, 500);
             }
             
-            // Configurar eventos para enviar mensagem
-            if (chatbotSend) {
-                chatbotSend.addEventListener('click', sendMessage);
-            }
+            chatbotSend.addEventListener('click', sendMessage);
             
-            if (chatbotInput) {
-                chatbotInput.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        sendMessage();
-                    }
-                });
-            }
-            
-            console.log('Chatbot inicializado com fechamento ao clicar fora');
+            chatbotInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
         }
     };
 

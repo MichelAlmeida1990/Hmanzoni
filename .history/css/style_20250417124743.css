@@ -1,0 +1,165 @@
+/* Variáveis de tema */
+:root {
+    /* Tema Claro (padrão) */
+    --background-color: #f8f9fa;
+    --text-color: #333;
+    --header-bg: #1c1c1c;
+    --header-text: #ffffff;
+    --footer-bg: #1c1c1c;
+    --footer-text: #ffffff;
+    --accent-color: #0056b3;
+    --gold-accent: #D4AF37;
+    --card-bg: #ffffff;
+    --card-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    --border-color: #dee2e6;
+    --btn-hover: #003d7a;
+}
+
+/* Tema Escuro */
+.dark-theme {
+    --background-color: #121212;
+    --text-color: #f8f9fa;
+    --header-bg: #0a0a0a;
+    --header-text: #D4AF37;
+    --footer-bg: #0a0a0a;
+    --footer-text: #f8f9fa;
+    --accent-color: #D4AF37;
+    --gold-accent: #D4AF37;
+    --card-bg: #1e1e1e;
+    --card-shadow: 0 2px 15px rgba(0,0,0,0.3);
+    --border-color: #333;
+    --btn-hover: #c4a22f;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-30px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* Header atualizado */
+header {
+    background-color: var(--header-bg);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.4s ease;
+    padding: 10px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+}
+
+.logo {
+    transition: all 0.3s ease;
+}
+
+.logo img {
+    height: 50px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    transition: all 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 25px;
+    position: relative;
+}
+
+nav ul li a {
+    color: var(--header-text);
+    transition: all 0.3s ease;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+nav ul li a:hover {
+    color: var(--gold-accent);
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--gold-accent);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+.theme-toggle button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.theme-toggle button:hover {
+    background-color: var(--btn-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* Elementos com animação */
+.hero h1, .hero p, .hero .btn {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.hero p {
+    animation-delay: 0.2s;
+}
+
+.hero .btn {
+    animation-delay: 0.4s;
+}
+
+.room-card, .service-item, .gallery-item {
+    animation: fadeIn 0.6s ease forwards;
+    opacity: 0;
+}
+
+section h2 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 3px;
+    background: var(--gold-accent);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
