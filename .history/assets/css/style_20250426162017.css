@@ -1,0 +1,43 @@
+/* assets/css/style.css */
+
+/* Importação dos módulos CSS */
+@import 'base.css';
+@import 'layout.css';
+@import 'components.css';
+@import 'theme.css';
+@import 'responsive.css';
+
+/* Correções globais para cursor e interatividade */
+a, button, input[type="submit"], input[type="button"], 
+.btn, .clickable, .mobile-menu-toggle, .theme-toggle button,
+.gallery-item, .chatbot-icon, .back-to-top, .social-link,
+.filter-btn, .lightbox-close, .lightbox-prev, .lightbox-next,
+.chatbot-send, .newsletter-btn, .chatbot-suggestion {
+    cursor: pointer !important;
+}
+
+/* Correções para dispositivos móveis */
+@media (max-width: 768px) {
+    header .container {
+        position: relative;
+        padding: 15px;
+    }
+    
+    .mobile-menu-toggle {
+        display: block !important;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+    }
+    
+    nav {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .chatbot-container {
+        width: 300px;
+        right: 10px;
+    }
+}

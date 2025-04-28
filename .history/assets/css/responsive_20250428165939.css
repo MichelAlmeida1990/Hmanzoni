@@ -1,0 +1,201 @@
+/* assets/css/responsive.css */
+
+/* Tablet (768px - 991px) */
+@media (max-width: 991px) {
+    html {
+        font-size: 14px;
+    }
+
+    .container {
+        max-width: 720px;
+    }
+
+    .header-container {
+        height: 70px;
+    }
+
+    .hero {
+        height: calc(100vh - 70px);
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.25rem;
+    }
+
+    .about-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .about-image, .about-content {
+        width: 100%;
+    }
+
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Melhorar a responsividade dos cartões de quarto */
+    .room-card {
+        flex-direction: column;
+    }
+    
+    .room-image {
+        width: 100%;
+        height: 200px;
+    }
+    
+    .room-details {
+        width: 100%;
+        padding: 15px;
+    }
+    
+    .room-features {
+        flex-wrap: wrap;
+    }
+    
+    .room-feature {
+        width: 50%;
+        margin-bottom: 10px;
+    }
+}
+
+/* Mobile (576px - 767px) */
+@media (max-width: 767px) {
+    html {
+        font-size: 13px;
+    }
+
+    .container {
+        max-width: 540px;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 80%;
+        height: calc(100vh - 70px);
+        background-color: var(--header-bg);
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 2rem;
+        transition: left 0.3s ease;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-item {
+        margin: 0 0 1.5rem 0;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .services-container {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .contact-info, .contact-form {
+        width: 100%;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+    }
+
+    .newsletter-input {
+        border-radius: 4px;
+        margin-bottom: 1rem;
+    }
+
+    .newsletter-btn {
+        border-radius: 4px;
+        width: 100%;
+    }
+    
+    /* Ajustar formulário de contato em telas menores */
+    .contact-container {
+        flex-direction: column;
+    }
+    
+    .contact-info, .contact-form {
+        width: 100%;
+    }
+    
+    .form-row {
+        flex-direction: column;
+    }
+    
+    .form-group.half {
+        width: 100%;
+    }
+}
+
+/* Small Mobile (< 576px) */
+@media (max-width: 575px) {
+    html {
+        font-size: 12px;
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 0 1.5rem;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+    }
+
+    .about-features {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-container {
+        grid-template-columns: 1fr;
+    }
+
+    .reviews-container {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+}

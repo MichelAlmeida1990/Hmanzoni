@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hotel Manzoni - Hospedagem com conforto e simplicidade em São Paulo. Quartos confortáveis, Wi-Fi grátis e excelente localização.">
+    <meta name="keywords" content="hotel, hospedagem, São Paulo, quartos, acomodações, reservas">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Hotel Manzoni - Conforto e Simplicidade">
+    <meta property="og:description" content="Hospedagem com conforto e simplicidade em São Paulo. Quartos confortáveis, Wi-Fi grátis e excelente localização.">
+    <meta property="og:image" content="assets/images/common/logo.png">
+    <meta property="og:url" content="https://www.hotelmanzoni.com.br">
+    <meta property="og:type" content="website">
+    
+    <title>Hotel Manzoni - Conforto e Simplicidade</title>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/lightbox.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- JavaScript -->
+    <script src="assets/js/hotel-manzoni.js" defer></script>
+</head>
+<body>
+<!-- Preloader - VERSÃO ULTRA SIMPLIFICADA -->
+<div class="preloader" aria-hidden="true" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 9999;">
+    <!-- Logo como imagem independente -->
+    <img src="assets/images/common/logo.png" alt="Hotel Manzoni Logo" style="width: 100px; height: auto; margin-bottom: 20px; display: block;">
+    
+    <!-- Texto como elemento independente -->
+    <h1 style="font-size: 18px; color: #333; margin: 0 0 30px 0; padding: 0;">Hotel Manzoni</h1>
+    
+    <!-- Barra de carregamento como elemento totalmente separado -->
+    <div style="width: 200px; height: 4px; background-color: #f0f0f0; border-radius: 2px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: -50px; height: 100%; width: 50px; background-color: #d4af37; animation: loadingAnimation 1.5s infinite linear;"></div>
+    </div>
+</div>
+
+<!-- Estilo da animação diretamente na página -->
+<style>
+@keyframes loadingAnimation {
+    0% { left: -50px; }
+    100% { left: 100%; }
+}
+</style>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="#inicio" aria-label="Início - Hotel Manzoni">
+                    <img src="assets/images/common/logo.png" alt="Hotel Manzoni Logo">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="main-nav">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+                <span class="sr-only">Menu</span>
+            </button>
+            <nav id="main-nav" class="main-navigation" aria-label="Navegação principal">
+                <ul role="menu">
+                    <li role="none"><a href="#inicio" role="menuitem">Início</a></li>
+                    <li role="none"><a href="#sobre" role="menuitem">Sobre</a></li>
+                    <li role="none"><a href="#acomodacoes" role="menuitem">Acomodações</a></li>
+                    <li role="none"><a href="#servicos" role="menuitem">Serviços</a></li>
+                    <li role="none"><a href="#galeria" role="menuitem">Galeria</a></li>
+                    <li role="none"><a href="#contato" role="menuitem">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="theme-toggle">
+                <button id="theme-button" aria-label="Alternar tema claro/escuro">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                    <span class="theme-text">Mudar Tema</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h1>Bem-vindo ao Hotel Manzoni</h1>
+                <p>Conforto e hospitalidade para sua estadia</p>
+                <a href="#acomodacoes" class="btn">Conheça Nossos Quartos</a>
+            </div>
+            <a href="#sobre" class="scroll-down" aria-label="Rolar para a seção sobre">
+                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </a>
+        </section>
+
+        <section id="sobre" class="about">
+            <div class="container">
+                <div class="about-text">
+                    <h2 class="section-title">Sobre o Hotel</h2>
+                    <p>O Hotel Manzoni oferece acomodações confortáveis e acessíveis para sua estadia. Nosso objetivo é proporcionar uma experiência agradável com atendimento cordial e serviços essenciais.</p>
+                    <p>Contamos com quartos bem equipados, ar-condicionado, TV e banheiro privativo. Estamos localizados em uma área estratégica, próximo aos principais pontos turísticos e comerciais da cidade.</p>
+                    
+                    <div class="features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-bed" aria-hidden="true"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Quartos Confortáveis</h4>
+                                <p>Todos os quartos com ar-condicionado e TV</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-shower" aria-hidden="true"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Banheiros Privativos</h4>
+                                <p>Banheiros completos com chuveiro</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="assets/images/rooms/quarto hotel.png" alt="Quarto do Hotel Manzoni">
+                </div>
+            </div>
+        </section>
+
+        <section id="acomodacoes" class="accommodations">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Nossas Acomodações</h2>
+                    <p class="section-description">Conheça os diferentes tipos de quartos disponíveis para sua hospedagem</p>
+                </div>
+                
+                <div class="room-grid">
+                    <div class="room-card">
+                        <div class="room-image">
+                            <img src="assets/images/rooms/quarto hotel.png" alt="Quarto Casal">
+                        </div>
+                        <div class="room-details">
+                            <span class="room-type">Conforto</span>
+                            <h3 class="room-title">Quarto Casal</h3>
+                            <p class="room-description">Confortável quarto com cama de casal, ideal para viajantes individuais ou casais.</p>
+                            <div class="room-features">
+                                <span class="room-feature"><i class="fas fa-snowflake" aria-hidden="true"></i> Ar-condicionado</span>
+                                <span class="room-feature"><i class="fas fa-tv" aria-hidden="true"></i> TV</span>
+                                <span class="room-feature"><i class="fas fa-wifi" aria-hidden="true"></i> Wi-Fi</span>
+                            </div>
+                            <div class="room-price">
+                                R$ 150 <span>/ diária</span>
+                            </div>
+                            <div class="room-actions">
+                                <a href="#contato" class="btn btn-outline">Mais Detalhes</a>
+                                <a href="#contato" class="btn">Reservar</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="room-card">
+                        <div class="room-image">
+                            <img src="assets/images/rooms/quarto cama solteiro.jpeg" alt="Quarto Solteiro">
+                        </div>
+                        <div class="room-details">
+                            <span class="room-type">Econômico</span>
+                            <h3 class="room-title">Quarto Solteiro</h3>
+                            <p class="room-description">Quarto funcional com cama de solteiro, mesa de trabalho e ar-condicionado, ideal para viajantes a negócios.</p>
+                            <div class="room-features">
+                                <span class="room-feature"><i class="fas fa-snowflake" aria-hidden="true"></i> Ar-condicionado</span>
+                                <span class="room-feature"><i class="fas fa-tv" aria-hidden="true"></i> TV</span>
+                                <span class="room-feature"><i class="fas fa-wifi" aria-hidden="true"></i> Wi-Fi</span>
+                            </div>
+                            <div class="room-price">
+                                R$ 120 <span>/ diária</span>
+                            </div>
+                            <div class="room-actions">
+                                <a href="#contato" class="btn btn-outline">Mais Detalhes</a>
+                                <a href="#contato" class="btn">Reservar</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="room-card">
+                        <div class="room-image">
+                            <img src="assets/images/rooms/acomodacoes.png" alt="Quarto Standard">
+                        </div>
+                        <div class="room-details">
+                            <span class="room-type">Standard</span>
+                            <h3 class="room-title">Quarto 04</h3>
+                            <p class="room-description">Quarto prático com TV, frigobar e mesa de apoio, perfeito para estadias curtas.</p>
+                            <div class="room-features">
+                                <span class="room-feature"><i class="fas fa-snowflake" aria-hidden="true"></i> Ar-condicionado</span>
+                                <span class="room-feature"><i class="fas fa-tv" aria-hidden="true"></i> TV</span>
+                                <span class="room-feature"><i class="fas fa-phone" aria-hidden="true"></i> Telefone</span>
+                            </div>
+                            <div class="room-price">
+                                R$ 130 <span>/ diária</span>
+                            </div>
+                            <div class="room-actions">
+                                <a href="#contato" class="btn btn-outline">Mais Detalhes</a>
+                                <a href="#contato" class="btn">Reservar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicos" class="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Nossos Serviços</h2>
+                    <p class="section-description">Oferecemos diversos serviços para tornar sua estadia mais confortável</p>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-bed" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="service-title">Acomodações</h3>
+                        <p class="service-description">Quartos confortáveis com ar-condicionado, TV e banheiro privativo.</p>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-wifi" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="service-title">Wi-Fi</h3>
+                        <p class="service-description">Internet sem fio disponível em todas as áreas do hotel.</p>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-tv" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="service-title">Televisão</h3>
+                        <p class="service-description">TVs em todos os quartos para seu entretenimento.</p>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-shower" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="service-title">Banheiros Privativos</h3>
+                        <p class="service-description">Todos os quartos contam com banheiros privativos e bem equipados.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="galeria" class="gallery">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Galeria</h2>
+                    <p class="section-description">Conheça nossas instalações através de imagens</p>
+                </div>
+                
+                <div class="gallery-filter" role="tablist">
+                    <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">Todos</button>
+                    <button class="filter-btn" data-filter="quartos" role="tab" aria-selected="false">Quartos</button>
+                    <button class="filter-btn" data-filter="banheiros" role="tab" aria-selected="false">Banheiros</button>
+                </div>
+                
+                <div class="gallery-grid" role="tabpanel">
+                    <div class="gallery-item" data-category="quartos">
+                        <img src="assets/images/rooms/quarto hotel.png" alt="Quarto Casal">
+                        <div class="gallery-overlay">
+                            <div class="gallery-icon">
+                                <i class="fas fa-search-plus" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="banheiros">
+                        <img src="assets/images/rooms/banheiro.png" alt="Banheiro">
+                        <div class="gallery-overlay">
+                            <div class="gallery-icon">
+                                <i class="fas fa-search-plus" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="quartos">
+                        <img src="assets/images/rooms/quarto cama solteiro.jpeg" alt="Quarto Solteiro">
+                        <div class="gallery-overlay">
+                            <div class="gallery-icon">
+                                <i class="fas fa-search-plus" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="banheiros">
+                        <img src="assets/images/rooms/banheiro2.png" alt="Banheiro">
+                        <div class="gallery-overlay">
+                            <div class="gallery-icon">
+                                <i class="fas fa-search-plus" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="quartos">
+                        <img src="assets/images/rooms/acomodacoes.png" alt="Quarto Standard">
+                        <div class="gallery-overlay">
+                            <div class="gallery-icon">
+                                <i class="fas fa-search-plus" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+                <div class="lightbox-content">
+                    <img src="" alt="" class="lightbox-image">
+                    <button class="lightbox-close" aria-label="Fechar">&times;</button>
+                    <h2 id="lightbox-title" class="sr-only">Imagem ampliada</h2>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Entre em Contato</h2>
+                    <p class="section-description">Estamos à disposição para atender suas dúvidas e reservas</p>
+                </div>
+                
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Endereço</h4>
+                                <address>
+                                    Av. Principal, 1000 - Centro<br>São Paulo, SP - CEP 01000-000
+                                </address>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt" aria-hidden="true"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Telefone</h4>
+                                <p><a href="tel:+551155555555">(11) 5555-5555</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p><a href="mailto:contato@hotelmanzoni.com.br">contato@hotelmanzoni.com.br</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                            <a href="#" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    
+                    <form class="contact-form" id="contactForm" aria-labelledby="form-title">
+                        <h3 id="form-title" class="sr-only">Formulário de contato</h3>
+                        <div class="form-group">
+                            <label for="name" class="form-label">Nome</label>
+                            <input type="text" id="name" class="form-control" required aria-required="true">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" class="form-control" required aria-required="true">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="checkin" class="form-label">Check-in</label>
+                                <input type="date" id="checkin" class="form-control" required aria-required="true">
+                            </div>
+                            
+                            <div class="form-group half">
+                                <label for="checkout" class="form-label">Check-out</label>
+                                <input type="date" id="checkout" class="form-control" required aria-required="true">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Mensagem</label>
+                            <textarea id="message" class="form-control" required aria-required="true"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" style="background-image: url('assets/images/common/fundo-preto-dourado.jpg');">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <h2>Hotel Manzoni</h2>
+                    </div>
+                    <p class="footer-about">O Hotel Manzoni oferece acomodações confortáveis e acessíveis para sua estadia. Nosso objetivo é proporcionar uma experiência agradável com atendimento cordial e serviços essenciais.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#acomodacoes">Acomodações</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#galeria">Galeria</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Newsletter</h3>
+                    <p class="footer-newsletter">Inscreva-se para receber nossas promoções e novidades.</p>
+                    <form class="newsletter-form" id="newsletterForm" aria-labelledby="newsletter-title">
+                        <h4 id="newsletter-title" class="sr-only">Inscrição na newsletter</h4>
+                        <input type="email" placeholder="Seu email" class="newsletter-input" required aria-required="true" aria-label="Seu email para newsletter">
+                        <button type="submit" class="newsletter-btn" aria-label="Enviar inscrição">
+                            <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hotel Manzoni. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Chatbot - CORRIGIDO -->
+    <div class="chatbot-icon" aria-label="Chat de atendimento" role="button" tabindex="0">
+        <i class="fas fa-comments" aria-hidden="true"></i>
+    </div>
+    
+    <div class="chatbot-container" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="chatbot-title">
+        <div class="chatbot-header">
+            <h3 id="chatbot-title">Assistente Virtual</h3>
+            <button class="chatbot-close" aria-label="Fechar chat">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" role="log" aria-live="polite">
+            <div class="message bot">
+                <p>Olá! Como posso ajudar com sua reserva no Hotel Manzoni?</p>
+            </div>
+        </div>
+        <form class="chatbot-form" aria-labelledby="chatbot-form-title">
+            <h4 id="chatbot-form-title" class="sr-only">Enviar mensagem</h4>
+            <input type="text" placeholder="Digite sua mensagem..." aria-label="Digite sua mensagem">
+            <button type="submit" class="chatbot-send" aria-label="Enviar mensagem">
+                <i class="fas fa-paper-plane" aria-hidden="true"></i>
+            </button>
+        </form>
+    </div>
+    
+    <!-- Botão Voltar ao Topo -->
+    <button class="back-to-top" aria-label="Voltar ao topo" tabindex="0">
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+    </button>
+
+    <!-- Classe auxiliar para leitores de tela -->
+    <style>
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    </style>
+
+    <!-- Schema.org para SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Hotel",
+        "name": "Hotel Manzoni",
+        "description": "O Hotel Manzoni oferece acomodações confortáveis e acessíveis para sua estadia.",
+        "url": "https://www.hotelmanzoni.com.br",
+        "image": "assets/images/common/logo.png",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Av. Principal, 1000",
+            "addressLocality": "Campo Grande",
+            "addressRegion": "SP",
+            "postalCode": "79008-060",
+            "addressCountry": "BR"
+        },
+        "telephone": "+551155555555",
+        "email": "contato@hotelmanzoni.com.br",
+        "priceRange": "R$120 - R$150"
+        , 343, , , Brasil
+    }
+    </script>
+</body>
+</html>
