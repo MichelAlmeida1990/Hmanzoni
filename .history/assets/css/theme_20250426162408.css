@@ -1,0 +1,276 @@
+/* assets/css/theme.css */
+
+:root {
+    /* Cores principais */
+    --dark-bg: #0A0A0A;
+    --light-bg: #FFFFFF;
+    --gold-accent: #D4AF37;
+    --gold-light: #E5C76B;
+    
+    /* Cores de texto */
+    --text-color: #F5F5F5;
+    --text-color-light: #CCCCCC;
+    
+    /* Cores de cartões e componentes */
+    --card-bg: #1A1A1A;
+    --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    --border-color: rgba(212, 175, 55, 0.2);
+    
+    /* Cores de botões */
+    --btn-bg: #1A1A1A;
+    --btn-text: #F5F5F5;
+    
+    /* Cores de formulários */
+    --input-bg: #1A1A1A;
+    --input-text: #F5F5F5;
+    --input-border: #333333;
+    
+    /* Cores de cursor */
+    --accent-color: var(--gold-accent);
+    --accent-color-hover: var(--gold-light);
+    --accent-color-light: var(--gold-light);
+}
+
+/* Tema claro */
+body.light-theme {
+    --dark-bg: #FFFFFF;
+    --light-bg: #F5F5F5;
+    --text-color: #333333;
+    --text-color-light: #666666;
+    --card-bg: #FFFFFF;
+    --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --border-color: rgba(212, 175, 55, 0.3);
+    --btn-bg: #FFFFFF;
+    --btn-text: #333333;
+    --input-bg: #FFFFFF;
+    --input-text: #333333;
+    --input-border: #DDDDDD;
+}
+
+/* Estilos globais baseados no tema */
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+    color: var(--gold-accent);
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+a:hover {
+    color: var(--gold-light);
+}
+
+/* Garantir que todos os elementos interativos tenham cursor pointer */
+button, 
+input[type="submit"], 
+input[type="button"],
+.btn, 
+.clickable, 
+.mobile-menu-toggle, 
+.theme-toggle button,
+.gallery-item, 
+.chatbot-icon, 
+.back-to-top, 
+.social-link,
+.filter-btn, 
+.lightbox-close, 
+.lightbox-prev, 
+.lightbox-next,
+.chatbot-send, 
+.newsletter-btn,
+.chatbot-suggestion {
+    cursor: pointer !important;
+}
+
+/* Ajustes específicos para tema claro */
+body.light-theme header {
+    background-color: var(--light-bg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .logo h1 {
+    color: var(--text-color);
+}
+
+body.light-theme nav ul li a {
+    color: var(--text-color);
+}
+
+body.light-theme nav ul li a:hover {
+    color: var(--gold-accent);
+}
+
+body.light-theme .mobile-menu-toggle {
+    color: var(--text-color);
+}
+
+body.light-theme .section-title {
+    color: var(--text-color);
+}
+
+body.light-theme .section-title::after {
+    background-color: var(--gold-accent);
+}
+
+body.light-theme .room-card,
+body.light-theme .service-item {
+    background-color: var(--card-bg);
+    box-shadow: var(--card-shadow);
+}
+
+body.light-theme .room-title,
+body.light-theme .service-title {
+    color: var(--text-color);
+}
+
+body.light-theme .room-description,
+body.light-theme .service-description {
+    color: var(--text-color-light);
+}
+
+body.light-theme .filter-btn {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border-color: var(--border-color);
+}
+
+body.light-theme .filter-btn:hover,
+body.light-theme .filter-btn.active {
+    background-color: var(--gold-accent);
+    color: #0A0A0A;
+}
+
+body.light-theme .gallery-overlay {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+body.light-theme .gallery-icon {
+    color: var(--gold-accent);
+}
+
+body.light-theme .form-control {
+    background-color: var(--input-bg);
+    border-color: var(--input-border);
+    color: var(--input-text);
+}
+
+body.light-theme .chatbot-container {
+    background-color: var(--light-bg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .message.bot {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+body.light-theme .message.user {
+    background-color: var(--gold-accent);
+    color: #0A0A0A;
+}
+
+body.light-theme .chatbot-input input {
+    background-color: var(--input-bg);
+    border-color: var(--input-border);
+    color: var(--input-text);
+}
+
+body.light-theme footer {
+    background-color: #1A1A1A;
+    color: #F5F5F5;
+}
+
+body.light-theme footer h3,
+body.light-theme footer p,
+body.light-theme footer a {
+    color: #F5F5F5;
+}
+
+body.light-theme .footer-bottom {
+    background-color: #0A0A0A;
+}
+
+/* Cursor personalizado para tema claro */
+body.light-theme .custom-cursor .cursor-dot {
+    background-color: var(--gold-accent);
+}
+
+body.light-theme .custom-cursor .cursor-ring {
+    border-color: var(--gold-accent);
+}
+
+/* Transições suaves para mudança de tema */
+.theme-transition * {
+    transition: background-color 0.3s ease, 
+                color 0.3s ease, 
+                border-color 0.3s ease, 
+                box-shadow 0.3s ease !important;
+}
+
+/* Ajustes para acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    body:not(.dark-theme-set):not(.light-theme-set) {
+        --dark-bg: #FFFFFF;
+        --light-bg: #F5F5F5;
+        --text-color: #333333;
+        --text-color-light: #666666;
+        --card-bg: #FFFFFF;
+        --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        --border-color: rgba(212, 175, 55, 0.3);
+        --btn-bg: #FFFFFF;
+        --btn-text: #333333;
+        --input-bg: #FFFFFF;
+        --input-text: #333333;
+        --input-border: #DDDDDD;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body:not(.dark-theme-set):not(.light-theme-set) {
+        --dark-bg: #0A0A0A;
+        --light-bg: #FFFFFF;
+        --text-color: #F5F5F5;
+        --text-color-light: #CCCCCC;
+        --card-bg: #1A1A1A;
+        --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        --border-color: rgba(212, 175, 55, 0.2);
+        --btn-bg: #1A1A1A;
+        --btn-text: #F5F5F5;
+        --input-bg: #1A1A1A;
+        --input-text: #F5F5F5;
+        --input-border: #333333;
+    }
+}
+
+/* Modo de alto contraste */
+@media (forced-colors: active) {
+    :root {
+        --gold-accent: CanvasText;
+        --gold-light: CanvasText;
+    }
+    
+    .btn, 
+    .room-card, 
+    .service-item, 
+    .gallery-item, 
+    .form-control {
+        border: 1px solid CanvasText !important;
+    }
+    
+    .section-title::after {
+        background-color: CanvasText !important;
+    }
+}

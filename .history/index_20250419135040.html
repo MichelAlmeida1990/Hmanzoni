@@ -20,38 +20,22 @@
     
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/lightbox.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <!-- JavaScript -->
-    <script src="assets/js/hotel-manzoni.js" defer></script>
+    <script src="assets/js/script.js" ></script>
+    <script src="assets/js/components.js"></script>
+
 </head>
 <body>
-<!-- Preloader - VERSÃO ULTRA SIMPLIFICADA -->
-<div class="preloader" aria-hidden="true" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 9999;">
-    <!-- Logo como imagem independente -->
-    <img src="assets/images/common/logo.png" alt="Hotel Manzoni Logo" style="width: 100px; height: auto; margin-bottom: 20px; display: block;">
-    
-    <!-- Texto como elemento independente -->
-    <h1 style="font-size: 18px; color: #333; margin: 0 0 30px 0; padding: 0;">Hotel Manzoni</h1>
-    
-    <!-- Barra de carregamento como elemento totalmente separado -->
-    <div style="width: 200px; height: 4px; background-color: #f0f0f0; border-radius: 2px; position: relative; overflow: hidden;">
-        <div style="position: absolute; top: 0; left: -50px; height: 100%; width: 50px; background-color: #d4af37; animation: loadingAnimation 1.5s infinite linear;"></div>
+    <!-- Preloader -->
+    <div class="preloader" aria-hidden="true">
+        <div class="logo">
+            <img src="assets/images/common/logo.png" alt="Hotel Manzoni Logo">
+            <h1>Hotel Manzoni</h1>
+        </div>
+        <div class="loading-bar"></div>
     </div>
-</div>
-
-<!-- Estilo da animação diretamente na página -->
-<style>
-@keyframes loadingAnimation {
-    0% { left: -50px; }
-    100% { left: 100%; }
-}
-</style>
-
-
-
-
 
     <header>
         <div class="container">
@@ -288,7 +272,7 @@
                     </div>
                     
                     <div class="gallery-item" data-category="banheiros">
-                        <img src="assets/images/rooms/banheiro2.png" alt="Banheiro">
+                        <img src="assets/images/rooms/foto banheiro.png" alt="Detalhe Banheiro">
                         <div class="gallery-overlay">
                             <div class="gallery-icon">
                                 <i class="fas fa-search-plus"></i>
@@ -307,10 +291,14 @@
                 </div>
             </div>
             
-            <div class="lightbox" aria-hidden="true">
+            <div class="gallery-lightbox" aria-hidden="true">
                 <div class="lightbox-content">
                     <img src="" alt="" class="lightbox-image">
-                    <button class="lightbox-close" aria-label="Fechar">&times;</button>
+                    <span class="lightbox-close" aria-label="Fechar"><i class="fas fa-times"></i></span>
+                    <div class="lightbox-nav">
+                        <span class="lightbox-prev" aria-label="Imagem anterior"><i class="fas fa-chevron-left"></i></span>
+                        <span class="lightbox-next" aria-label="Próxima imagem"><i class="fas fa-chevron-right"></i></span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -436,7 +424,7 @@
         </div>
     </footer>
     
-    <!-- Chatbot - CORRIGIDO -->
+    <!-- Chatbot -->
     <div class="chatbot-icon" aria-label="Chat de atendimento">
         <i class="fas fa-comments"></i>
     </div>
@@ -448,13 +436,13 @@
         </div>
         <div class="chatbot-messages">
             <div class="message bot">
-                <p>Olá! Como posso ajudar com sua reserva no Hotel Manzoni?</p>
+                Olá! Como posso ajudar com sua reserva no Hotel Manzoni?
             </div>
         </div>
-        <form class="chatbot-form">
+        <div class="chatbot-input">
             <input type="text" placeholder="Digite sua mensagem..." aria-label="Digite sua mensagem">
-            <button type="submit" class="chatbot-send" aria-label="Enviar mensagem"><i class="fas fa-paper-plane"></i></button>
-        </form>
+            <button class="chatbot-send" aria-label="Enviar mensagem"><i class="fas fa-paper-plane"></i></button>
+        </div>
     </div>
     
     <!-- Botão Voltar ao Topo -->

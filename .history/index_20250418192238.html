@@ -3,65 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Hotel Manzoni - Hospedagem com conforto e simplicidade em São Paulo. Quartos confortáveis, Wi-Fi grátis e excelente localização.">
-    <meta name="keywords" content="hotel, hospedagem, São Paulo, quartos, acomodações, reservas">
-    
-    <!-- Open Graph Tags -->
-    <meta property="og:title" content="Hotel Manzoni - Conforto e Simplicidade">
-    <meta property="og:description" content="Hospedagem com conforto e simplicidade em São Paulo. Quartos confortáveis, Wi-Fi grátis e excelente localização.">
-    <meta property="og:image" content="assets/images/common/logo.png">
-    <meta property="og:url" content="https://www.hotelmanzoni.com.br">
-    <meta property="og:type" content="website">
-    
     <title>Hotel Manzoni - Conforto e Simplicidade</title>
-    
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/lightbox.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- JavaScript -->
-    <script src="assets/js/hotel-manzoni.js" defer></script>
+    <script src="js/script.js" defer></script>
 </head>
 <body>
-<!-- Preloader - VERSÃO ULTRA SIMPLIFICADA -->
-<div class="preloader" aria-hidden="true" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 9999;">
-    <!-- Logo como imagem independente -->
-    <img src="assets/images/common/logo.png" alt="Hotel Manzoni Logo" style="width: 100px; height: auto; margin-bottom: 20px; display: block;">
-    
-    <!-- Texto como elemento independente -->
-    <h1 style="font-size: 18px; color: #333; margin: 0 0 30px 0; padding: 0;">Hotel Manzoni</h1>
-    
-    <!-- Barra de carregamento como elemento totalmente separado -->
-    <div style="width: 200px; height: 4px; background-color: #f0f0f0; border-radius: 2px; position: relative; overflow: hidden;">
-        <div style="position: absolute; top: 0; left: -50px; height: 100%; width: 50px; background-color: #d4af37; animation: loadingAnimation 1.5s infinite linear;"></div>
+ <!-- Preloader -->
+<div class="preloader">
+    <div class="logo">
+        <img src="image/logo.png" alt="Hotel Manzoni Logo">
+        <h1>Hotel Manzoni</h1>
     </div>
+    <div class="loading-bar"></div>
 </div>
-
-<!-- Estilo da animação diretamente na página -->
-<style>
-@keyframes loadingAnimation {
-    0% { left: -50px; }
-    100% { left: 100%; }
-}
-</style>
-
-
-
 
 
     <header>
         <div class="container">
             <div class="logo">
-                <img src="assets/images/common/logo.png" alt="Hotel Manzoni Logo">
+                <img src="image/logo.png" alt="Hotel Manzoni Logo">
+                
             </div>
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menu de navegação">
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
                 <i class="fas fa-bars"></i>
             </button>
-            <nav aria-label="Navegação principal">
+            <nav>
                 <ul>
                     <li><a href="#inicio">Início</a></li>
                     <li><a href="#sobre">Sobre</a></li>
@@ -72,7 +39,7 @@
                 </ul>
             </nav>
             <div class="theme-toggle">
-                <button id="theme-button" aria-label="Alternar tema claro/escuro">Mudar Tema</button>
+                <button id="theme-button">Mudar Tema</button>
             </div>
         </div>
     </header>
@@ -84,7 +51,7 @@
                 <p>Conforto e hospitalidade para sua estadia</p>
                 <a href="#acomodacoes" class="btn">Conheça Nossos Quartos</a>
             </div>
-            <a href="#sobre" class="scroll-down" aria-label="Rolar para a seção sobre">
+            <a href="#sobre" class="scroll-down">
                 <i class="fas fa-chevron-down"></i>
             </a>
         </section>
@@ -118,7 +85,7 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="assets/images/rooms/quarto hotel.png" alt="Quarto do Hotel Manzoni">
+                    <img src="image/quarto hotel.png" alt="Quarto do Hotel Manzoni">
                 </div>
             </div>
         </section>
@@ -133,7 +100,7 @@
                 <div class="room-grid">
                     <div class="room-card">
                         <div class="room-image">
-                            <img src="assets/images/rooms/quarto hotel.png" alt="Quarto Casal">
+                            <img src="image/quarto hotel.png" alt="Quarto Casal">
                         </div>
                         <div class="room-details">
                             <span class="room-type">Conforto</span>
@@ -156,7 +123,7 @@
                     
                     <div class="room-card">
                         <div class="room-image">
-                            <img src="assets/images/rooms/quarto cama solteiro.jpeg" alt="Quarto Solteiro">
+                            <img src="image/quarto cama solteiro.jpeg" alt="Quarto Solteiro">
                         </div>
                         <div class="room-details">
                             <span class="room-type">Econômico</span>
@@ -179,7 +146,7 @@
                     
                     <div class="room-card">
                         <div class="room-image">
-                            <img src="assets/images/rooms/acomodacoes.png" alt="Quarto Standard">
+                            <img src="image/acomodacoes.png" alt="Quarto Standard">
                         </div>
                         <div class="room-details">
                             <span class="room-type">Standard</span>
@@ -261,7 +228,7 @@
                 
                 <div class="gallery-grid">
                     <div class="gallery-item" data-category="quartos">
-                        <img src="assets/images/rooms/quarto hotel.png" alt="Quarto Casal">
+                        <img src="image/quarto hotel.png" alt="Quarto Casal">
                         <div class="gallery-overlay">
                             <div class="gallery-icon">
                                 <i class="fas fa-search-plus"></i>
@@ -270,7 +237,7 @@
                     </div>
                     
                     <div class="gallery-item" data-category="banheiros">
-                        <img src="assets/images/rooms/banheiro.png" alt="Banheiro">
+                        <img src="image/banheiro.png" alt="Banheiro">
                         <div class="gallery-overlay">
                             <div class="gallery-icon">
                                 <i class="fas fa-search-plus"></i>
@@ -279,7 +246,7 @@
                     </div>
                     
                     <div class="gallery-item" data-category="quartos">
-                        <img src="assets/images/rooms/quarto cama solteiro.jpeg" alt="Quarto Solteiro">
+                        <img src="image/quarto cama solteiro.jpeg" alt="Quarto Solteiro">
                         <div class="gallery-overlay">
                             <div class="gallery-icon">
                                 <i class="fas fa-search-plus"></i>
@@ -288,7 +255,7 @@
                     </div>
                     
                     <div class="gallery-item" data-category="banheiros">
-                        <img src="assets/images/rooms/banheiro2.png" alt="Banheiro">
+                        <img src="image/foto banheiro.png" alt="Detalhe Banheiro">
                         <div class="gallery-overlay">
                             <div class="gallery-icon">
                                 <i class="fas fa-search-plus"></i>
@@ -297,7 +264,7 @@
                     </div>
                     
                     <div class="gallery-item" data-category="quartos">
-                        <img src="assets/images/rooms/acomodacoes.png" alt="Quarto Standard">
+                        <img src="image/acomodacoes.png" alt="Quarto Standard">
                         <div class="gallery-overlay">
                             <div class="gallery-icon">
                                 <i class="fas fa-search-plus"></i>
@@ -307,10 +274,14 @@
                 </div>
             </div>
             
-            <div class="lightbox" aria-hidden="true">
+            <div class="gallery-lightbox">
                 <div class="lightbox-content">
                     <img src="" alt="" class="lightbox-image">
-                    <button class="lightbox-close" aria-label="Fechar">&times;</button>
+                    <span class="lightbox-close"><i class="fas fa-times"></i></span>
+                    <div class="lightbox-nav">
+                        <span class="lightbox-prev"><i class="fas fa-chevron-left"></i></span>
+                        <span class="lightbox-next"><i class="fas fa-chevron-right"></i></span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -330,9 +301,7 @@
                             </div>
                             <div class="contact-text">
                                 <h4>Endereço</h4>
-                                <address>
-                                    Av. Principal, 1000 - Centro<br>São Paulo, SP - CEP 01000-000
-                                </address>
+                                <p>Av. Principal, 1000 - Centro<br>São Paulo, SP - CEP 01000-000</p>
                             </div>
                         </div>
                         
@@ -342,7 +311,7 @@
                             </div>
                             <div class="contact-text">
                                 <h4>Telefone</h4>
-                                <p><a href="tel:+551155555555">(11) 5555-5555</a></p>
+                                <p>(11) 5555-5555</p>
                             </div>
                         </div>
                         
@@ -352,18 +321,18 @@
                             </div>
                             <div class="contact-text">
                                 <h4>Email</h4>
-                                <p><a href="mailto:contato@hotelmanzoni.com.br">contato@hotelmanzoni.com.br</a></p>
+                                <p>contato@hotelmanzoni.com.br</p>
                             </div>
                         </div>
                         
                         <div class="social-links">
-                            <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
                         </div>
                     </div>
                     
-                    <form class="contact-form" id="contactForm">
+                    <form class="contact-form">
                         <div class="form-group">
                             <label for="name" class="form-label">Nome</label>
                             <input type="text" id="name" class="form-control" required>
@@ -398,7 +367,7 @@
         </section>
     </main>
 
-    <footer class="footer" style="background-image: url('assets/images/common/fundo-preto-dourado.jpg');">
+    <footer class="footer" style="background-image: url('./image/fundo-preto-dourado.jpg');">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
@@ -423,9 +392,9 @@
                 <div class="footer-column">
                     <h3 class="footer-title">Newsletter</h3>
                     <p class="footer-newsletter">Inscreva-se para receber nossas promoções e novidades.</p>
-                    <form class="newsletter-form" id="newsletterForm">
+                    <form class="newsletter-form">
                         <input type="email" placeholder="Seu email" class="newsletter-input" required>
-                        <button type="submit" class="newsletter-btn" aria-label="Enviar"><i class="fas fa-paper-plane"></i></button>
+                        <button type="submit" class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
                     </form>
                 </div>
             </div>
@@ -436,53 +405,30 @@
         </div>
     </footer>
     
-    <!-- Chatbot - CORRIGIDO -->
-    <div class="chatbot-icon" aria-label="Chat de atendimento">
+    <!-- Chatbot -->
+    <div class="chatbot-icon">
         <i class="fas fa-comments"></i>
     </div>
     
-    <div class="chatbot-container" aria-hidden="true">
+    <div class="chatbot-container">
         <div class="chatbot-header">
             <h3>Assistente Virtual</h3>
-            <button class="chatbot-close" aria-label="Fechar chat"><i class="fas fa-times"></i></button>
+            <button class="chatbot-close"><i class="fas fa-times"></i></button>
         </div>
         <div class="chatbot-messages">
             <div class="message bot">
-                <p>Olá! Como posso ajudar com sua reserva no Hotel Manzoni?</p>
+                Olá! Como posso ajudar com sua reserva no Hotel Manzoni?
             </div>
         </div>
-        <form class="chatbot-form">
-            <input type="text" placeholder="Digite sua mensagem..." aria-label="Digite sua mensagem">
-            <button type="submit" class="chatbot-send" aria-label="Enviar mensagem"><i class="fas fa-paper-plane"></i></button>
-        </form>
+        <div class="chatbot-input">
+            <input type="text" placeholder="Digite sua mensagem...">
+            <button class="chatbot-send"><i class="fas fa-paper-plane"></i></button>
+        </div>
     </div>
     
     <!-- Botão Voltar ao Topo -->
-    <div class="back-to-top" aria-label="Voltar ao topo">
+    <div class="back-to-top">
         <i class="fas fa-chevron-up"></i>
     </div>
-
-    <!-- Schema.org para SEO -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Hotel",
-        "name": "Hotel Manzoni",
-        "description": "O Hotel Manzoni oferece acomodações confortáveis e acessíveis para sua estadia.",
-        "url": "https://www.hotelmanzoni.com.br",
-        "image": "assets/images/common/logo.png",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Av. Principal, 1000",
-            "addressLocality": "São Paulo",
-            "addressRegion": "SP",
-            "postalCode": "01000-000",
-            "addressCountry": "BR"
-        },
-        "telephone": "+551155555555",
-        "email": "contato@hotelmanzoni.com.br",
-        "priceRange": "R$120 - R$150"
-    }
-    </script>
 </body>
 </html>

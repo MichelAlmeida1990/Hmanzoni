@@ -16,52 +16,107 @@
     <title>Hotel Manzoni - Conforto e Simplicidade</title>
     
     <!-- Favicon -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/images/common/logo.png" type="image/png">
     
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/lightbox.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <!-- JavaScript -->
-    <script src="assets/js/hotel-manzoni.js" defer></script>
+    <!-- Estilos críticos inline para corrigir problemas de cursor e mobile -->
+    <style>
+        /* Correção para o cursor em telas maiores */
+        a, button, input[type="submit"], input[type="button"], 
+        .btn, .clickable, .mobile-menu-toggle, .theme-toggle button,
+        .gallery-item, .chatbot-icon, .back-to-top, .social-link,
+        .filter-btn, .lightbox-close, .lightbox-prev, .lightbox-next,
+        .chatbot-send, .newsletter-btn {
+            cursor: pointer !important;
+        }
+        
+        /* Correções para layout mobile */
+        @media screen and (max-width: 767px) {
+            header .container {
+                flex-direction: column;
+                padding: 15px;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+                padding: 0;
+                display: none;
+            }
+            
+            nav.active ul {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+                text-align: center;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            
+            .theme-toggle {
+                margin-top: 15px;
+            }
+            
+            .room-grid, .services-grid, .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .contact-info, .contact-form {
+                width: 100%;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .footer-column {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+    
+    <!-- JavaScript (com defer para melhorar performance) -->
+    <script src="assets/js/script.js" defer></script>
+    <script src="assets/js/components.js" defer></script>
 </head>
 <body>
-<!-- Preloader - VERSÃO ULTRA SIMPLIFICADA -->
-<div class="preloader" aria-hidden="true" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 9999;">
-    <!-- Logo como imagem independente -->
-    <img src="assets/images/common/logo.png" alt="Hotel Manzoni Logo" style="width: 100px; height: auto; margin-bottom: 20px; display: block;">
-    
-    <!-- Texto como elemento independente -->
-    <h1 style="font-size: 18px; color: #333; margin: 0 0 30px 0; padding: 0;">Hotel Manzoni</h1>
-    
-    <!-- Barra de carregamento como elemento totalmente separado -->
-    <div style="width: 200px; height: 4px; background-color: #f0f0f0; border-radius: 2px; position: relative; overflow: hidden;">
-        <div style="position: absolute; top: 0; left: -50px; height: 100%; width: 50px; background-color: #d4af37; animation: loadingAnimation 1.5s infinite linear;"></div>
+    <!-- Preloader -->
+    <div class="preloader" aria-hidden="true">
+        <div class="logo">
+            <img src="assets/images/common/logo.png" alt="Hotel Manzoni Logo" width="120" height="60">
+            <h1>Hotel Manzoni</h1>
+        </div>
+        <div class="loading-bar"></div>
     </div>
-</div>
-
-<!-- Estilo da animação diretamente na página -->
-<style>
-@keyframes loadingAnimation {
-    0% { left: -50px; }
-    100% { left: 100%; }
-}
-</style>
-
-
-
-
 
     <header>
         <div class="container">
             <div class="logo">
-                <img src="assets/images/common/logo.png" alt="Hotel Manzoni Logo">
+                <img src="assets/images/common/logo.png" alt="Hotel Manzoni Logo" width="120" height="60">
             </div>
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menu de navegação">
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menu de navegação" aria-expanded="false" aria-controls="main-nav">
                 <i class="fas fa-bars"></i>
             </button>
-            <nav aria-label="Navegação principal">
+            <nav aria-label="Navegação principal" id="main-nav">
                 <ul>
                     <li><a href="#inicio">Início</a></li>
                     <li><a href="#sobre">Sobre</a></li>
@@ -118,7 +173,7 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="assets/images/rooms/quarto hotel.png" alt="Quarto do Hotel Manzoni">
+                    <img src="assets/images/rooms/quarto hotel.png" alt="Quarto do Hotel Manzoni" width="400" height="300">
                 </div>
             </div>
         </section>
@@ -133,7 +188,7 @@
                 <div class="room-grid">
                     <div class="room-card">
                         <div class="room-image">
-                            <img src="assets/images/rooms/quarto hotel.png" alt="Quarto Casal">
+                            <img src="assets/images/rooms/quarto hotel.png" alt="Quarto Casal" width="350" height="250">
                         </div>
                         <div class="room-details">
                             <span class="room-type">Conforto</span>
@@ -156,7 +211,7 @@
                     
                     <div class="room-card">
                         <div class="room-image">
-                            <img src="assets/images/rooms/quarto cama solteiro.jpeg" alt="Quarto Solteiro">
+                            <img src="assets/images/rooms/quarto cama solteiro.jpeg" alt="Quarto Solteiro" width="350" height="250">
                         </div>
                         <div class="room-details">
                             <span class="room-type">Econômico</span>
@@ -179,7 +234,7 @@
                     
                     <div class="room-card">
                         <div class="room-image">
-                            <img src="assets/images/rooms/acomodacoes.png" alt="Quarto Standard">
+                            <img src="assets/images/rooms/acomodacoes.png" alt="Quarto Standard" width="350" height="250">
                         </div>
                         <div class="room-details">
                             <span class="room-type">Standard</span>
@@ -261,7 +316,7 @@
                 
                 <div class="gallery-grid">
                     <div class="gallery-item" data-category="quartos">
-                        <img src="assets/images/rooms/quarto hotel.png" alt="Quarto Casal">
+                        <img src="assets/images/rooms/quarto hotel.png" alt="Quarto Casal" width="300" height="200">
                         <div class="gallery-overlay">
                             <div class="gallery-icon">
                                 <i class="fas fa-search-plus"></i>
@@ -270,7 +325,7 @@
                     </div>
                     
                     <div class="gallery-item" data-category="banheiros">
-                        <img src="assets/images/rooms/banheiro.png" alt="Banheiro">
+                        <img src="assets/images/rooms/banheiro.png" alt="Banheiro" width="300" height="200">
                         <div class="gallery-overlay">
                             <div class="gallery-icon">
                                 <i class="fas fa-search-plus"></i>
@@ -279,7 +334,7 @@
                     </div>
                     
                     <div class="gallery-item" data-category="quartos">
-                        <img src="assets/images/rooms/quarto cama solteiro.jpeg" alt="Quarto Solteiro">
+                        <img src="assets/images/rooms/quarto cama solteiro.jpeg" alt="Quarto Solteiro" width="300" height="200">
                         <div class="gallery-overlay">
                             <div class="gallery-icon">
                                 <i class="fas fa-search-plus"></i>
@@ -288,7 +343,7 @@
                     </div>
                     
                     <div class="gallery-item" data-category="banheiros">
-                        <img src="assets/images/rooms/banheiro2.png" alt="Banheiro">
+                        <img src="assets/images/gallery/foto banheiro.png" alt="Detalhe Banheiro" width="300" height="200">
                         <div class="gallery-overlay">
                             <div class="gallery-icon">
                                 <i class="fas fa-search-plus"></i>
@@ -297,7 +352,7 @@
                     </div>
                     
                     <div class="gallery-item" data-category="quartos">
-                        <img src="assets/images/rooms/acomodacoes.png" alt="Quarto Standard">
+                        <img src="assets/images/rooms/acomodacoes.png" alt="Quarto Standard" width="300" height="200">
                         <div class="gallery-overlay">
                             <div class="gallery-icon">
                                 <i class="fas fa-search-plus"></i>
@@ -307,10 +362,14 @@
                 </div>
             </div>
             
-            <div class="lightbox" aria-hidden="true">
+            <div class="gallery-lightbox" id="gallery-lightbox" aria-hidden="true">
                 <div class="lightbox-content">
                     <img src="" alt="" class="lightbox-image">
-                    <button class="lightbox-close" aria-label="Fechar">&times;</button>
+                    <button class="lightbox-close" aria-label="Fechar"><i class="fas fa-times"></i></button>
+                    <div class="lightbox-nav">
+                        <button class="lightbox-prev" aria-label="Imagem anterior"><i class="fas fa-chevron-left"></i></button>
+                        <button class="lightbox-next" aria-label="Próxima imagem"><i class="fas fa-chevron-right"></i></button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -388,7 +447,7 @@
                         
                         <div class="form-group">
                             <label for="message" class="form-label">Mensagem</label>
-                            <textarea id="message" class="form-control" required></textarea>
+                            <textarea id="message" class="form-control" rows="4" required></textarea>
                         </div>
                         
                         <button type="submit" class="btn">Enviar Mensagem</button>
@@ -436,31 +495,31 @@
         </div>
     </footer>
     
-    <!-- Chatbot - CORRIGIDO -->
-    <div class="chatbot-icon" aria-label="Chat de atendimento">
+    <!-- Chatbot -->
+    <div class="chatbot-icon" id="chatbot-toggle" aria-label="Chat de atendimento" aria-expanded="false" aria-controls="chatbot-container">
         <i class="fas fa-comments"></i>
     </div>
     
-    <div class="chatbot-container" aria-hidden="true">
+    <div id="chatbot-container" class="chatbot-container" aria-hidden="true">
         <div class="chatbot-header">
             <h3>Assistente Virtual</h3>
             <button class="chatbot-close" aria-label="Fechar chat"><i class="fas fa-times"></i></button>
         </div>
         <div class="chatbot-messages">
             <div class="message bot">
-                <p>Olá! Como posso ajudar com sua reserva no Hotel Manzoni?</p>
+                Olá! Como posso ajudar com sua reserva no Hotel Manzoni?
             </div>
         </div>
-        <form class="chatbot-form">
+        <div class="chatbot-input">
             <input type="text" placeholder="Digite sua mensagem..." aria-label="Digite sua mensagem">
-            <button type="submit" class="chatbot-send" aria-label="Enviar mensagem"><i class="fas fa-paper-plane"></i></button>
-        </form>
+            <button class="chatbot-send" aria-label="Enviar mensagem"><i class="fas fa-paper-plane"></i></button>
+        </div>
     </div>
     
     <!-- Botão Voltar ao Topo -->
-    <div class="back-to-top" aria-label="Voltar ao topo">
+    <button class="back-to-top" id="back-to-top" aria-label="Voltar ao topo">
         <i class="fas fa-chevron-up"></i>
-    </div>
+    </button>
 
     <!-- Schema.org para SEO -->
     <script type="application/ld+json">

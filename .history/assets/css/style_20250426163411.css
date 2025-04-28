@@ -1,0 +1,59 @@
+/* assets/css/style.css */
+
+/* Importação dos módulos CSS */
+@import 'base.css';
+@import 'layout.css';
+@import 'components.css';
+@import 'theme.css';
+@import 'responsive.css';
+
+/* Correções globais para cursor e interatividade */
+a,
+button,
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+select,
+.btn,
+.clickable,
+.mobile-menu-toggle,
+.theme-toggle button,
+.gallery-item,
+.chatbot-icon,
+.back-to-top,
+.social-link,
+.filter-btn,
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next,
+.chatbot-send,
+.newsletter-btn,
+.chatbot-suggestion,
+.room-card .btn,
+.service-item .btn,
+[role="button"],
+[tabindex]:not([tabindex="-1"]),
+.form-control[type="submit"],
+.booking-form-submit,
+.video-close,
+.chatbot-close,
+.notification-close,
+.booking-form-close {
+cursor: pointer !important;
+}
+
+/* Garantir que elementos desabilitados mostrem o cursor correto */
+button:disabled,
+input:disabled,
+select:disabled,
+.btn:disabled,
+.disabled {
+cursor: not-allowed !important;
+}
+
+/* Correções para dispositivos móveis */
+@media (max-width: 768px) {
+header .container {
+position: relative;
+padding: 15px;
+}
