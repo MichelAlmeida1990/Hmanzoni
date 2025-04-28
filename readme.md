@@ -1,5 +1,5 @@
 🌟 Hotel Manzoni - Experiência de Luxo Inesquecível 🌟
-<div align="center"> <img src="./image/logo.png" alt="Hotel Manzoni Logo" width="200" /> <br> <p><i>✨ Onde cada estadia se transforma em uma memória preciosa ✨</i></p> </div> <p align="center"> <a href="#sobre">Sobre</a> • <a href="#tecnologias">Tecnologias</a> • <a href="#funcionalidades">Funcionalidades</a> • <a href="#instalação">Instalação</a> • <a href="#uso">Uso</a> • <a href="#contribuição">Contribuição</a> • <a href="#licença">Licença</a> </p> <div align="center">
+<div align="center"> <img src="./assets/images/common/logo.png" alt="Hotel Manzoni Logo" width="200" /> <br> <p><i>✨ Onde cada estadia se transforma em uma memória preciosa ✨</i></p> </div> <p align="center"> <a href="#sobre">Sobre</a> • <a href="#tecnologias">Tecnologias</a> • <a href="#funcionalidades">Funcionalidades</a> • <a href="#instalação">Instalação</a> • <a href="#uso">Uso</a> • <a href="#contribuição">Contribuição</a> • <a href="#licença">Licença</a> </p> <div align="center">
 GitHub stars
 GitHub forks
 GitHub issues
