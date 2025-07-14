@@ -1,0 +1,163 @@
+/* assets/css/base.css - VERSÃO REESCRITA COMPLETA */
+
+/* =========== IMPORTAÇÃO DE FONTES =========== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* =========== VARIÁVEIS CSS =========== */
+:root {
+    /* Cores Principais */
+    --primary-color: #d4af37;
+    --primary-color-dark: #b89b2d;
+    --primary-color-light: #e6c860;
+    --primary-color-rgb: 212, 175, 55;
+    
+    /* Cores Base */
+    --dark-bg: #0A0A0A;
+    --light-bg: #f8f9fa;
+    --white: #ffffff;
+    --black: #000000;
+    
+    /* Cores de Texto */
+    --text-color: #333;
+    --text-light: #666;
+    --text-white: #ffffff;
+    --heading-color: #222;
+    
+    /* Layout */
+    --header-height: 80px;
+    --container-max-width: 1200px;
+    --border-radius: 6px;
+    
+    /* Sombras */
+    --shadow-light: 0 2px 10px rgba(0,0,0,0.1);
+    --shadow-medium: 0 4px 20px rgba(0,0,0,0.15);
+    --shadow-heavy: 0 8px 30px rgba(0,0,0,0.25);
+    
+    /* Transições */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* Z-index hierarchy */
+    --z-header: 1000;
+    --z-dropdown: 1100;
+    --z-overlay: 1200;
+    --z-modal: 1300;
+    --z-mobile-menu: 1400;
+    --z-mobile-toggle: 1500;
+}
+
+/* =========== RESET CSS =========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Playfair Display', serif;
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* =========== ELEMENTOS BASE =========== */
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-normal);
+}
+
+ul, ol {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+}
+
+input, textarea, select {
+    font-family: inherit;
+    border: none;
+    outline: none;
+}
+
+/* =========== LAYOUT BASE =========== */
+.container {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 80px 0;
+}
+
+/* =========== UTILITÁRIOS =========== */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* =========== ANIMAÇÕES BASE =========== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* =========== RESPONSIVO BASE =========== */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    section {
+        padding: 60px 0;
+    }
+}

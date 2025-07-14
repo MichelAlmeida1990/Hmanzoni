@@ -1,0 +1,427 @@
+/* assets/css/style.css - VERSÃO REESCRITA COMPLETA */
+
+/* =========== IMPORTS =========== */
+@import 'base.css';
+@import 'layout.css';
+@import 'components.css';
+@import 'theme.css';
+@import 'responsive.css';
+
+/* =========== OTIMIZAÇÕES DE PERFORMANCE =========== */
+/* Preload de imagens críticas */
+body::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    z-index: -1;
+    background-image: 
+        url('../images/common/fundo-azul tema claro.png'),
+        url('../images/common/fundo-preto-dourado.jpg'),
+        url('../images/common/logo.png');
+}
+
+/* Aceleração de hardware para elementos animados */
+.main-navigation ul,
+.mobile-menu-toggle,
+.chatbot-container,
+.back-to-top,
+.preloader {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* =========== MENU MOBILE - VERSÃO FINAL =========== */
+@media (max-width: 768px) {
+    /* Menu mobile estrutura */
+    .main-navigation ul {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 300px;
+        height: 100vh;
+        background-color: var(--dark-bg);
+        z-index: 1400;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        padding: 80px 30px 30px;
+        margin: 0;
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+        overflow-y: auto;
+        transition: right 0.3s ease-in-out;
+        list-style: none;
+    }
+    
+    /* Menu mobile ativo */
+    .main-navigation.active ul {
+        right: 0 !important;
+    }
+    
+    /* Itens do menu mobile */
+    .main-navigation ul li {
+        display: block;
+        margin: 0 0 5px 0;
+        padding: 0;
+        width: 100%;
+        list-style: none;
+    }
+    
+    .main-navigation ul li a {
+        display: block;
+        padding: 15px 0;
+        color: var(--text-white);
+        font-size: 1rem;
+        font-weight: 500;
+        font-family: 'Montserrat', sans-serif;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: color 0.3s ease;
+        text-align: left;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .main-navigation ul li:last-child a {
+        border-bottom: none;
+    }
+    
+    .main-navigation ul li a:hover,
+    .main-navigation ul li a:focus {
+        color: var(--primary-color);
+        outline: none;
+    }
+    
+    /* Botão toggle mobile */
+    .mobile-menu-toggle {
+        position: relative;
+        z-index: 1500;
+        background: transparent;
+        border: none;
+        color: var(--primary-color);
+        font-size: 22px;
+        cursor: pointer;
+        padding: 10px;
+        transition: all 0.3s ease;
+        border-radius: var(--border-radius);
+    }
+    
+    .mobile-menu-toggle:hover {
+        background-color: rgba(212, 175, 55, 0.1);
+    }
+    
+    .mobile-menu-toggle.active {
+        color: var(--text-white);
+        background-color: var(--primary-color);
+    }
+    
+    /* Overlay quando menu aberto */
+    body.menu-open::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: 1200;
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.3s ease;
+    }
+    
+    /* Garantir que header fique visível */
+    header {
+        position: relative;
+        z-index: 1500;
+    }
+    
+    /* Garantir que logo fique visível */
+    .logo {
+        position: relative;
+        z-index: 1500;
+    }
+    
+    /* Melhorar acessibilidade */
+    .main-navigation ul li a:focus {
+        outline: 2px solid var(--primary-color);
+        outline-offset: -2px;
+    }
+}
+
+/* =========== PRELOADER SIMPLES =========== */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+.preloader-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.preloader .logo img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.preloader h1 {
+    font-size: 18px;
+    color: var(--text-color);
+    margin: 0 0 30px 0;
+}
+
+.preloader .loading-bar {
+    width: 200px;
+    height: 4px;
+    background-color: #f0f0f0;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.preloader .loading-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50px;
+    height: 100%;
+    width: 50px;
+    background-color: var(--primary-color);
+    animation: loading 1.5s infinite linear;
+}
+
+@keyframes loading {
+    0% { left: -50px; }
+    100% { left: 100%; }
+}
+
+/* =========== CHATBOT =========== */
+.chatbot-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--dark-bg);
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: var(--shadow-medium);
+    z-index: 998;
+    transition: transform 0.3s ease;
+}
+
+.chatbot-icon:hover {
+    transform: scale(1.1);
+}
+
+.chatbot-container {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 320px;
+    height: 400px;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: var(--shadow-heavy);
+    display: flex;
+    flex-direction: column;
+    z-index: 998;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.chatbot-container.active {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+}
+
+.chatbot-header {
+    padding: 12px 15px;
+    background-color: var(--primary-color);
+    color: var(--dark-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chatbot-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.chatbot-close {
+    background: none;
+    border: none;
+    color: var(--dark-bg);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.chatbot-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chatbot-messages::-webkit-scrollbar {
+    width: 4px;
+}
+
+.chatbot-messages::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.chatbot-messages::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+.message {
+    max-width: 80%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.message.user {
+    align-self: flex-end;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-bottom-right-radius: 5px;
+}
+
+.message.bot {
+    align-self: flex-start;
+    background-color: #f0f0f0;
+    color: var(--text-color);
+    border-bottom-left-radius: 5px;
+}
+
+.chatbot-form {
+    display: flex;
+    padding: 15px;
+    border-top: 1px solid #eee;
+    gap: 10px;
+}
+
+.chatbot-form input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+    font-size: 14px;
+}
+
+.chatbot-form input:focus {
+    border-color: var(--primary-color);
+}
+
+.chatbot-send {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+
+/* =========== BACK TO TOP =========== */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 80px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-color);
+    color: var(--dark-bg);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 997;
+    box-shadow: var(--shadow-medium);
+    border: none;
+}
+
+.back-to-top.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    transform: translateY(-3px);
+}
+
+/* =========== RESPONSIVO MOBILE =========== */
+@media (max-width: 576px) {
+    .chatbot-container {
+        width: 280px;
+        height: 360px;
+        right: 10px;
+        bottom: 75px;
+    }
+    
+    .back-to-top {
+        right: 75px;
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+    }
+    
+    .mobile-menu-toggle {
+        font-size: 20px;
+        padding: 8px;
+    }
+    
+    .main-navigation ul {
+        width: 280px;
+        right: -280px;
+        padding: 70px 25px 25px;
+    }
+    
+    .main-navigation ul li a {
+        padding: 12px 0;
+        font-size: 0.9rem;
+    }
+}
+

@@ -1,0 +1,938 @@
+/* assets/css/theme.css */
+
+/* Variáveis de tema base */
+:root {
+    /* Cores Principais */
+    --primary-color: #d4af37; /* Dourado */
+    --primary-color-dark: #b89b2d;
+    --primary-color-light: #e6c860;
+    --primary-color-rgb: 212, 175, 55;
+    
+    /* Cores de Texto */
+    --text-color: #333;
+    --text-color-secondary: #666;
+    --text-color-tertiary: #999;
+    --heading-color: #222;
+    
+    /* Cores de Links */
+    --link-color: #d4af37;
+    --link-hover-color: #b89b2d;
+    
+    /* Cores de Fundo */
+    --background-color: #fff;
+    --background-color-alt: #f9f9f9;
+    
+    /* Componentes */
+    --card-bg: #fff;
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --input-bg: #fff;
+    --border-color: #ddd;
+    --border-radius: 6px;
+    
+    /* Header */
+    --header-bg: #fff;
+    --header-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    --logo-color: #222;
+    --nav-link-color: #333;
+    --nav-link-hover-color: var(--primary-color);
+    
+    /* Hero */
+    --hero-bg-overlay: rgba(0, 0, 0, 0.4);
+    --hero-text-color: #fff;
+    --hero-title-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    
+    /* Botões */
+    --btn-primary-bg: var(--primary-color);
+    --btn-primary-color: #fff;
+    --btn-primary-hover-bg: var(--primary-color-dark);
+    --btn-secondary-bg: transparent;
+    --btn-secondary-color: #fff;
+    --btn-secondary-border: #fff;
+    --btn-secondary-hover-bg: #fff;
+    --btn-secondary-hover-color: #333;
+    
+    /* Seções */
+    --section-padding: 5rem 0;
+    --section-bg-alt: #f9f9f9;
+    
+    /* Newsletter */
+    --newsletter-bg: #f5f5f5;
+    --newsletter-title-color: #222;
+    --newsletter-text-color: #666;
+    
+    /* Footer */
+    --footer-bg: #222;
+    --footer-text-color: #ccc;
+    --footer-title-color: #fff;
+    --footer-link-color: #aaa;
+    --footer-logo-color: #fff;
+    --footer-copyright-color: #999;
+    --footer-border-color: rgba(255, 255, 255, 0.1);
+    --footer-social-bg: rgba(255, 255, 255, 0.1);
+    --footer-social-color: #fff;
+    
+    /* Formulários */
+    --input-border: 1px solid #ddd;
+    --input-focus-border: 1px solid var(--primary-color);
+    --input-focus-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+    --input-text: #333;
+    --input-placeholder: #999;
+    
+    /* Cartões de quarto */
+    --room-card-bg: #fff;
+    --room-card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --room-card-border: 1px solid #eee;
+    --room-price-bg: var(--primary-color);
+    --room-price-color: #fff;
+    --room-feature-icon-color: var(--primary-color);
+    
+    /* Preloader */
+    --preloader-bg: #fff;
+    --preloader-color: var(--primary-color);
+    
+    /* Mensagens */
+    --success-color: #28a745;
+    --success-bg: rgba(40, 167, 69, 0.1);
+    --error-color: #dc3545;
+    --error-bg: rgba(220, 53, 69, 0.1);
+    --warning-color: #ffc107;
+    --warning-bg: rgba(255, 193, 7, 0.1);
+    --info-color: #17a2b8;
+    --info-bg: rgba(23, 162, 184, 0.1);
+    
+    /* Transições */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* Avaliações */
+    --star-color: #FFD700;
+    --review-card-bg: #fff;
+    --review-card-border: 1px solid #eee;
+    
+    /* Z-index */
+    --z-index-dropdown: 1000;
+    --z-index-sticky: 1020;
+    --z-index-fixed: 1030;
+    --z-index-header: 1040;
+    --z-index-modal-backdrop: 1050;
+    --z-index-modal: 1060;
+    --z-index-popover: 1070;
+    --z-index-tooltip: 1080;
+    
+    /* Animações */
+    --animation-fade-in: fadeIn 0.5s ease forwards;
+    --animation-slide-up: slideUp 0.5s ease forwards;
+    --animation-slide-down: slideDown 0.5s ease forwards;
+    --animation-slide-left: slideLeft 0.5s ease forwards;
+    --animation-slide-right: slideRight 0.5s ease forwards;
+    --animation-bounce: bounce 1s ease infinite;
+    --animation-pulse: pulse 2s ease infinite;
+    --animation-spin: spin 1s linear infinite;
+}
+
+/* Tema escuro */
+[data-theme="dark"],
+body.theme-dark {
+    /* Cores Principais */
+    --primary-color: #d4af37; /* Mantém o dourado */
+    --primary-color-dark: #b89b2d;
+    --primary-color-light: #e6c860;
+    
+    /* Cores de Texto */
+    --text-color: #e0e0e0 !important;
+    --text-color-secondary: #aaa !important;
+    --text-color-tertiary: #777 !important;
+    --heading-color: #fff !important;
+    
+    /* Cores de Links */
+    --link-color: #d4af37;
+    --link-hover-color: #e6c860;
+    
+    /* Cores de Fundo */
+    --background-color: #121212 !important;
+    --background-color-alt: #1e1e1e !important;
+    --light-bg: #121212 !important;
+    
+    /* Componentes */
+    --card-bg: #1e1e1e;
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    --input-bg: #2a2a2a;
+    --border-color: #333;
+    
+    /* Header */
+    --header-bg: #1a1a1a;
+    --header-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    --logo-color: #fff;
+    --nav-link-color: #e0e0e0;
+    --nav-link-hover-color: var(--primary-color);
+    
+    /* Hero */
+    --hero-bg-overlay: rgba(0, 0, 0, 0.6);
+    --hero-text-color: #fff;
+    
+    /* Botões */
+    --btn-secondary-color: #e0e0e0;
+    --btn-secondary-border: #e0e0e0;
+    --btn-secondary-hover-color: #121212;
+    
+    /* Seções */
+    --section-bg-alt: #1a1a1a;
+    
+    /* Newsletter */
+    --newsletter-bg: #1e1e1e;
+    --newsletter-title-color: #fff;
+    --newsletter-text-color: #aaa;
+    
+    /* Footer */
+    --footer-bg: #0f0f0f;
+    --footer-border-color: rgba(255, 255, 255, 0.05);
+    
+    /* Formulários */
+    --input-border: 1px solid #333;
+    --input-focus-border: 1px solid var(--primary-color);
+    --input-focus-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+    --input-text: #e0e0e0;
+    --input-placeholder: #777;
+    
+    /* Cartões de quarto */
+    --room-card-bg: #1e1e1e;
+    --room-card-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    --room-card-border: 1px solid #333;
+    
+    /* Preloader */
+    --preloader-bg: #121212;
+    
+    /* Avaliações */
+    --review-card-bg: #1e1e1e;
+    --review-card-border: 1px solid #333;
+}
+
+/* Tema de alto contraste */
+[data-theme="high-contrast"] {
+    /* Cores principais */
+    --primary-color: #ffff00;
+    --primary-color-dark: #cccc00;
+    --primary-color-light: #ffff33;
+    
+    /* Cores de texto */
+    --text-color: #ffffff;
+    --text-color-secondary: #ffffff;
+    --text-color-tertiary: #ffffff;
+    --heading-color: #ffffff;
+    
+    /* Cores de links */
+    --link-color: #ffff00;
+    --link-hover-color: #ffffff;
+    
+    /* Cores de fundo */
+    --background-color: #000000;
+    --background-color-alt: #0a0a0a;
+    
+    /* Componentes */
+    --card-bg: #000000;
+    --card-shadow: none;
+    --input-bg: #000000;
+    --border-color: #ffffff;
+    
+    /* Header */
+    --header-bg: #000000;
+    --header-shadow: none;
+    --logo-color: #ffffff;
+    --nav-link-color: #ffffff;
+    --nav-link-hover-color: #ffff00;
+    
+    /* Hero */
+    --hero-bg-overlay: rgba(0, 0, 0, 0.7);
+    --hero-text-color: #ffffff;
+    --hero-title-shadow: none;
+    
+    /* Botões */
+    --btn-primary-bg: #000000;
+    --btn-primary-color: #ffff00;
+    --btn-primary-hover-bg: #ffff00;
+    --btn-primary-hover-color: #000000;
+    --btn-secondary-bg: #000000;
+    --btn-secondary-color: #ffffff;
+    --btn-secondary-border: #ffffff;
+    --btn-secondary-hover-bg: #ffffff;
+    --btn-secondary-hover-color: #000000;
+    
+    /* Newsletter */
+    --newsletter-bg: #000000;
+    --newsletter-title-color: #ffffff;
+    --newsletter-text-color: #ffffff;
+    
+    /* Footer */
+    --footer-bg: #000000;
+    --footer-text-color: #ffffff;
+    --footer-title-color: #ffffff;
+    --footer-link-color: #ffff00;
+    --footer-border-color: #ffffff;
+    
+    /* Formulários */
+    --input-border: 2px solid #ffffff;
+    --input-focus-border: 2px solid #ffff00;
+    --input-focus-shadow: none;
+    --input-text: #ffffff;
+    --input-placeholder: #cccccc;
+    
+    /* Cartões de quarto */
+    --room-card-bg: #000000;
+    --room-card-shadow: none;
+    --room-card-border: 2px solid #ffffff;
+    --room-price-bg: #000000;
+    --room-price-color: #ffff00;
+    
+    /* Mensagens */
+    --success-color: #00ff00;
+    --success-bg: #000000;
+    --error-color: #ff0000;
+    --error-bg: #000000;
+    --warning-color: #ffff00;
+    --warning-bg: #000000;
+    --info-color: #00ffff;
+    --info-bg: #000000;
+}
+
+/* Tema de luxo */
+[data-theme="luxury"] {
+    /* Cores principais */
+    --primary-color: #d4af37; /* Dourado */
+    --primary-color-dark: #b89b2d;
+    --primary-color-light: #e6c860;
+    
+    /* Cores de texto */
+    --text-color: #e0e0e0;
+    --text-color-secondary: #a0a0a0;
+    --text-color-tertiary: #808080;
+    --heading-color: #d4af37;
+    
+    /* Cores de links */
+    --link-color: #d4af37;
+    --link-hover-color: #e6c860;
+    
+    /* Cores de fundo */
+    --background-color: #0a0a0a;
+    --background-color-alt: #121212;
+    
+    /* Componentes */
+    --card-bg: #121212;
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    --input-bg: #1a1a1a;
+    --border-color: #333333;
+    
+    /* Header */
+    --header-bg: #0a0a0a;
+    --header-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    --logo-color: #d4af37;
+    --nav-link-color: #e0e0e0;
+    --nav-link-hover-color: #d4af37;
+    
+    /* Hero */
+    --hero-bg-overlay: rgba(0, 0, 0, 0.6);
+    --hero-text-color: #ffffff;
+    --hero-title-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    
+    /* Botões */
+    --btn-primary-bg: #d4af37;
+    --btn-primary-color: #0a0a0a;
+    --btn-primary-hover-bg: #b89b2d;
+    --btn-secondary-bg: transparent;
+    --btn-secondary-color: #d4af37;
+    --btn-secondary-border: #d4af37;
+    --btn-secondary-hover-bg: #d4af37;
+    --btn-secondary-hover-color: #0a0a0a;
+    
+    /* Newsletter */
+    --newsletter-bg: #121212;
+    --newsletter-title-color: #d4af37;
+    --newsletter-text-color: #a0a0a0;
+    
+    /* Footer */
+    --footer-bg: #000000;
+    --footer-text-color: #a0a0a0;
+    --footer-title-color: #d4af37;
+    --footer-link-color: #a0a0a0;
+    --footer-logo-color: #d4af37;
+    --footer-border-color: #333333;
+    
+    /* Cartões de quarto */
+    --room-card-bg: #121212;
+    --room-card-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    --room-card-border: 1px solid #333333;
+    --room-price-bg: #d4af37;
+    --room-price-color: #0a0a0a;
+}
+
+/* Tema de verão */
+[data-theme="summer"] {
+    /* Cores principais */
+    --primary-color: #f7b731; /* Amarelo */
+    --primary-color-dark: #e6a820;
+    --primary-color-light: #ffc850;
+    
+    /* Cores de texto */
+    --text-color: #333333;
+    --text-color-secondary: #555555;
+    --text-color-tertiary: #777777;
+    --heading-color: #222222;
+    
+    /* Cores de links */
+    --link-color: #3867d6;
+    --link-hover-color: #4b7bec;
+    
+    /* Cores de fundo */
+    --background-color: #ffffff;
+    --background-color-alt: #f9f9f9;
+    
+    /* Componentes */
+    --card-bg: #ffffff;
+    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    --input-bg: #ffffff;
+    --border-color: #e0e0e0;
+    
+    /* Header */
+    --header-bg: #ffffff;
+    --header-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    --logo-color: #222222;
+    --nav-link-color: #333333;
+    --nav-link-hover-color: #f7b731;
+    
+    /* Hero */
+    --hero-bg-overlay: rgba(56, 103, 214, 0.3);
+    --hero-text-color: #ffffff;
+    --hero-title-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    
+    /* Botões */
+    --btn-primary-bg: #f7b731;
+    --btn-primary-color: #ffffff;
+    --btn-primary-hover-bg: #e6a820;
+    --btn-secondary-bg: #3867d6;
+    --btn-secondary-color: #ffffff;
+    --btn-secondary-border: #3867d6;
+    --btn-secondary-hover-bg: #4b7bec;
+    --btn-secondary-hover-color: #ffffff;
+    
+    /* Newsletter */
+    --newsletter-bg: #f0f8ff;
+    --newsletter-title-color: #222222;
+    --newsletter-text-color: #555555;
+    
+    /* Footer */
+    --footer-bg: #3867d6;
+    --footer-text-color: #e0e0e0;
+    --footer-title-color: #ffffff;
+    --footer-link-color: #e0e0e0;
+    --footer-logo-color: #ffffff;
+    --footer-border-color: rgba(255, 255, 255, 0.1);
+    
+    /* Cartões de quarto */
+    --room-card-bg: #ffffff;
+    --room-card-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    --room-card-border: 1px solid #e0e0e0;
+    --room-price-bg: #f7b731;
+    --room-price-color: #ffffff;
+}
+
+/* Tema de inverno */
+[data-theme="winter"] {
+    /* Cores principais */
+    --primary-color: #70a1ff; /* Azul claro */
+    --primary-color-dark: #5990ee;
+    --primary-color-light: #8eb2ff;
+    
+    /* Cores de texto */
+    --text-color: #2f3542;
+    --text-color-secondary: #57606f;
+    --text-color-tertiary: #747d8c;
+    --heading-color: #1e3799;
+    
+    /* Cores de links */
+    --link-color: #1e3799;
+    --link-hover-color: #0c2461;
+    
+    /* Cores de fundo */
+    --background-color: #f5f6fa;
+    --background-color-alt: #eef2f7;
+    
+    /* Componentes */
+    --card-bg: #ffffff;
+    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    --input-bg: #ffffff;
+    --border-color: #dfe4ea;
+    
+    /* Header */
+    --header-bg: #ffffff;
+    --header-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    --logo-color: #1e3799;
+    --nav-link-color: #2f3542;
+    --nav-link-hover-color: #70a1ff;
+    
+    /* Hero */
+    --hero-bg-overlay: rgba(30, 55, 153, 0.4);
+    --hero-text-color: #ffffff;
+    --hero-title-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    
+    /* Botões */
+    --btn-primary-bg: #70a1ff;
+    --btn-primary-color: #ffffff;
+    --btn-primary-hover-bg: #5990ee;
+    --btn-secondary-bg: #1e3799;
+    --btn-secondary-color: #ffffff;
+    --btn-secondary-border: #1e3799;
+    --btn-secondary-hover-bg: #0c2461;
+    --btn-secondary-hover-color: #ffffff;
+    
+    /* Newsletter */
+    --newsletter-bg: #e3f0ff;
+    --newsletter-title-color: #1e3799;
+    --newsletter-text-color: #57606f;
+    
+    /* Footer */
+    --footer-bg: #2f3542;
+    --footer-text-color: #dfe4ea;
+    --footer-title-color: #ffffff;
+    --footer-link-color: #dfe4ea;
+    --footer-logo-color: #ffffff;
+    --footer-border-color: rgba(255, 255, 255, 0.1);
+    
+    /* Cartões de quarto */
+    --room-card-bg: #ffffff;
+    --room-card-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    --room-card-border: 1px solid #dfe4ea;
+    --room-price-bg: #70a1ff;
+    --room-price-color: #ffffff;
+}
+
+/* Transição suave entre temas */
+body {
+    transition: background-color var(--transition-normal),
+                color var(--transition-normal);
+}
+
+/* Aplicar tema escuro ao body */
+[data-theme="dark"] body,
+body.theme-dark {
+    background-color: #121212 !important;
+    color: #e0e0e0 !important;
+    background-image: url('../images/common/fundo-preto-dourado.jpg') !important;
+    background-size: cover !important;
+    background-attachment: fixed !important;
+    background-position: center !important;
+}
+
+[data-theme="dark"] body::before,
+body.theme-dark::before {
+    display: none !important;
+}
+
+/* Tema claro explícito */
+[data-theme="light"] body,
+body.theme-light {
+    background-color: #f8f9fa !important;
+    color: #333 !important;
+    background-image: url('../images/common/fundo-azul tema claro.png') !important;
+    background-size: cover !important;
+    background-attachment: fixed !important;
+    background-position: center !important;
+}
+
+/* Estilos específicos para elementos no tema escuro */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6,
+body.theme-dark h1,
+body.theme-dark h2,
+body.theme-dark h3,
+body.theme-dark h4,
+body.theme-dark h5,
+body.theme-dark h6 {
+    color: #fff !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+}
+
+[data-theme="dark"] p,
+[data-theme="dark"] span,
+[data-theme="dark"] div,
+[data-theme="dark"] li,
+body.theme-dark p,
+body.theme-dark span,
+body.theme-dark div,
+body.theme-dark li {
+    color: #e0e0e0 !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Seções com background específico no tema escuro */
+[data-theme="dark"] .hero,
+[data-theme="dark"] .section,
+body.theme-dark .hero,
+body.theme-dark .section {
+    background-color: transparent !important;
+}
+
+/* Cartões e elementos com fundo no tema escuro */
+[data-theme="dark"] .card,
+[data-theme="dark"] .room-card,
+body.theme-dark .card,
+body.theme-dark .room-card {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    border: 1px solid rgba(212, 175, 55, 0.3) !important;
+    backdrop-filter: blur(5px) !important;
+}
+
+/* Tema claro - cabeçalho transparente/claro */
+[data-theme="light"] header,
+[data-theme="light"] .header,
+body.theme-light header,
+body.theme-light .header {
+    background-color: rgba(255, 255, 255, 0.7) !important;
+    backdrop-filter: blur(15px) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+    color: #333 !important;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="light"] .header .logo,
+body.theme-light .header .logo {
+    color: #333 !important;
+}
+
+[data-theme="light"] .header .nav-link,
+body.theme-light .header .nav-link {
+    color: #333 !important;
+}
+
+[data-theme="light"] .header .nav-link:hover,
+body.theme-light .header .nav-link:hover {
+    color: #d4af37 !important;
+}
+
+/* Navegação desktop - tema claro */
+@media (min-width: 769px) {
+    [data-theme="light"] .main-navigation,
+    body.theme-light .main-navigation {
+        display: flex !important;
+        justify-content: center !important;
+        width: 100% !important;
+    }
+    
+    [data-theme="light"] .main-navigation ul,
+    body.theme-light .main-navigation ul {
+        display: flex !important;
+        align-items: center !important;
+        gap: 30px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        list-style: none !important;
+    }
+    
+    [data-theme="light"] .main-navigation a,
+    body.theme-light .main-navigation a {
+        color: #333 !important;
+        font-weight: 500 !important;
+        font-family: 'Montserrat', sans-serif !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1px !important;
+        font-size: 0.9rem !important;
+        padding: 10px 0 !important;
+        text-decoration: none !important;
+        position: relative !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    [data-theme="light"] .main-navigation a:hover,
+    body.theme-light .main-navigation a:hover {
+        color: #d4af37 !important;
+    }
+    
+    [data-theme="light"] .main-navigation a::after,
+    body.theme-light .main-navigation a::after {
+        content: '' !important;
+        position: absolute !important;
+        width: 0 !important;
+        height: 2px !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        background-color: #d4af37 !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    [data-theme="light"] .main-navigation a:hover::after,
+    body.theme-light .main-navigation a:hover::after {
+        width: 100% !important;
+    }
+    
+    /* Esconder botão mobile no desktop */
+    [data-theme="light"] .mobile-menu-toggle,
+    body.theme-light .mobile-menu-toggle {
+        display: none !important;
+    }
+}
+
+/* Tema escuro - cabeçalho escuro */
+[data-theme="dark"] header,
+[data-theme="dark"] .header,
+body.theme-dark header,
+body.theme-dark .header {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    backdrop-filter: blur(10px) !important;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3) !important;
+    color: #e0e0e0 !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme="dark"] .header .logo,
+body.theme-dark .header .logo {
+    color: #fff !important;
+}
+
+[data-theme="dark"] .header .nav-link,
+body.theme-dark .header .nav-link {
+    color: #e0e0e0 !important;
+}
+
+[data-theme="dark"] .header .nav-link:hover,
+body.theme-dark .header .nav-link:hover {
+    color: #d4af37 !important;
+}
+
+/* Navegação desktop - tema escuro */
+@media (min-width: 769px) {
+    [data-theme="dark"] .main-navigation,
+    body.theme-dark .main-navigation {
+        display: flex !important;
+    }
+    
+    [data-theme="dark"] .main-navigation ul,
+    body.theme-dark .main-navigation ul {
+        display: flex !important;
+        align-items: center !important;
+        gap: 30px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    [data-theme="dark"] .main-navigation a,
+    body.theme-dark .main-navigation a {
+        color: #e0e0e0 !important;
+        font-weight: 500 !important;
+        font-family: 'Montserrat', sans-serif !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1px !important;
+        font-size: 0.9rem !important;
+        padding: 10px 0 !important;
+        text-decoration: none !important;
+        position: relative !important;
+        transition: all 0.3s ease !important;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8) !important;
+    }
+    
+    [data-theme="dark"] .main-navigation a:hover,
+    body.theme-dark .main-navigation a:hover {
+        color: #d4af37 !important;
+    }
+    
+    [data-theme="dark"] .main-navigation a::after,
+    body.theme-dark .main-navigation a::after {
+        content: '' !important;
+        position: absolute !important;
+        width: 0 !important;
+        height: 2px !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        background-color: #d4af37 !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    [data-theme="dark"] .main-navigation a:hover::after,
+    body.theme-dark .main-navigation a:hover::after {
+        width: 100% !important;
+    }
+    
+    /* Esconder botão mobile no desktop */
+    [data-theme="dark"] .mobile-menu-toggle,
+    body.theme-dark .mobile-menu-toggle {
+        display: none !important;
+    }
+}
+
+/* Botão de tema - tema claro */
+[data-theme="light"] #theme-button,
+body.theme-light #theme-button {
+    background-color: transparent !important;
+    color: #333 !important;
+    border: 1px solid #333 !important;
+}
+
+[data-theme="light"] #theme-button:hover,
+body.theme-light #theme-button:hover {
+    background-color: #333 !important;
+    color: #fff !important;
+}
+
+/* Botão de tema - tema escuro */
+[data-theme="dark"] #theme-button,
+body.theme-dark #theme-button {
+    background-color: transparent !important;
+    color: #e0e0e0 !important;
+    border: 1px solid #e0e0e0 !important;
+}
+
+[data-theme="dark"] #theme-button:hover,
+body.theme-dark #theme-button:hover {
+    background-color: #e0e0e0 !important;
+    color: #121212 !important;
+}
+
+/* Rodapé - tema claro */
+[data-theme="light"] .footer,
+body.theme-light .footer {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    background-image: url('../images/common/fundo-preto-dourado.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    color: #fff !important;
+    position: relative !important;
+}
+
+[data-theme="light"] .footer::before,
+body.theme-light .footer::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.7) !important;
+    z-index: 1 !important;
+}
+
+[data-theme="light"] .footer > *,
+body.theme-light .footer > * {
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+/* Rodapé - tema escuro */
+[data-theme="dark"] .footer,
+body.theme-dark .footer {
+    background-color: rgba(15, 15, 15, 0.9) !important;
+    background-image: url('../images/common/fundo-preto-dourado.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    color: #e0e0e0 !important;
+    position: relative !important;
+}
+
+[data-theme="dark"] .footer::before,
+body.theme-dark .footer::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+    z-index: 1 !important;
+}
+
+[data-theme="dark"] .footer > *,
+body.theme-dark .footer > * {
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+/* Ajustes para preferência de movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --transition-fast: 0.01ms;
+        --transition-normal: 0.01ms;
+        --transition-slow: 0.01ms;
+        --animation-fade-in: none;
+        --animation-slide-up: none;
+        --animation-slide-down: none;
+        --animation-slide-left: none;
+        --animation-slide-right: none;
+        --animation-bounce: none;
+        --animation-pulse: none;
+        --animation-spin: none;
+    }
+    
+    body {
+        transition: none;
+    }
+}
+
+/* Ajustes para preferência de contraste */
+@media (prefers-contrast: more) {
+    :root {
+        --primary-color: #0000ff;
+        --link-color: #0000ff;
+        --link-hover-color: #000080;
+        --text-color: #000000;
+        --background-color: #ffffff;
+        --border-color: #000000;
+    }
+    
+    [data-theme="dark"] {
+        --primary-color: #ffff00;
+        --link-color: #ffff00;
+        --link-hover-color: #ffffff;
+        --text-color: #ffffff;
+        --background-color: #000000;
+        --border-color: #ffffff;
+    }
+}
+/* Adicione estas linhas ao final do theme.css */
+
+/* Correção do comportamento do tema */
+.theme-toggle {
+    position: relative;
+  }
+  
+  #theme-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    color: var(--text-color, #333);
+    transition: color 0.3s ease;
+  }
+  
+  #theme-button:hover {
+    color: var(--primary-color, #d4af37);
+  }
+  
+  #theme-button i {
+    font-size: 1.25rem;
+    margin-right: 0.5rem;
+  }
+  
+  /* Evitar que o fundo preto apareça */
+  [data-theme="dark"] #theme-button,
+  [data-theme="light"] #theme-button {
+    background: transparent;
+  }
+  
+  /* Estilo específico para o tema escuro */
+  [data-theme="dark"] #theme-button {
+    color: var(--text-color, #fff);
+  }
+  
+  /* Estilo específico para o tema claro */
+  [data-theme="light"] #theme-button {
+    color: var(--text-color, #333);
+  }
+  
+  /* Remover qualquer overlay indesejado */
+  .theme-overlay {
+    display: none !important;
+  }
+  

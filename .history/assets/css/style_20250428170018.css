@@ -1,9 +1,0 @@
-/* assets/css/style.css */
-
-/* Importação dos módulos CSS */
-@import url('base.css');
-@import url('theme.css');
-@import url('components.css');
-@import url('layout.css');
-@import url('lightbox.css');
-@import url('responsive.css');
