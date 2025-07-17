@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Reserva Simples</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            white-space: pre-wrap;
+        }
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        .error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <h1>Teste de Reserva Simples</h1>
+    
+    <form id="test-form">
+        <div class="form-group">
+            <label for="guest_name">Nome:</label>
+            <input type="text" id="guest_name" name="guest_name" value="João Silva" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="guest_email">Email:</label>
+            <input type="email" id="guest_email" name="guest_email" value="joao@teste.com" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="guest_phone">Telefone:</label>
+            <input type="text" id="guest_phone" name="guest_phone" value="(67) 99999-9999" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="checkin_date">Check-in:</label>
+            <input type="date" id="checkin_date" name="checkin_date" value="2025-07-20" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="checkout_date">Check-out:</label>
+            <input type="date" id="checkout_date" name="checkout_date" value="2025-07-22" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="guests_count">Hóspedes:</label>
+            <select id="guests_count" name="guests_count" required>
+                <option value="1">1</option>
+                <option value="2" selected>2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="room_type">Tipo de Quarto:</label>
+            <select id="room_type" name="room_type" required>
+                <option value="simples">Simples</option>
+                <option value="duplo" selected>Duplo</option>
+                <option value="suite">Suíte</option>
+            </select>
+        </div>
+        
+        <button type="submit">Fazer Reserva</button>
+    </form>
+    
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('test-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = {};
+            
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+            
+            console.log('Dados do formulário:', data);
+            
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = 'Enviando...';
+            resultDiv.className = 'result';
+            
+            try {
+                const response = await fetch('http://localhost:3000/api/bookings', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                console.log('Status da resposta:', response.status);
+                
+                const result = await response.json();
+                console.log('Resposta da API:', result);
+                
+                if (result.success) {
+                    resultDiv.innerHTML = `✅ Sucesso!\n\nReserva criada:\n${JSON.stringify(result.data, null, 2)}`;
+                    resultDiv.className = 'result success';
+                } else {
+                    resultDiv.innerHTML = `❌ Erro:\n\n${JSON.stringify(result, null, 2)}`;
+                    resultDiv.className = 'result error';
+                }
+            } catch (error) {
+                console.error('Erro:', error);
+                resultDiv.innerHTML = `❌ Erro de conexão:\n\n${error.message}`;
+                resultDiv.className = 'result error';
+            }
+        });
+    </script>
+</body>
+</html> 

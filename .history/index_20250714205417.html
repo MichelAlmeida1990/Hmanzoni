@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hotel Manzoni - Hospedagem com conforto e elegância em Campo Grande. Quartos modernos, Wi-Fi grátis e localização privilegiada no centro da cidade.">
+    <meta name="keywords" content="hotel, hospedagem, Campo Grande, MS, quartos, acomodações, reservas, hotel centro">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Hotel Manzoni - Conforto e Elegância no Centro de Campo Grande">
+    <meta property="og:description" content="Hospedagem com conforto e elegância em Campo Grande. Quartos modernos, Wi-Fi grátis e localização privilegiada no centro da cidade.">
+    <meta property="og:image" content="assets/images/common/logo.png">
+    <meta property="og:url" content="https://www.hotelmanzoni.com.br">
+    <meta property="og:type" content="website">
+    
+    <title>Hotel Manzoni - Conforto e Elegância no Centro de Campo Grande</title>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Preload recursos críticos para melhor performance -->
+    <link rel="preload" href="assets/images/common/logo.png" as="image">
+    <link rel="preload" href="assets/js/hotel-manzoni.js" as="script">
+    
+    <!-- DNS prefetch para recursos externos -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/lightbox.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- JavaScript -->
+    <script src="assets/js/hotel-manzoni.js" defer></script>
+</head>
+<body>
+<!-- Preloader - VERSÃO ULTRA SIMPLIFICADA -->
+<div class="preloader" aria-hidden="true" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 9999;">
+    <!-- Logo como imagem independente -->
+    <img src="assets/images/common/logo.png" alt="Hotel Manzoni Logo" style="width: 100px; height: auto; margin-bottom: 20px; display: block;">
+    
+    <!-- Texto como elemento independente -->
+    <h1 style="font-size: 18px; color: #333; margin: 0 0 30px 0; padding: 0;">Hotel Manzoni</h1>
+    
+    <!-- Barra de carregamento como elemento totalmente separado -->
+    <div style="width: 200px; height: 4px; background-color: #f0f0f0; border-radius: 2px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: -50px; height: 100%; width: 50px; background-color: #d4af37; animation: loadingAnimation 1.5s infinite linear;"></div>
+    </div>
+</div>
+
+<!-- Estilo da animação diretamente na página -->
+<style>
+@keyframes loadingAnimation {
+    0% { left: -50px; }
+    100% { left: 100%; }
+}
+</style>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="#inicio" aria-label="Início - Hotel Manzoni">
+                    <img src="assets/images/common/logo.png" alt="Hotel Manzoni Logo">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menu de navegação" aria-expanded="false" aria-controls="main-nav">
+                <i class="fas fa-bars"></i>
+                <span class="sr-only">Menu</span>
+            </button>
+            <nav id="main-nav" class="main-navigation" aria-label="Navegação principal">
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#acomodacoes">Acomodações</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#galeria">Galeria</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="theme-toggle">
+                <button id="theme-button" aria-label="Alternar tema claro/escuro">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                    <span class="theme-text">Mudar Tema</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h1>Bem-vindo ao Hotel Manzoni</h1>
+                <p>Conforto e elegância no coração de Campo Grande</p>
+                <a href="#acomodacoes" class="btn">Conheça Nossos Quartos</a>
+            </div>
+            <a href="#sobre" class="scroll-down" aria-label="Rolar para a seção sobre">
+                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </a>
+        </section>
+
+        <section id="sobre" class="about">
+            <div class="container">
+                <div class="about-text">
+                    <h2 class="section-title">Sobre o Hotel</h2>
+                    <p>O Hotel Manzoni é um estabelecimento de referência em Campo Grande, oferecendo acomodações modernas e confortáveis desde 2005. Localizado estrategicamente no centro da cidade, proporcionamos fácil acesso aos principais pontos comerciais, turísticos e empresariais da região.</p>
+                    <p>Nossa missão é garantir uma estadia agradável e tranquila, com atendimento personalizado e serviços de qualidade. Contamos com 45 quartos bem equipados, todos com ar-condicionado, TV LED, internet de alta velocidade e banheiro privativo com amenidades completas.</p>
+                    
+                    <div class="features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Localização Privilegiada</h4>
+                                <p>A apenas 10 minutos do Parque das Nações e do Shopping Campo Grande</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-concierge-bell" aria-hidden="true"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Atendimento 24h</h4>
+                                <p>Recepção e serviços disponíveis 24 horas por dia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="assets/images/quartos/quarto-standard-04.jpg" alt="Quarto do Hotel Manzoni">
+                </div>
+            </div>
+        </section>
+
+        <section id="acomodacoes" class="accommodations">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Nossas Acomodações</h2>
+                    <p class="section-description">Conheça os diferentes tipos de quartos disponíveis para sua hospedagem</p>
+                </div>
+                
+                <div class="room-grid">
+                    <div class="room-card">
+                        <div class="room-image">
+                            <img src="assets/images/quartos/quarto-individual-01.jpg" alt="Suíte Individual">
+                        </div>
+                        <div class="room-details">
+                            <span class="room-type">Individual</span>
+                            <h3 class="room-title">Suíte Individual</h3>
+                            <p class="room-description">Confortável suíte para 1 pessoa com cama de casal, ideal para viajantes que buscam mais espaço e conforto.</p>
+                            <div class="room-features">
+                                <span class="room-feature"><i class="fas fa-snowflake" aria-hidden="true"></i> Ar-condicionado</span>
+                                <span class="room-feature"><i class="fas fa-tv" aria-hidden="true"></i> Televisão</span>
+                                <span class="room-feature"><i class="fas fa-wifi" aria-hidden="true"></i> Wi-Fi</span>
+                                <span class="room-feature"><i class="fas fa-coffee" aria-hidden="true"></i> Frigobar</span>
+                            </div>
+                            <div class="room-price">
+                                R$ 140 <span>/ diária</span>
+                            </div>
+                            <div class="room-actions">
+                                <a href="#contato" class="btn btn-outline">Mais Detalhes</a>
+                                <a href="#contato" class="btn">Reservar</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="room-card">
+                        <div class="room-image">
+                            <img src="assets/images/quartos/quarto-standard-04.jpg" alt="Suíte Duplo">
+                        </div>
+                        <div class="room-details">
+                            <span class="room-type">Duplo</span>
+                            <h3 class="room-title">Suíte Duplo</h3>
+                            <p class="room-description">Suíte para 2 pessoas com opção de cama de casal (R$ 170) ou camas individuais (R$ 190).</p>
+                            <div class="room-features">
+                                <span class="room-feature"><i class="fas fa-snowflake" aria-hidden="true"></i> Ar-condicionado</span>
+                                <span class="room-feature"><i class="fas fa-tv" aria-hidden="true"></i> Televisão</span>
+                                <span class="room-feature"><i class="fas fa-wifi" aria-hidden="true"></i> Wi-Fi</span>
+                                <span class="room-feature"><i class="fas fa-coffee" aria-hidden="true"></i> Frigobar</span>
+                            </div>
+                            <div class="room-price">
+                                R$ 170 <span>/ diária</span>
+                                <small class="price-note">Camas individuais: R$ 190</small>
+                            </div>
+                            <div class="room-actions">
+                                <a href="#contato" class="btn btn-outline">Mais Detalhes</a>
+                                <a href="#contato" class="btn">Reservar</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="room-card">
+                        <div class="room-image">
+                            <img src="assets/images/quartos/quarto-familia-01.jpg" alt="Suíte Triplo">
+                        </div>
+                        <div class="room-details">
+                            <span class="room-type">Triplo</span>
+                            <h3 class="room-title">Suíte Triplo</h3>
+                            <p class="room-description">Suíte para 3 pessoas com cama de casal + solteiro (R$ 200) ou 3 camas individuais (R$ 220).</p>
+                            <div class="room-features">
+                                <span class="room-feature"><i class="fas fa-snowflake" aria-hidden="true"></i> Ar-condicionado</span>
+                                <span class="room-feature"><i class="fas fa-tv" aria-hidden="true"></i> Televisão</span>
+                                <span class="room-feature"><i class="fas fa-wifi" aria-hidden="true"></i> Wi-Fi</span>
+                                <span class="room-feature"><i class="fas fa-coffee" aria-hidden="true"></i> Frigobar</span>
+                            </div>
+                            <div class="room-price">
+                                R$ 200 <span>/ diária</span>
+                                <small class="price-note">3 camas individuais: R$ 220</small>
+                            </div>
+                            <div class="room-actions">
+                                <a href="#contato" class="btn btn-outline">Mais Detalhes</a>
+                                <a href="#contato" class="btn">Reservar</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="room-card">
+                        <div class="room-image">
+                            <img src="assets/images/quartos/quarto-familia-02.jpg" alt="Suíte Quadruplo">
+                        </div>
+                        <div class="room-details">
+                            <span class="room-type">Quadruplo</span>
+                            <h3 class="room-title">Suíte Quadruplo</h3>
+                            <p class="room-description">Suíte para 4 pessoas com cama de casal + 2 solteiros, ideal para famílias.</p>
+                            <div class="room-features">
+                                <span class="room-feature"><i class="fas fa-snowflake" aria-hidden="true"></i> Ar-condicionado</span>
+                                <span class="room-feature"><i class="fas fa-tv" aria-hidden="true"></i> Televisão</span>
+                                <span class="room-feature"><i class="fas fa-wifi" aria-hidden="true"></i> Wi-Fi</span>
+                                <span class="room-feature"><i class="fas fa-coffee" aria-hidden="true"></i> Frigobar</span>
+                            </div>
+                            <div class="room-price">
+                                R$ 250 <span>/ diária</span>
+                            </div>
+                            <div class="room-actions">
+                                <a href="#contato" class="btn btn-outline">Mais Detalhes</a>
+                                <a href="#contato" class="btn">Reservar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicos" class="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Nossos Serviços</h2>
+                    <p class="section-description">Oferecemos diversos serviços para tornar sua estadia mais confortável</p>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-utensils" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="service-title">Café da Manhã</h3>
+                        <p class="service-description">Buffet completo servido diariamente das 6h30 às 10h00, com opções regionais e internacionais.</p>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-wifi" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="service-title">Internet de Alta Velocidade</h3>
+                        <p class="service-description">Wi-Fi gratuito de 100Mbps disponível em todas as áreas do hotel.</p>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-car" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="service-title">Estacionamento</h3>
+                        <p class="service-description">Estacionamento privativo com manobrista (sujeito à disponibilidade, taxa adicional).</p>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-briefcase" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="service-title">Business Center</h3>
+                        <p class="service-description">Espaço equipado com computadores, impressora e sala para pequenas reuniões.</p>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-tshirt" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="service-title">Lavanderia</h3>
+                        <p class="service-description">Serviço de lavanderia disponível com entrega no mesmo dia (até às 10h).</p>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-concierge-bell" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="service-title">Recepção 24h</h3>
+                        <p class="service-description">Equipe disponível 24 horas para atender suas necessidades.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="galeria" class="gallery">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Galeria</h2>
+                    <p class="section-description">Conheça nossas instalações através de imagens</p>
+                </div>
+                
+                <div class="gallery-filter" role="tablist">
+                    <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">Todos</button>
+                    <button class="filter-btn" data-filter="quartos" role="tab" aria-selected="false">Quartos</button>
+                    <button class="filter-btn" data-filter="banheiros" role="tab" aria-selected="false">Banheiros</button>
+                    <button class="filter-btn" data-filter="areas-comuns" role="tab" aria-selected="false">Áreas Comuns</button>
+                    <button class="filter-btn" data-filter="exterior" role="tab" aria-selected="false">Exterior</button>
+                </div>
+                
+                <div class="gallery-grid" role="tabpanel">
+                    <!-- Quartos -->
+                    <div class="gallery-item" data-category="quartos">
+                        <img src="assets/images/quartos/quarto-standard-04.jpg" alt="Quarto Standard Casal">
+                        <div class="gallery-overlay">
+                            <div class="gallery-icon">
+                                <i class="fas fa-search-plus" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="quartos">
+                        <img src="assets/images/quartos/quarto-standard-02.jpg" alt="Quarto Standard Vista Ampla">
+                        <div class="gallery-overlay">
+                            <div class="gallery-icon">
+                                <i class="fas fa-search-plus" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="quartos">
+                        <img src="assets/images/quartos/quarto-luxo-01.jpg" alt="Suíte Executiva">
+                        <div class="gallery-overlay">
+                            <div class="gallery-icon">
+                                <i class="fas fa-search-plus" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="quartos">
+                        <img src="assets/images/quartos/quarto-solteiro-01.jpg" alt="Quarto Individual">
+                        <div class="gallery-overlay">
+                            <div class="gallery-icon">
+                                <i class="fas fa-search-plus" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Banheiros -->
+                    <div class="gallery-item" data-category="banheiros">
+                        <img src="assets/images/banheiros/banheiro-standard-01.jpg" alt="Banheiro Standard">
+                        <div class="gallery-overlay">
+                            <div class="gallery-icon">
+                                <i class="fas fa-search-plus" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="banheiros">
+                        <img src="assets/images/banheiros/banheiro-luxo-01.jpg" alt="Banheiro Suíte Executiva">
+                        <div class="gallery-overlay">
+                            <div class="gallery-icon">
+                                <i class="fas fa-search-plus" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Áreas Comuns -->
+                    <div class="gallery-item" data-category="areas-comuns">
+                        <img src="assets/images/areas-comuns/area-comum-recepcao-01.jpg" alt="Recepção do Hotel">
+                        <div class="gallery-overlay">
+                            <div class="gallery-icon">
+                                <i class="fas fa-search-plus" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="areas-comuns">
+                        <img src="assets/images/areas-comuns/area-comum-restaurante-01.jpg" alt="Restaurante">
+                        <div class="gallery-overlay">
+                            <div class="gallery-icon">
+                                <i class="fas fa-search-plus" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Exterior -->
+                    <div class="gallery-item" data-category="exterior">
+                        <img src="assets/images/exterior/exterior-fachada-01.jpg" alt="Fachada do Hotel">
+                        <div class="gallery-overlay">
+                            <div class="gallery-icon">
+                                <i class="fas fa-search-plus" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="exterior">
+                        <img src="assets/images/exterior/vista-janela-01.jpg" alt="Vista da Cidade">
+                        <div class="gallery-overlay">
+                            <div class="gallery-icon">
+                                <i class="fas fa-search-plus" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+                <div class="lightbox-content">
+                    <img src="" alt="" class="lightbox-image">
+                    <button class="lightbox-close" aria-label="Fechar">&times;</button>
+                    <h2 id="lightbox-title" class="sr-only">Imagem ampliada</h2>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Entre em Contato</h2>
+                    <p class="section-description">Estamos à disposição para atender suas dúvidas e reservas</p>
+                </div>
+                
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Endereço</h4>
+                                <address>
+                                    Rua Barão do Rio Branco, 343<br>Bairro Amambaí, Campo Grande - MS<br>CEP 79008-060
+                                </address>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt" aria-hidden="true"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Telefones</h4>
+                                <p><a href="tel:+556732532000">(67) 3253-2000</a></p>
+                                <p><a href="tel:+556732532000">(67) 3253-2000</a> (WhatsApp)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p><a href="mailto:contato@hotelmanzoni.com.br">contato@hotelmanzoni.com.br</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock" aria-hidden="true"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Horários</h4>
+                                <p>Check-in: 12h00 | Check-out: 11h00</p>
+                                <p>Recepção: 24 horas</p>
+                                <p>Café da manhã: 06h00 às 09h00</p>
+                            </div>
+                        </div>
+                        
+                        <div class="social-links">
+                            <a href="https://facebook.com/hotelmanzoni" class="social-link" aria-label="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                            <a href="https://instagram.com/hotelmanzoni" class="social-link" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                            <a href="https://wa.me/556732532000" class="social-link" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    
+                    <form class="contact-form" id="contactForm" aria-labelledby="form-title">
+                        <h3 id="form-title" class="sr-only">Formulário de contato</h3>
+                        <div class="form-group">
+                            <label for="name" class="form-label">Nome</label>
+                            <input type="text" id="name" class="form-control" required aria-required="true">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" class="form-control" required aria-required="true">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="checkin" class="form-label">Check-in</label>
+                                <input type="date" id="checkin" class="form-control" required aria-required="true">
+                            </div>
+                            
+                            <div class="form-group half">
+                                <label for="checkout" class="form-label">Check-out</label>
+                                <input type="date" id="checkout" class="form-control" required aria-required="true">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="guests" class="form-label">Número de Hóspedes</label>
+                            <select id="guests" class="form-control" required aria-required="true">
+                                <option value="">Selecione</option>
+                                <option value="1">1 pessoa</option>
+                                <option value="2">2 pessoas</option>
+                                <option value="3">3 pessoas</option>
+                                <option value="4">4 pessoas</option>
+                                <option value="5+">5 ou mais pessoas</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Mensagem</label>
+                            <textarea id="message" class="form-control" required aria-required="true"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" style="background-image: url('assets/images/common/fundo-preto-dourado.jpg');">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <h2>Hotel Manzoni</h2>
+                    </div>
+                    <p class="footer-about">Desde 2005, o Hotel Manzoni é referência em hospedagem no centro de Campo Grande, oferecendo conforto, praticidade e atendimento de qualidade para viajantes a negócios e lazer.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#acomodacoes">Acomodações</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#galeria">Galeria</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                        <li><a href="pages/politica-privacidade.html">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Newsletter</h3>
+                    <p class="footer-newsletter">Inscreva-se para receber nossas promoções e novidades.</p>
+                    <form class="newsletter-form" id="newsletterForm" aria-labelledby="newsletter-title">
+                        <h4 id="newsletter-title" class="sr-only">Inscrição na newsletter</h4>
+                        <input type="email" placeholder="Seu email" class="newsletter-input" required aria-required="true" aria-label="Seu email para newsletter">
+                        <button type="submit" class="newsletter-btn" aria-label="Enviar inscrição">
+                            <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hotel Manzoni. Todos os direitos reservados.</p>
+                <p>CNPJ: 12.345.678/0001-90</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Chatbot - CORRIGIDO -->
+    <div class="chatbot-icon" aria-label="Chat de atendimento" role="button" tabindex="0">
+        <i class="fas fa-comments" aria-hidden="true"></i>
+    </div>
+    
+    <div class="chatbot-container" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="chatbot-title">
+        <div class="chatbot-header">
+            <h3 id="chatbot-title">Assistente Virtual</h3>
+            <button class="chatbot-close" aria-label="Fechar chat">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" role="log" aria-live="polite">
+            <div class="message bot">
+                <p>Olá! 👋 Sou o assistente virtual do Hotel Manzoni!</p>
+                <p>Posso ajudá-lo com:</p>
+                <p>🏨 Informações sobre quartos e preços<br>
+                📍 Localização e como chegar<br>
+                🕐 Horários e check-in/out<br>
+                🌟 Serviços disponíveis<br>
+                🐕 Política pet friendly<br>
+                📅 Como fazer reservas</p>
+                <p><strong>Digite sua pergunta ou experimente:</strong><br>
+                "Quanto custa o quarto?"<br>
+                "Onde fica o hotel?"<br>
+                "Aceitam animais?"</p>
+            </div>
+        </div>
+        <form class="chatbot-form" aria-labelledby="chatbot-form-title">
+            <h4 id="chatbot-form-title" class="sr-only">Enviar mensagem</h4>
+            <input type="text" placeholder="Digite sua mensagem..." aria-label="Digite sua mensagem">
+            <button type="submit" class="chatbot-send" aria-label="Enviar mensagem">
+                <i class="fas fa-paper-plane" aria-hidden="true"></i>
+            </button>
+        </form>
+    </div>
+    
+    <!-- Botão Voltar ao Topo -->
+    <button class="back-to-top" aria-label="Voltar ao topo" tabindex="0">
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+    </button>
+
+    <!-- Classe auxiliar para leitores de tela -->
+    <style>
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    </style>
+
+    <!-- Schema.org para SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Hotel",
+        "name": "Hotel Manzoni",
+        "description": "Hotel Manzoni oferece acomodações confortáveis e modernas no centro de Campo Grande, com quartos equipados com ar-condicionado, TV LED e Wi-Fi de alta velocidade.",
+        "url": "https://www.hotelmanzoni.com.br",
+        "image": "assets/images/common/logo.png",
+        "priceRange": "R$149 - R$289",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Rua Barão do Rio Branco, 1270",
+            "addressLocality": "Campo Grande",
+            "addressRegion": "MS",
+            "postalCode": "79002-174",
+            "addressCountry": "BR"
+        },
+        "telephone": "+556733251270",
+        "email": "reservas@hotelmanzoni.com.br",
+        "checkinTime": "14:00",
+        "checkoutTime": "12:00",
+        "amenityFeature": [
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Wi-Fi",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Ar-condicionado",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Café da manhã",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Estacionamento",
+                "value": true
+            }
+        ]
+    }
+    </script>
+</body>
+</html>
+
+                        

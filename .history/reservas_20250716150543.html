@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Faça sua reserva no Hotel Manzoni - Sistema de reservas online seguro e fácil">
+    <title>Reservas - Hotel Manzoni</title>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/reservation.css?v=2.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- JavaScript -->
+    <script src="assets/js/reservation-engine.js" defer></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="assets/images/common/logo.png" alt="Hotel Manzoni Logo">
+                <h1>Hotel Manzoni</h1>
+            </div>
+            <nav class="main-navigation">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="index.html#sobre">Sobre</a></li>
+                    <li><a href="index.html#acomodacoes">Quartos</a></li>
+                    <li><a href="index.html#servicos">Serviços</a></li>
+                    <li><a href="index.html#galeria">Galeria</a></li>
+                    <li><a href="reservas.html" class="active">Reservas</a></li>
+                    <li><a href="index.html#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Faça sua Reserva</h1>
+            <p>Reserve seu quarto no Hotel Manzoni de forma rápida e segura</p>
+        </div>
+    </section>
+
+    <!-- Reservation Section -->
+    <section class="reservation-section">
+        <div class="reservation-container">
+            <div class="reservation-header">
+                <h2><i class="fas fa-calendar-alt"></i> Sistema de Reservas Online</h2>
+                <p>Escolha suas datas, tipo de quarto e faça sua reserva em poucos cliques</p>
+            </div>
+
+            <!-- Formulário de Reserva -->
+            <form id="reservation-form" class="reservation-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="checkin">Data de Entrada</label>
+                        <input type="date" id="checkin" name="checkin" class="date-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkout">Data de Saída</label>
+                        <input type="date" id="checkout" name="checkout" class="date-input" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="room-type">Tipo de Quarto</label>
+                        <select id="room-type" name="room_type" required>
+                            <option value="">Selecione o tipo de quarto</option>
+                            <option value="simples">Quarto Simples</option>
+                            <option value="duplo">Quarto Duplo</option>
+                            <option value="suite">Suíte</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="guests">Número de Hóspedes</label>
+                        <input type="number" id="guests" name="guests" min="1" max="4" value="1" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Nome Completo</label>
+                        <input type="text" id="name" name="name" placeholder="Digite seu nome completo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Telefone</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(67) 99999-9999" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cpf">CPF</label>
+                        <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="observations">Observações (opcional)</label>
+                    <textarea id="observations" name="observations" rows="4" placeholder="Alguma observação especial?"></textarea>
+                </div>
+
+                <!-- Disponibilidade -->
+                <div id="availability-calendar" class="availability-calendar"></div>
+
+                <!-- Preço -->
+                <div id="price-display" class="price-display"></div>
+
+                <!-- Erros -->
+                <div id="booking-errors" class="booking-errors"></div>
+
+                <!-- Botão de Reserva -->
+                <button type="submit" id="booking-button" class="btn-reservation">
+                    <i class="fas fa-check"></i> Fazer Reserva
+                </button>
+            </form>
+
+            <!-- Confirmação -->
+            <div id="booking-confirmation" class="booking-confirmation"></div>
+        </div>
+    </section>
+
+    <!-- Informações -->
+    <section class="info-section">
+        <div class="info-grid">
+            <div class="info-card">
+                <i class="fas fa-clock"></i>
+                <h3>Horários</h3>
+                <p>Check-in: 14:00<br>Check-out: 12:00</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-credit-card"></i>
+                <h3>Pagamento</h3>
+                <p>Aceitamos cartões de crédito e débito<br>Pagamento seguro via PagSeguro</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Segurança</h3>
+                <p>Dados protegidos com SSL<br>Política de cancelamento flexível</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-phone"></i>
+                <h3>Suporte</h3>
+                <p>Telefone: (67) 3253-2000<br>WhatsApp: (67) 3253-2000</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Hotel Manzoni</h3>
+                <p>Conforto e elegância no centro de Campo Grande. Hospedagem de qualidade desde 2005.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p><i class="fas fa-phone"></i> (67) 3253-2000</p>
+                <p><i class="fas fa-envelope"></i> contato@hotelmanzoni.com.br</p>
+                <p><i class="fas fa-map-marker-alt"></i> Centro, Campo Grande - MS</p>
+            </div>
+            <div class="footer-section">
+                <h3>Links Úteis</h3>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="index.html#sobre">Sobre</a></li>
+                    <li><a href="index.html#acomodacoes">Quartos</a></li>
+                    <li><a href="reservas.html">Reservas</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Hotel Manzoni. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html> 

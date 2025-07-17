@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Reserva - Hotel Manzoni</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #121212;
+            color: #ffffff;
+            padding: 20px;
+        }
+        .test-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #d4af37;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #d4af37;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background: #222;
+            color: #fff;
+        }
+        button {
+            background: #d4af37;
+            color: #000;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        button:hover {
+            background: #b89b2d;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .success {
+            background: rgba(76, 175, 80, 0.2);
+            border: 1px solid #4caf50;
+            color: #4caf50;
+        }
+        .error {
+            background: rgba(244, 67, 54, 0.2);
+            border: 1px solid #f44336;
+            color: #f44336;
+        }
+        .log {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #666;
+            color: #ccc;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🧪 Teste de Reserva - Hotel Manzoni</h1>
+        
+        <form id="booking-form">
+            <div class="form-group">
+                <label for="guest_name">Nome Completo:</label>
+                <input type="text" id="guest_name" name="guest_name" value="João Silva" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="guest_email">Email:</label>
+                <input type="email" id="guest_email" name="guest_email" value="joao@teste.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="guest_phone">Telefone:</label>
+                <input type="tel" id="guest_phone" name="guest_phone" value="(67) 99999-9999" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="guest_cpf">CPF:</label>
+                <input type="text" id="guest_cpf" name="guest_cpf" value="123.456.789-00" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="checkin_date">Data de Entrada:</label>
+                <input type="date" id="checkin_date" name="checkin_date" value="2025-07-17" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="checkout_date">Data de Saída:</label>
+                <input type="date" id="checkout_date" name="checkout_date" value="2025-07-20" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="guests_count">Número de Hóspedes:</label>
+                <input type="number" id="guests_count" name="guests_count" value="2" min="1" max="4" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="room_type">Tipo de Quarto:</label>
+                <select id="room_type" name="room_type" required>
+                    <option value="simples">Quarto Simples</option>
+                    <option value="duplo">Quarto Duplo</option>
+                    <option value="suite">Suíte</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="observations">Observações:</label>
+                <textarea id="observations" name="observations" rows="3">Teste de reserva via frontend</textarea>
+            </div>
+            
+            <button type="button" onclick="testBooking()">🔍 Testar Reserva</button>
+            <button type="button" onclick="clearLog()">🗑️ Limpar Log</button>
+        </form>
+        
+        <div id="result" class="result" style="display: none;"></div>
+        <div id="log" class="result log" style="display: none;"></div>
+    </div>
+
+    <script>
+        function log(message) {
+            const logDiv = document.getElementById('log');
+            const timestamp = new Date().toLocaleTimeString();
+            logDiv.textContent += `[${timestamp}] ${message}\n`;
+            logDiv.style.display = 'block';
+            logDiv.scrollTop = logDiv.scrollHeight;
+            console.log(message);
+        }
+        
+        function clearLog() {
+            document.getElementById('log').textContent = '';
+            document.getElementById('log').style.display = 'none';
+        }
+        
+        async function testBooking() {
+            log('🚀 Iniciando teste de reserva...');
+            
+            const form = document.getElementById('booking-form');
+            const formData = new FormData(form);
+            const data = {};
+            
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+            
+            // Converter guests_count para número
+            data.guests_count = parseInt(data.guests_count);
+            
+            log('📝 Dados coletados: ' + JSON.stringify(data, null, 2));
+            
+            try {
+                log('📤 Enviando requisição para API...');
+                
+                const response = await fetch('http://localhost:3000/api/bookings', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                log(`📥 Status da resposta: ${response.status}`);
+                
+                const result = await response.json();
+                log('📊 Resposta da API: ' + JSON.stringify(result, null, 2));
+                
+                if (result.success) {
+                    showResult(`✅ RESERVA CRIADA COM SUCESSO!\n\n` +
+                              `📋 Número da Reserva: ${result.data.booking_number}\n` +
+                              `💰 Preço Total: R$ ${result.data.total_price}\n` +
+                              `🌙 Noites: ${result.data.nights}\n` +
+                              `🏨 Tipo: ${result.data.room_type}`, 'success');
+                } else {
+                    showResult(`❌ ERRO: ${result.error || 'Erro desconhecido'}`, 'error');
+                }
+            } catch (error) {
+                log('❌ Erro na requisição: ' + error.message);
+                showResult(`❌ ERRO DE CONEXÃO: ${error.message}`, 'error');
+            }
+        }
+        
+        function showResult(message, type) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.textContent = message;
+            resultDiv.className = `result ${type}`;
+            resultDiv.style.display = 'block';
+        }
+        
+        // Teste automático ao carregar a página
+        window.onload = function() {
+            log('🚀 Página carregada. Backend deve estar rodando em http://localhost:3000');
+            log('🔍 Para testar, clique no botão "Testar Reserva"');
+        };
+    </script>
+</body>
+</html> 

@@ -1,0 +1,11 @@
+{
+  "guest_name": "João Silva",
+  "guest_email": "joao@teste.com",
+  "guest_phone": "(67) 99999-9999",
+  "guest_cpf": "123.456.789-00",
+  "checkin_date": "2025-07-17",
+  "checkout_date": "2025-07-20",
+  "guests_count": 2,
+  "room_type": "simples",
+  "observations": "Teste de reserva"
+} 
