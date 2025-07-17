@@ -9,8 +9,13 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     
-    <!-- Google Fonts Elegantes -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Preload recursos críticos para melhor performance -->
+    <link rel="preload" href="assets/images/common/logo.png" as="image">
+    <link rel="preload" href="assets/js/hotel-manzoni.js" as="script">
+    
+    <!-- DNS prefetch para recursos externos -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/base.css">
@@ -19,403 +24,45 @@
     <link rel="stylesheet" href="assets/css/theme.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/reservation.css?v=4.0">
+    <link rel="stylesheet" href="assets/css/lightbox.css">
     <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/reservation.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <!-- Estilos inline de fallback -->
-    <style>
-        body {
-            font-family: 'Lora', serif;
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-        }
-        
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 15px 0;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .logo img {
-            height: 50px;
-            width: auto;
-        }
-        
-        .logo h1 {
-            font-size: 24px;
-            font-weight: 700;
-            color: #333;
-            margin: 0;
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .main-navigation ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .main-navigation a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            padding: 10px 15px;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-        }
-        
-        .main-navigation a:hover,
-        .main-navigation a.active {
-            color: #d4af37;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(184, 155, 45, 0.1));
-        }
-        
-        .theme-toggle {
-            margin-left: 20px;
-        }
-        
-        .theme-toggle button {
-            background: transparent;
-            border: 2px solid #d4af37;
-            color: #d4af37;
-            padding: 8px 16px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .theme-toggle button:hover {
-            background: #d4af37;
-            color: white;
-        }
-        
-        .hero-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 120px 0 80px;
-            text-align: center;
-            margin-top: 80px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-section h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 20px;
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .hero-section p {
-            font-size: 1.3rem;
-            color: #666;
-            margin-bottom: 30px;
-        }
-        
-        .reservation-section {
-            padding: 80px 0;
-            background: #ffffff;
-        }
-        
-        .reservation-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .reservation-form {
-            background: #ffffff;
-            border: 1px solid #e9ecef;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            margin-bottom: 25px;
-        }
-        
-        .form-group {
-            margin-bottom: 25px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #333;
-        }
-        
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 15px 20px;
-            border: 2px solid #e9ecef;
-            border-radius: 12px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            background: #ffffff;
-            color: #333;
-        }
-        
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #d4af37;
-            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
-        }
-        
-        .btn-reservation {
-            background: linear-gradient(135deg, #d4af37 0%, #b89b2d 100%);
-            color: white;
-            border: none;
-            padding: 18px 40px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .btn-reservation:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.4);
-        }
-        
-        .info-section {
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            padding: 60px 0;
-            margin-top: 60px;
-        }
-        
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .info-card {
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .info-card:hover {
-            transform: translateY(-5px);
-            background: rgba(0, 0, 0, 0.8);
-        }
-        
-        .info-card i {
-            font-size: 3rem;
-            color: #d4af37;
-            margin-bottom: 20px;
-            display: block;
-        }
-        
-        .info-card h3 {
-            font-size: 1.5rem;
-            color: #d4af37;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-        
-        .info-card p {
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.6;
-        }
-        
-        footer {
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            color: #ccc;
-            padding: 40px 0 20px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .footer-section h3 {
-            color: #d4af37;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-        }
-        
-        .footer-section p,
-        .footer-section a {
-            color: #ccc;
-            text-decoration: none;
-            line-height: 1.6;
-        }
-        
-        .footer-section a:hover {
-            color: #d4af37;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-        }
-        
-        .footer-section ul li {
-            margin-bottom: 8px;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-        }
-        
-        .social-links a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background: rgba(212, 175, 55, 0.2);
-            border-radius: 50%;
-            text-align: center;
-            line-height: 40px;
-            transition: all 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            background: #d4af37;
-            transform: translateY(-2px);
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #999;
-        }
-        
-        .reservation-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .reservation-header h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 15px;
-            background: linear-gradient(135deg, #d4af37, #b89b2d);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .reservation-header p {
-            font-size: 1.1rem;
-            color: #e0e0e0;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        @media (max-width: 768px) {
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero-section h1 {
-                font-size: 2.5rem;
-            }
-            
-            .reservation-header h2 {
-                font-size: 2rem;
-            }
-            
-            .reservation-form {
-                padding: 30px 20px;
-            }
-            
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .container {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .main-navigation ul {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-        }
-    </style>
+    <!-- Google Fonts Elegantes -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- JavaScript -->
     <script src="assets/js/hotel-manzoni.js" defer></script>
+    <script src="assets/js/typewriter.js" defer></script>
     <script src="assets/js/reservation-engine.js" defer></script>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Preloader -->
+    <div class="preloader" aria-hidden="true">
+        <img src="assets/images/common/logo.png" alt="Hotel Manzoni Logo" class="preloader-logo">
+        <h1 class="preloader-title">Hotel Manzoni</h1>
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+    </div>
+
     <header>
         <div class="container">
             <div class="logo">
-                <img src="assets/images/common/logo.png" alt="Hotel Manzoni Logo">
-                <h1>Hotel Manzoni</h1>
+                <a href="index.html#inicio" aria-label="Início - Hotel Manzoni">
+                    <img src="assets/images/common/logo.png" alt="Hotel Manzoni Logo">
+                </a>
             </div>
-            <nav class="main-navigation">
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menu de navegação" aria-expanded="false" aria-controls="main-nav">
+                <i class="fas fa-bars"></i>
+                <span class="sr-only">Menu</span>
+            </button>
+            <nav id="main-nav" class="main-navigation" aria-label="Navegação principal">
                 <ul>
                     <li><a href="index.html">Início</a></li>
                     <li><a href="index.html#sobre">Sobre</a></li>
-                    <li><a href="index.html#acomodacoes">Quartos</a></li>
+                    <li><a href="index.html#acomodacoes">Acomodações</a></li>
                     <li><a href="index.html#servicos">Serviços</a></li>
                     <li><a href="index.html#galeria">Galeria</a></li>
                     <li><a href="reservas.html" class="active">Reservas</a></li>
@@ -431,155 +78,246 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-content">
-            <h1>Faça sua Reserva</h1>
-            <p>Reserve seu quarto no Hotel Manzoni de forma rápida e segura</p>
-        </div>
-    </section>
-
-    <!-- Reservation Section -->
-    <section class="reservation-section">
-        <div class="reservation-container">
-            <div class="reservation-header">
-                <h2><i class="fas fa-calendar-alt"></i> Sistema de Reservas Online</h2>
-                <p>Escolha suas datas, tipo de quarto e faça sua reserva em poucos cliques</p>
-            </div>
-
-            <!-- Formulário de Reserva -->
-            <form id="reservation-form" class="reservation-form">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="checkin">Data de Entrada</label>
-                        <input type="date" id="checkin" name="checkin" class="date-input" required>
+    <main>
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h1 class="typewriter-text">
+                    <span class="typewriter-line">Faça sua</span>
+                    <span class="typewriter-line highlight">Reserva</span>
+                </h1>
+                <p class="fade-in-text">Reserve seu quarto no Hotel Manzoni de forma rápida e segura</p>
+                <div class="hero-buttons">
+                    <a href="index.html#acomodacoes" class="btn btn-primary pulse-animation">Conheça Nossos Quartos</a>
+                    <a href="#reservation-form" class="btn btn-secondary slide-in-btn">Fazer Reserva</a>
+                </div>
+                <div class="hero-features">
+                    <div class="feature-badge">
+                        <i class="fas fa-star"></i>
+                        <span>4.8/5</span>
                     </div>
-                    <div class="form-group">
-                        <label for="checkout">Data de Saída</label>
-                        <input type="date" id="checkout" name="checkout" class="date-input" required>
+                    <div class="feature-badge">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Centro da Cidade</span>
+                    </div>
+                    <div class="feature-badge">
+                        <i class="fas fa-wifi"></i>
+                        <span>Wi-Fi Grátis</span>
                     </div>
                 </div>
+            </div>
+            <a href="#reservation-form" class="scroll-down bounce-animation" aria-label="Rolar para o formulário de reserva">
+                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </a>
+        </section>
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="room-type">Tipo de Quarto</label>
-                        <select id="room-type" name="room_type" required>
-                            <option value="">Selecione o tipo de quarto</option>
-                            <option value="simples">Quarto Simples</option>
-                            <option value="duplo">Quarto Duplo</option>
-                            <option value="suite">Suíte</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="guests">Número de Hóspedes</label>
-                        <input type="number" id="guests" name="guests" min="1" max="4" value="1" required>
-                    </div>
+        <!-- Seção de Reserva -->
+        <section id="reservation-form" class="reservation-section">
+            <div class="container">
+                <div class="reservation-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-calendar-alt"></i> Sistema de Reservas Online
+                    </h2>
+                    <p class="section-description">Escolha suas datas, tipo de quarto e faça sua reserva em poucos cliques</p>
                 </div>
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Nome Completo</label>
-                        <input type="text" id="name" name="name" placeholder="Digite seu nome completo" required>
+                <!-- Formulário de Reserva -->
+                <form id="reservation-form" class="reservation-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="checkin">Data de Entrada</label>
+                            <input type="date" id="checkin" name="checkin" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="checkout">Data de Saída</label>
+                            <input type="date" id="checkout" name="checkout" class="form-control" required>
+                        </div>
                     </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="room-type">Tipo de Quarto</label>
+                            <select id="room-type" name="room_type" class="form-control" required>
+                                <option value="">Selecione o tipo de quarto</option>
+                                <option value="individual">Individual - R$ 140/noite</option>
+                                <option value="duplo">Duplo - R$ 170/noite</option>
+                                <option value="triplo">Triplo - R$ 200/noite</option>
+                                <option value="quadruplo">Quadruplo - R$ 250/noite</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="guests">Número de Hóspedes</label>
+                            <select id="guests" name="guests" class="form-control" required>
+                                <option value="">Selecione</option>
+                                <option value="1">1 pessoa</option>
+                                <option value="2">2 pessoas</option>
+                                <option value="3">3 pessoas</option>
+                                <option value="4">4 pessoas</option>
+                                <option value="5+">5 ou mais pessoas</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nome Completo</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Telefone</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cpf">CPF</label>
+                            <input type="text" id="cpf" name="cpf" class="form-control" required>
+                        </div>
+                    </div>
+
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                        <label for="message">Observações (opcional)</label>
+                        <textarea id="message" name="message" class="form-control" rows="4" placeholder="Informações adicionais, pedidos especiais, etc."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-reservation">
+                        <i class="fas fa-check"></i> Confirmar Reserva
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Seção de Informações -->
+        <section class="info-section">
+            <div class="container">
+                <div class="info-grid">
+                    <div class="info-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Check-in/Check-out</h3>
+                        <p>Check-in: 12h00 | Check-out: 11h00</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-credit-card"></i>
+                        <h3>Formas de Pagamento</h3>
+                        <p>Cartão de crédito, débito, PIX ou dinheiro</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-paw"></i>
+                        <h3>Pet Friendly</h3>
+                        <p>Aceitamos animais de estimação com taxa adicional</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Reserva Segura</h3>
+                        <p>Seus dados são protegidos e a reserva é confirmada instantaneamente</p>
                     </div>
                 </div>
+            </div>
+        </section>
+    </main>
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="phone">Telefone</label>
-                        <input type="tel" id="phone" name="phone" placeholder="(67) 99999-9999" required>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <h2>Hotel Manzoni</h2>
                     </div>
-                    <div class="form-group">
-                        <label for="cpf">CPF</label>
-                        <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
-                    </div>
+                    <p class="footer-about">Desde 2005, o Hotel Manzoni é referência em hospedagem no centro de Campo Grande, oferecendo conforto, praticidade e atendimento de qualidade para viajantes a negócios e lazer.</p>
                 </div>
-
-                <div class="form-group">
-                    <label for="observations">Observações (opcional)</label>
-                    <textarea id="observations" name="observations" rows="4" placeholder="Alguma observação especial?"></textarea>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#inicio">Início</a></li>
+                        <li><a href="index.html#sobre">Sobre</a></li>
+                        <li><a href="index.html#acomodacoes">Acomodações</a></li>
+                        <li><a href="index.html#servicos">Serviços</a></li>
+                        <li><a href="index.html#galeria">Galeria</a></li>
+                        <li><a href="index.html#contato">Contato</a></li>
+                    </ul>
                 </div>
-
-                <!-- Disponibilidade -->
-                <div id="availability-calendar" class="availability-calendar"></div>
-
-                <!-- Preço -->
-                <div id="price-display" class="price-display"></div>
-
-                <!-- Erros -->
-                <div id="booking-errors" class="booking-errors"></div>
-
-                <!-- Botão de Reserva -->
-                <button type="submit" id="booking-button" class="btn-reservation">
-                    <i class="fas fa-check"></i> Fazer Reserva
-                </button>
-            </form>
-
-            <!-- Confirmação -->
-            <div id="booking-confirmation" class="booking-confirmation"></div>
-        </div>
-    </section>
-
-    <!-- Informações -->
-    <section class="info-section">
-        <div class="info-grid">
-            <div class="info-card">
-                <i class="fas fa-clock"></i>
-                <h3>Horários</h3>
-                <p>Check-in: 14:00<br>Check-out: 12:00</p>
-            </div>
-            <div class="info-card">
-                <i class="fas fa-credit-card"></i>
-                <h3>Pagamento</h3>
-                <p>Aceitamos cartões de crédito e débito<br>Pagamento seguro via PagSeguro</p>
-            </div>
-            <div class="info-card">
-                <i class="fas fa-shield-alt"></i>
-                <h3>Segurança</h3>
-                <p>Dados protegidos com SSL<br>Política de cancelamento flexível</p>
-            </div>
-            <div class="info-card">
-                <i class="fas fa-phone"></i>
-                <h3>Suporte</h3>
-                <p>Telefone: (67) 3253-2000<br>WhatsApp: (67) 3253-2000</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Hotel Manzoni</h3>
-                <p>Conforto e elegância no centro de Campo Grande. Hospedagem de qualidade desde 2005.</p>
-                <div class="social-links">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Contato</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Rua Barão do Rio Branco, 343<br>Bairro Amambaí, Campo Grande - MS</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>(67) 3253-2000</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>Contato@hotelmanzoni.com.br</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer-section">
-                <h3>Contato</h3>
-                <p><i class="fas fa-phone"></i> (67) 3253-2000</p>
-                <p><i class="fas fa-envelope"></i> contato@hotelmanzoni.com.br</p>
-                <p><i class="fas fa-map-marker-alt"></i> Centro, Campo Grande - MS</p>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hotel Manzoni. Todos os direitos reservados.</p>
+                <p>CNPJ: 12.345.678/0001-90</p>
             </div>
-            <div class="footer-section">
-                <h3>Links Úteis</h3>
-                <ul>
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="index.html#sobre">Sobre</a></li>
-                    <li><a href="index.html#acomodacoes">Quartos</a></li>
-                    <li><a href="reservas.html">Reservas</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Hotel Manzoni. Todos os direitos reservados.</p>
         </div>
     </footer>
+    
+    <!-- WhatsApp Flutuante -->
+    <a href="https://wa.me/556732532000?text=Olá! Gostaria de fazer uma reserva no Hotel Manzoni." 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener"
+       aria-label="Falar pelo WhatsApp"
+       title="Falar pelo WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+    
+    <!-- Chatbot -->
+    <div class="chatbot-icon" aria-label="Chat de atendimento" role="button" tabindex="0">
+        <i class="fas fa-comments" aria-hidden="true"></i>
+    </div>
+    
+    <div class="chatbot-container" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="chatbot-title">
+        <div class="chatbot-header">
+            <h3 id="chatbot-title">Assistente Virtual</h3>
+            <button class="chatbot-close" aria-label="Fechar chat">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" role="log" aria-live="polite">
+            <div class="message bot">
+                <p>Olá! 👋 Sou o assistente virtual do Hotel Manzoni!</p>
+                <p>Posso ajudá-lo com:</p>
+                <p>🏨 Informações sobre quartos e preços<br>
+                📍 Localização e como chegar<br>
+                🕐 Horários e check-in/out<br>
+                🌟 Serviços disponíveis<br>
+                🐕 Política pet friendly<br>
+                📅 Como fazer reservas</p>
+                <p><strong>Digite sua pergunta ou experimente:</strong><br>
+                "Quanto custa o quarto?"<br>
+                "Onde fica o hotel?"<br>
+                "Aceitam animais?"</p>
+            </div>
+        </div>
+        <form class="chatbot-form" aria-labelledby="chatbot-form-title">
+            <h4 id="chatbot-form-title" class="sr-only">Enviar mensagem</h4>
+            <input type="text" placeholder="Digite sua mensagem..." aria-label="Digite sua mensagem">
+            <button type="submit" class="chatbot-send" aria-label="Enviar mensagem">
+                <i class="fas fa-paper-plane" aria-hidden="true"></i>
+            </button>
+        </form>
+    </div>
+    
+    <!-- Botão Voltar ao Topo -->
+    <button class="back-to-top" aria-label="Voltar ao topo" tabindex="0">
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+    </button>
 </body>
 </html> 

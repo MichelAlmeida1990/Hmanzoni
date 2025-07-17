@@ -16,10 +16,10 @@ body::after {
     height: 0;
     overflow: hidden;
     z-index: -1;
-    background-image: 
+    /* background-image: 
         url('../images/common/fundo-azul tema claro.png'),
         url('../images/common/fundo-preto-dourado.jpg'),
-        url('../images/common/logo.png');
+        url('../images/common/logo.png'); */
 }
 
 /* Aceleração de hardware para elementos animados */

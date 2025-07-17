@@ -517,10 +517,15 @@ body.theme-dark::before {
     display: none !important;
 }
 
+[data-theme="light"] body::before,
+body.theme-light::before {
+    display: none !important;
+}
+
 /* Tema claro explícito */
 [data-theme="light"] body,
 body.theme-light {
-    background-color: #f8f9fa !important;
+    /* background-color: #f8f9fa !important; */
     color: #333 !important;
     background-image: url('../images/common/fundo-azul tema claro.png') !important;
     background-size: cover !important;
