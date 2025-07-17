@@ -1,27 +1,23 @@
 /* ===== ANIMAÇÕES ELEGANTES - HOTEL MANZONI ===== */
 
 /* ===== TYPEWRITER EFFECT ===== */
-.typewriter-text {
-    overflow: hidden;
-    white-space: nowrap;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
+body, html {
+    font-family: 'Lora', serif;
+}
+
+h1, h2, h3, .typewriter-text, .typewriter-line {
     font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
-    font-weight: 700;
     letter-spacing: 0.5px;
 }
 
-@media (max-width: 768px) {
-    .typewriter-text {
-        font-size: 1.8rem;
-    }
+.typewriter-text {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-color, #222);
+    margin-bottom: 1rem;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
     .typewriter-text {
         font-size: 1.5rem;
     }
