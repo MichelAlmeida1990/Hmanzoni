@@ -355,6 +355,126 @@
     .booking-form-grid {
         grid-template-columns: 1fr;
     }
+    
+    /* Melhorias específicas para formulários mobile */
+    .form-row {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-group label {
+        font-size: 0.9rem;
+        margin-bottom: 6px;
+        font-weight: 600;
+        display: block;
+    }
+    
+    .form-control {
+        padding: 12px 15px;
+        font-size: 16px;
+        border-radius: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        min-height: 44px;
+        width: 100%;
+    }
+    
+    .form-control:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+        outline: none;
+    }
+    
+    textarea.form-control {
+        min-height: 80px;
+        resize: vertical;
+    }
+    
+    /* Melhorias para botões mobile */
+    .btn {
+        min-height: 44px;
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+    
+    /* Melhorias para header mobile */
+    .header {
+        padding: 10px 0;
+    }
+    
+    .logo img {
+        max-width: 120px;
+        height: auto;
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+        padding: 8px;
+        background: transparent;
+        border: none;
+        color: var(--primary-color);
+        font-size: 1.2rem;
+    }
+    
+    .header .container {
+        padding: 0 15px;
+    }
+    
+    .logo {
+        flex: 1;
+    }
+    
+    .theme-toggle {
+        margin-left: 10px;
+    }
+    
+    .theme-toggle button {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    
+    /* Melhorias para hero mobile */
+    .hero-content {
+        padding: 0 20px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.2rem;
+        line-height: 1.2;
+        margin-bottom: 15px;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+        margin-bottom: 25px;
+        max-width: 100%;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    .hero-features {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 25px;
+    }
+    
+    .feature-badge {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 576px) {

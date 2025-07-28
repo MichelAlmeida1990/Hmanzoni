@@ -1,0 +1,419 @@
+/* ===== CORREÇÕES MOBILE PARA PÁGINA DE RESERVAS ===== */
+
+/* =========== CORREÇÕES GERAIS MOBILE =========== */
+@media (max-width: 768px) {
+    /* Header mobile */
+    .header {
+        padding: 10px 0;
+    }
+    
+    .logo img {
+        max-width: 120px;
+        height: auto;
+    }
+    
+    /* Hero section mobile */
+    .hero {
+        min-height: 60vh;
+        padding: 40px 0;
+    }
+    
+    .hero-content {
+        padding: 0 20px;
+        text-align: center;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.2rem !important;
+        line-height: 1.2;
+        margin-bottom: 15px;
+    }
+    
+    .hero-content p {
+        font-size: 1rem !important;
+        margin-bottom: 25px;
+        max-width: 100%;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 280px;
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+    
+    .hero-features {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 25px;
+    }
+    
+    .feature-badge {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+    
+    /* Formulário de reserva mobile */
+    .reservation-section {
+        padding: 40px 15px;
+        margin: 10px;
+        border-radius: 10px;
+    }
+    
+    .reservation-header {
+        margin-bottom: 30px;
+        padding: 0 10px;
+    }
+    
+    .reservation-header .section-title {
+        font-size: 1.8rem !important;
+        line-height: 1.3;
+        margin-bottom: 10px;
+    }
+    
+    .reservation-header .section-description {
+        font-size: 0.95rem;
+        max-width: 100%;
+        padding: 0 10px;
+    }
+    
+    .reservation-form {
+        padding: 25px 20px;
+        margin: 0;
+        border-radius: 15px;
+        max-width: 100%;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-group label {
+        font-size: 0.9rem;
+        margin-bottom: 6px;
+        font-weight: 600;
+    }
+    
+    .form-control {
+        padding: 12px 15px;
+        font-size: 16px;
+        border-radius: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+    }
+    
+    .form-control:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+    }
+    
+    textarea.form-control {
+        min-height: 80px;
+        resize: vertical;
+    }
+    
+    .btn-reservation {
+        width: 100%;
+        padding: 15px 20px;
+        font-size: 16px;
+        border-radius: 25px;
+        margin-top: 25px;
+    }
+    
+    /* Seção de informações mobile */
+    .info-section {
+        padding: 40px 15px;
+        margin: 20px 10px;
+        border-radius: 10px;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .info-card {
+        padding: 20px 15px;
+        border-radius: 10px;
+    }
+    
+    .info-card i {
+        font-size: 2rem;
+        margin-bottom: 12px;
+    }
+    
+    .info-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+    }
+    
+    .info-card p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+}
+
+/* =========== CORREÇÕES PARA TELAS MUITO PEQUENAS =========== */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.8rem !important;
+    }
+    
+    .hero-content p {
+        font-size: 0.9rem !important;
+    }
+    
+    .reservation-header .section-title {
+        font-size: 1.6rem !important;
+    }
+    
+    .reservation-header .section-description {
+        font-size: 0.9rem;
+    }
+    
+    .reservation-form {
+        padding: 20px 15px;
+    }
+    
+    .form-control {
+        padding: 10px 12px;
+        font-size: 16px; /* Mantém 16px para evitar zoom no iOS */
+    }
+    
+    .btn-reservation {
+        padding: 12px 18px;
+        font-size: 15px;
+    }
+    
+    .info-card {
+        padding: 15px 12px;
+    }
+    
+    .info-card i {
+        font-size: 1.8rem;
+    }
+    
+    .info-card h3 {
+        font-size: 1rem;
+    }
+    
+    .info-card p {
+        font-size: 0.85rem;
+    }
+}
+
+/* =========== CORREÇÕES PARA LANDSCAPE MOBILE =========== */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        min-height: 50vh;
+        padding: 20px 0;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.8rem !important;
+        margin-bottom: 10px;
+    }
+    
+    .hero-content p {
+        font-size: 0.9rem !important;
+        margin-bottom: 15px;
+    }
+    
+    .hero-buttons {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .hero-buttons .btn {
+        width: auto;
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+    
+    .reservation-section {
+        padding: 30px 15px;
+    }
+    
+    .reservation-form {
+        padding: 20px 15px;
+    }
+}
+
+/* =========== CORREÇÕES PARA TABLETS =========== */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .reservation-form {
+        max-width: 90%;
+        padding: 35px 30px;
+    }
+    
+    .form-row {
+        gap: 20px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem !important;
+    }
+    
+    .hero-content p {
+        font-size: 1.1rem !important;
+    }
+}
+
+/* =========== MELHORIAS DE ACESSIBILIDADE MOBILE =========== */
+@media (max-width: 768px) {
+    /* Melhora o toque em botões */
+    .btn, 
+    .form-control,
+    select,
+    button {
+        min-height: 44px; /* Tamanho mínimo recomendado para toque */
+    }
+    
+    /* Melhora espaçamento entre elementos */
+    .form-group + .form-group {
+        margin-top: 20px;
+    }
+    
+    /* Melhora visibilidade de labels */
+    .form-group label {
+        color: var(--text-color);
+        font-weight: 600;
+        margin-bottom: 8px;
+        display: block;
+    }
+    
+    /* Melhora contraste em inputs */
+    .form-control {
+        background: rgba(255, 255, 255, 0.95);
+        color: var(--text-color);
+        border: 1px solid rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Melhora feedback visual */
+    .form-control:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+        outline: none;
+    }
+    
+    /* Melhora botões */
+    .btn-reservation {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    .btn-reservation:hover {
+        background: var(--primary-color-dark);
+        transform: translateY(-1px);
+    }
+    
+    /* Melhora navegação mobile */
+    .mobile-menu-toggle {
+        display: block;
+        padding: 8px;
+        background: transparent;
+        border: none;
+        color: var(--primary-color);
+        font-size: 1.2rem;
+    }
+    
+    /* Melhora header mobile */
+    .header .container {
+        padding: 0 15px;
+    }
+    
+    .logo {
+        flex: 1;
+    }
+    
+    .theme-toggle {
+        margin-left: 10px;
+    }
+    
+    .theme-toggle button {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+/* =========== CORREÇÕES ESPECÍFICAS PARA iOS =========== */
+@supports (-webkit-touch-callout: none) {
+    .form-control {
+        font-size: 16px; /* Evita zoom automático no iOS */
+    }
+    
+    .form-control:focus {
+        font-size: 16px;
+    }
+}
+
+/* =========== CORREÇÕES PARA ANDROID =========== */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .form-control {
+        font-size: 16px;
+    }
+}
+
+/* =========== MELHORIAS DE PERFORMANCE MOBILE =========== */
+@media (max-width: 768px) {
+    /* Reduz animações em mobile para melhor performance */
+    .hero-content h1,
+    .hero-content p,
+    .hero-buttons {
+        animation-duration: 0.8s;
+    }
+    
+    /* Otimiza backdrop-filter para mobile */
+    .reservation-section,
+    .reservation-form,
+    .info-section {
+        backdrop-filter: blur(5px);
+    }
+    
+    /* Reduz sombras para melhor performance */
+    .reservation-form {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .info-card {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    }
+}
+
+/* =========== CORREÇÕES PARA TEMA ESCURO MOBILE =========== */
+@media (max-width: 768px) {
+    [data-theme="dark"] .form-control,
+    body.theme-dark .form-control {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        color: #ffffff;
+    }
+    
+    [data-theme="dark"] .form-control:focus,
+    body.theme-dark .form-control:focus {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: var(--primary-color);
+        box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+    }
+    
+    [data-theme="dark"] .form-group label,
+    body.theme-dark .form-group label {
+        color: #ffffff;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    }
+} 
