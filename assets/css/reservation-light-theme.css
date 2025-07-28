@@ -1,0 +1,284 @@
+/* ===== TEMA CLARO PARA PÁGINA DE RESERVAS ===== */
+
+/* Aplicar tema claro por padrão */
+body {
+    /* background-color: #f8f9fa !important; */
+    background-image: url('../images/common/fundo-azul tema claro.png') !important;
+    background-size: cover !important;
+    background-attachment: fixed !important;
+    background-position: center !important;
+    color: #333 !important;
+}
+
+/* Header no tema claro */
+header {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Logo no tema claro */
+.logo img {
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+/* Navegação no tema claro */
+.main-navigation a {
+    color: #333 !important;
+    font-weight: 500 !important;
+}
+
+.main-navigation a:hover,
+.main-navigation a.active {
+    color: #d4af37 !important;
+    background: rgba(212, 175, 55, 0.1) !important;
+}
+
+/* Botão de tema no tema claro */
+#theme-button {
+    background: transparent !important;
+    border: 2px solid #d4af37 !important;
+    color: #d4af37 !important;
+}
+
+#theme-button:hover {
+    background: #d4af37 !important;
+    color: #fff !important;
+}
+
+/* Hero section no tema claro */
+.hero {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+    color: #333 !important;
+}
+
+.hero-content h1 {
+    color: #333 !important;
+    text-shadow: none !important;
+}
+
+.hero-content h1 .highlight {
+    color: #d4af37 !important;
+}
+
+.hero-content p {
+    color: #666 !important;
+    text-shadow: none !important;
+}
+
+/* Botões do hero no tema claro */
+.hero-buttons .btn {
+    background: #d4af37 !important;
+    color: #fff !important;
+    border: none !important;
+}
+
+.hero-buttons .btn:hover {
+    background: #b89b2d !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4) !important;
+}
+
+/* Badges do hero no tema claro */
+.feature-badge {
+    background: rgba(212, 175, 55, 0.1) !important;
+    border: 1px solid rgba(212, 175, 55, 0.3) !important;
+    color: #333 !important;
+}
+
+.feature-badge i {
+    color: #d4af37 !important;
+}
+
+/* Scroll down no tema claro */
+.scroll-down {
+    color: #d4af37 !important;
+}
+
+/* Seção de reserva no tema claro */
+.reservation-section {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    color: #333 !important;
+}
+
+.reservation-header h2 {
+    color: #333 !important;
+    background: linear-gradient(135deg, #d4af37, #b89b2d) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    text-shadow: none !important;
+}
+
+.reservation-header p {
+    color: #666 !important;
+    text-shadow: none !important;
+}
+
+/* Formulário no tema claro */
+.reservation-form {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(15px) !important;
+    border: 2px solid rgba(212, 175, 55, 0.3) !important;
+    color: #333 !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+}
+
+.reservation-form input,
+.reservation-form select,
+.reservation-form textarea {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid rgba(0, 0, 0, 0.2) !important;
+    color: #333 !important;
+}
+
+.reservation-form input:focus,
+.reservation-form select:focus,
+.reservation-form textarea:focus {
+    background: rgba(255, 255, 255, 1) !important;
+    border-color: #d4af37 !important;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3) !important;
+}
+
+.reservation-form input::placeholder,
+.reservation-form textarea::placeholder {
+    color: rgba(0, 0, 0, 0.6) !important;
+}
+
+.reservation-form label {
+    color: #333 !important;
+    font-weight: 600 !important;
+    text-shadow: none !important;
+}
+
+/* Botão de reserva no tema claro */
+.btn-reservation {
+    background: linear-gradient(135deg, #d4af37, #b89b2d) !important;
+    color: #fff !important;
+    border: none !important;
+}
+
+.btn-reservation:hover {
+    background: linear-gradient(135deg, #b89b2d, #d4af37) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4) !important;
+}
+
+/* Seção de informações no tema claro */
+.info-section {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(10px) !important;
+    color: #333 !important;
+}
+
+.info-card {
+    background: rgba(255, 255, 255, 0.8) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    color: #333 !important;
+}
+
+.info-card:hover {
+    background: rgba(255, 255, 255, 1) !important;
+    border-color: rgba(212, 175, 55, 0.4) !important;
+    transform: translateY(-5px) !important;
+}
+
+.info-card i {
+    color: #d4af37 !important;
+}
+
+.info-card h3 {
+    color: #333 !important;
+}
+
+.info-card p {
+    color: #666 !important;
+}
+
+/* Footer no tema claro */
+footer {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(15px) !important;
+    border-top: 2px solid rgba(0, 0, 0, 0.1) !important;
+    color: #333 !important;
+}
+
+.footer-section h3 {
+    color: #d4af37 !important;
+}
+
+.footer-section p {
+    color: #666 !important;
+}
+
+.footer-section ul li a {
+    color: #666 !important;
+}
+
+.footer-section ul li a:hover {
+    color: #d4af37 !important;
+}
+
+.social-links a {
+    color: #d4af37 !important;
+    border: 1px solid rgba(212, 175, 55, 0.3) !important;
+    background: rgba(255, 255, 255, 0.8) !important;
+}
+
+.social-links a:hover {
+    background: rgba(212, 175, 55, 0.2) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3) !important;
+}
+
+.footer-bottom {
+    color: #999 !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Typewriter no tema claro */
+.typewriter-line {
+    color: #333 !important;
+    text-shadow: none !important;
+}
+
+.typewriter-line.highlight {
+    color: #d4af37 !important;
+}
+
+/* Preloader no tema claro */
+.preloader {
+    background-color: #f8f9fa !important;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem !important;
+    }
+    
+    .hero-content p {
+        font-size: 1.1rem !important;
+    }
+    
+    .reservation-form {
+        padding: 20px !important;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .hero-features {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+} 

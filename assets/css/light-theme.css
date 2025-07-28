@@ -1,0 +1,392 @@
+/* assets/css/light-theme.css - Tema Claro Padrão */
+
+/* =========== HEADER - TEMA CLARO =========== */
+header {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Logo no tema claro */
+.logo img {
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+/* Navegação no tema claro */
+.main-navigation a {
+    color: #333 !important;
+    font-weight: 500;
+}
+
+.main-navigation a:hover {
+    color: #d4af37 !important;
+}
+
+/* Botão de tema no tema claro */
+#theme-button {
+    background: transparent !important;
+    border: 2px solid #d4af37 !important;
+    color: #d4af37 !important;
+}
+
+#theme-button:hover {
+    background: #d4af37 !important;
+    color: #fff !important;
+}
+
+/* =========== HERO SECTION - TEMA CLARO =========== */
+.hero {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+    color: #333 !important;
+}
+
+.hero h1 {
+    color: #333 !important;
+}
+
+.hero h1 .highlight {
+    color: #d4af37 !important;
+}
+
+.hero p {
+    color: #666 !important;
+}
+
+/* Botões do hero */
+.hero .btn-primary {
+    background: #d4af37 !important;
+    color: #fff !important;
+}
+
+.hero .btn-secondary {
+    background: transparent !important;
+    border: 2px solid #d4af37 !important;
+    color: #d4af37 !important;
+}
+
+.hero .btn-secondary:hover {
+    background: #d4af37 !important;
+    color: #fff !important;
+}
+
+/* Badges do hero */
+.hero-features .feature-badge {
+    background: rgba(212, 175, 55, 0.1) !important;
+    color: #333 !important;
+}
+
+.hero-features .feature-badge i {
+    color: #d4af37 !important;
+}
+
+/* Scroll down */
+.scroll-down {
+    color: #d4af37 !important;
+}
+
+/* =========== SEÇÕES - TEMA CLARO =========== */
+section {
+    background: #fff !important;
+    color: #333 !important;
+}
+
+.section-title {
+    color: #333 !important;
+}
+
+.section-description {
+    color: #666 !important;
+}
+
+/* =========== SOBRE - TEMA CLARO =========== */
+.about {
+    background: #fff !important;
+}
+
+.about h2 {
+    color: #333 !important;
+}
+
+.about p {
+    color: #666 !important;
+}
+
+.feature-item {
+    background: #fff !important;
+    color: #333 !important;
+}
+
+.feature-icon i {
+    color: #d4af37 !important;
+}
+
+.feature-text h4 {
+    color: #333 !important;
+}
+
+.feature-text p {
+    color: #666 !important;
+}
+
+/* =========== ACOMODAÇÕES - TEMA CLARO =========== */
+.accommodations {
+    background: #f8f9fa !important;
+}
+
+.rooms-carousel-container {
+    background: #fff !important;
+}
+
+.room-details {
+    background: #fff !important;
+    color: #333 !important;
+}
+
+.room-title {
+    color: #333 !important;
+}
+
+.room-description {
+    color: #666 !important;
+}
+
+.room-features .feature-item {
+    color: #333 !important;
+}
+
+.room-features .feature-item i {
+    color: #d4af37 !important;
+}
+
+/* =========== SERVIÇOS - TEMA CLARO =========== */
+.services {
+    background: #fff !important;
+}
+
+.service-item {
+    background: #fff !important;
+    color: #333 !important;
+}
+
+.service-icon i {
+    color: #d4af37 !important;
+}
+
+.service-title {
+    color: #333 !important;
+}
+
+.service-description {
+    color: #666 !important;
+}
+
+/* =========== GALERIA - TEMA CLARO =========== */
+.gallery {
+    background: #f8f9fa !important;
+}
+
+.gallery-filter .filter-btn {
+    background: #fff !important;
+    color: #333 !important;
+    border: 1px solid #ddd !important;
+}
+
+.gallery-filter .filter-btn:hover,
+.gallery-filter .filter-btn.active {
+    background: #d4af37 !important;
+    color: #fff !important;
+}
+
+/* =========== CONTATO - TEMA CLARO =========== */
+.contact {
+    background: #fff !important;
+}
+
+.contact-info {
+    background: #fff !important;
+    color: #333 !important;
+}
+
+.contact-icon i {
+    color: #d4af37 !important;
+}
+
+.contact-text h4 {
+    color: #333 !important;
+}
+
+.contact-text p,
+.contact-text address {
+    color: #666 !important;
+}
+
+.contact-text a {
+    color: #d4af37 !important;
+}
+
+.contact-text a:hover {
+    color: #b89b2d !important;
+}
+
+/* Formulário de contato */
+.contact-form {
+    background: #fff !important;
+}
+
+.form-label {
+    color: #333 !important;
+}
+
+.form-control {
+    background: #fff !important;
+    border: 1px solid #ddd !important;
+    color: #333 !important;
+}
+
+.form-control:focus {
+    border-color: #d4af37 !important;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2) !important;
+}
+
+.form-control::placeholder {
+    color: #999 !important;
+}
+
+/* =========== FOOTER - TEMA CLARO =========== */
+.footer {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+    color: #333 !important;
+}
+
+.footer-logo h2 {
+    color: #333 !important;
+}
+
+.footer-about {
+    color: #666 !important;
+}
+
+.footer-title {
+    color: #333 !important;
+}
+
+.footer-links a {
+    color: #666 !important;
+}
+
+.footer-links a:hover {
+    color: #d4af37 !important;
+}
+
+.footer-newsletter {
+    color: #666 !important;
+}
+
+.newsletter-input {
+    background: #fff !important;
+    border: 1px solid #ddd !important;
+    color: #333 !important;
+}
+
+.newsletter-btn {
+    background: #d4af37 !important;
+    color: #fff !important;
+}
+
+.footer-bottom p {
+    color: #666 !important;
+}
+
+/* =========== COMPONENTES GERAIS - TEMA CLARO =========== */
+.card {
+    background: #fff !important;
+    color: #333 !important;
+    border: 1px solid #eee !important;
+}
+
+.btn {
+    background: #d4af37 !important;
+    color: #fff !important;
+}
+
+.btn:hover {
+    background: #b89b2d !important;
+}
+
+/* =========== MOBILE - TEMA CLARO =========== */
+@media (max-width: 768px) {
+    header {
+        background-color: rgba(255, 255, 255, 0.95) !important;
+    }
+    
+    .mobile-menu-toggle {
+        color: #d4af37 !important;
+    }
+    
+    .main-navigation ul {
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(10px);
+    }
+    
+    .main-navigation a {
+        color: #333 !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    .main-navigation a:hover {
+        color: #d4af37 !important;
+    }
+}
+
+/* =========== PRELOADER - TEMA CLARO =========== */
+.preloader {
+    background: #fff !important;
+}
+
+.preloader h1 {
+    color: #333 !important;
+}
+
+/* =========== CHATBOT - TEMA CLARO =========== */
+.chatbot-icon {
+    background: #d4af37 !important;
+    color: #fff !important;
+}
+
+.chatbot-container {
+    background: #fff !important;
+    color: #333 !important;
+}
+
+.chatbot-header {
+    background: #d4af37 !important;
+    color: #fff !important;
+}
+
+.chatbot-form input {
+    background: #f8f9fa !important;
+    border: 1px solid #ddd !important;
+    color: #333 !important;
+}
+
+.chatbot-send {
+    background: #d4af37 !important;
+    color: #fff !important;
+}
+
+/* =========== WHATSAPP - TEMA CLARO =========== */
+.whatsapp-float {
+    background: #25D366 !important;
+    color: #fff !important;
+}
+
+/* =========== BACK TO TOP - TEMA CLARO =========== */
+.back-to-top {
+    background: #d4af37 !important;
+    color: #fff !important;
+}
+
+.back-to-top:hover {
+    background: #b89b2d !important;
+} 

@@ -48,6 +48,8 @@ app.use('/api/rooms', require('./routes/rooms'));
 app.use('/api/availability', require('./routes/availability'));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/email', require('./routes/email'));
+// Alias para compatibilidade: /api/reservas -> /api/bookings
+app.use('/api/reservas', require('./routes/bookings'));
 
 // Rota de health check
 app.get('/api/health', (req, res) => {
