@@ -1059,53 +1059,5 @@ body.theme-dark .contact-container {
 }
 
 /* Ajustes para menu mobile em ambos os temas */
-@media (max-width: 768px) {
-    /* Tema Claro */
-    [data-theme="light"] header,
-    body.theme-light header {
-        background-color: rgba(255, 255, 255, 0.95) !important;
-        backdrop-filter: blur(10px) !important;
-    }
-
-    [data-theme="light"] .main-navigation,
-    body.theme-light .main-navigation {
-        background-color: rgba(255, 255, 255, 0.95) !important;
-        backdrop-filter: blur(10px) !important;
-    }
-
-    [data-theme="light"] .main-navigation li,
-    body.theme-light .main-navigation li {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
-    }
-
-    /* Tema Escuro */
-    [data-theme="dark"] header,
-    body.theme-dark header {
-        background-color: rgba(18, 18, 18, 0.95) !important;
-        backdrop-filter: blur(10px) !important;
-    }
-
-    [data-theme="dark"] .main-navigation,
-    body.theme-dark .main-navigation {
-        background-color: rgba(18, 18, 18, 0.95) !important;
-        backdrop-filter: blur(10px) !important;
-        border-top: 1px solid rgba(212, 175, 55, 0.1) !important;
-    }
-
-    [data-theme="dark"] .main-navigation li,
-    body.theme-dark .main-navigation li {
-        border-bottom: 1px solid rgba(212, 175, 55, 0.1) !important;
-    }
-
-    [data-theme="dark"] .main-navigation a,
-    body.theme-dark .main-navigation a {
-        color: #ffffff !important;
-    }
-
-    [data-theme="dark"] .main-navigation a:hover,
-    body.theme-dark .main-navigation a:hover {
-        background-color: rgba(212, 175, 55, 0.1) !important;
-        color: var(--primary-color) !important;
-    }
-  }
+/* REMOVIDO - CONFLITO COM RESPONSIVE.CSS */
   

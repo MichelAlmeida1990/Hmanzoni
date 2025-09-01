@@ -257,73 +257,7 @@
   }
 
   /* ==== VERSÃO MOBILE DO CARROSSEL ==== */
-  @media (max-width: 768px) {
-    .rooms-carousel-container {
-      padding: 1rem;
-      border-radius: 15px;
-      margin: 0 10px;
-    }
-    
-    .rooms-carousel {
-      height: auto;
-      min-height: 400px;
-    }
-    
-    .room-story {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-      height: auto;
-    }
-    
-    .room-visual {
-      height: 250px;
-      border-radius: 10px;
-    }
-    
-    .room-main-image {
-      height: 250px;
-    }
-    
-    .room-overlay {
-      padding: 1rem;
-      transform: translateY(0);
-      background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
-    }
-    
-    .story-title {
-      font-size: 1.2rem;
-    }
-    
-    .story-description {
-      font-size: 0.9rem;
-    }
-    
-    .room-details {
-      padding: 1rem;
-    }
-    
-    .room-title {
-      font-size: 1.3rem;
-    }
-    
-    .room-description {
-      font-size: 0.9rem;
-    }
-    
-    .room-features {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.5rem;
-    }
-    
-    .feature-item {
-      font-size: 0.8rem;
-      padding: 0.5rem;
-    }
-    
-    .hotspot {
-      display: none; /* Esconder hotspots em mobile */
-    }
-  }
+  /* REMOVIDO - CONFLITO COM RESPONSIVE.CSS */
   
   @media (max-width: 480px) {
     .rooms-carousel-container {
