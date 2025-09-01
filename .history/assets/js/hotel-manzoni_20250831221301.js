@@ -87,7 +87,7 @@
                     load += 1;
                     if (load <= 100) {
                         loadingNumber.innerHTML = load;
-                        loadingCircle.style.background = 'conic-gradient(from 0deg at 50% 50%, #D4AF37 0%, #B8941F ' + load + '%, #E9ECEF ' + load + '%)';
+                        loadingCircle.style.background = 'conic-gradient(from 0deg at 50% 50%, rgba(212, 175, 55, 1) 0%, rgba(184, 148, 31, 1) ' + load + '%, #101012 ' + load + '%)';
                     } else {
                         clearInterval(loadingInterval);
                         // Aguardar um pouco mais para mostrar 100%

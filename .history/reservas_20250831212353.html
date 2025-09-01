@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Faça sua reserva no Hotel Manzoni - Sistema de reservas online seguro e fácil">
+    <title>Reservas - Hotel Manzoni</title>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Preload recursos críticos para melhor performance -->
+    <link rel="preload" href="assets/images/common/logo.png" as="image">
+    <link rel="preload" href="assets/js/hotel-manzoni.js" as="script">
+    
+    <!-- DNS prefetch para recursos externos -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/lightbox.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/reservation.css">
+    <link rel="stylesheet" href="assets/css/reservation-mobile-fixes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts Elegantes -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- JavaScript -->
+    <script src="assets/js/hotel-manzoni.js" defer></script>
+    <script src="assets/js/typewriter.js" defer></script>
+    <script src="assets/js/reservation-engine.js" defer></script>
+</head>
+<body>
+    <!-- Preloader - VERSÃO ULTRA SIMPLIFICADA -->
+    <div class="preloader" aria-hidden="true" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 9999;">
+        <!-- Logo como imagem independente -->
+        <img src="assets/images/common/logo.png" alt="Hotel Manzoni Logo" style="width: 100px; height: auto; margin-bottom: 20px; display: block;">
+        
+        <!-- Texto como elemento independente -->
+        <h1 style="font-size: 18px; color: #333; margin: 0 0 30px 0; padding: 0;">Hotel Manzoni</h1>
+        
+        <!-- Barra de carregamento como elemento totalmente separado -->
+        <div style="width: 200px; height: 4px; background-color: #f0f0f0; border-radius: 2px; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: -50px; height: 100%; width: 50px; background-color: #d4af37; animation: loadingAnimation 1.5s infinite linear;"></div>
+        </div>
+    </div>
+
+    <!-- Estilo da animação diretamente na página -->
+    <style>
+    @keyframes loadingAnimation {
+        0% { left: -50px; }
+        100% { left: 100%; }
+    }
+    </style>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html#inicio" aria-label="Início - Hotel Manzoni">
+                    <img src="assets/images/common/logo.png" alt="Hotel Manzoni Logo">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menu de navegação" aria-expanded="false" aria-controls="main-nav">
+                <i class="fas fa-bars"></i>
+                <span class="sr-only">Menu</span>
+            </button>
+            <nav id="main-nav" class="main-navigation" aria-label="Navegação principal">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="index.html#sobre">Sobre</a></li>
+                    <li><a href="index.html#acomodacoes">Acomodações</a></li>
+                    <li><a href="index.html#servicos">Serviços</a></li>
+                    <li><a href="index.html#galeria">Galeria</a></li>
+                    <li><a href="reservas.html" class="active">Reservas</a></li>
+                    <li><a href="index.html#contato">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="theme-toggle">
+                <button id="theme-button" aria-label="Alternar tema claro/escuro">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                    <span class="theme-text">Mudar Tema</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h1 class="typewriter-text">
+                    <span class="typewriter-line">Faça sua</span>
+                    <span class="typewriter-line highlight">Reserva</span>
+                </h1>
+                <p class="fade-in-text">Reserve seu quarto no Hotel Manzoni de forma rápida e segura</p>
+                <div class="hero-buttons">
+                    <a href="index.html#acomodacoes" class="btn btn-primary pulse-animation">Conheça Nossos Quartos</a>
+                    <a href="#reservation-form" class="btn btn-secondary slide-in-btn">Fazer Reserva</a>
+                </div>
+                <div class="hero-features">
+                    <div class="feature-badge">
+                        <i class="fas fa-star"></i>
+                        <span>4.8/5</span>
+                    </div>
+                    <div class="feature-badge">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Centro da Cidade</span>
+                    </div>
+                    <div class="feature-badge">
+                        <i class="fas fa-wifi"></i>
+                        <span>Wi-Fi Grátis</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Seção de Reserva -->
+        <section id="reservation-form" class="reservation-section">
+            <div class="container">
+                <div class="reservation-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-calendar-alt"></i> Sistema de Reservas Online
+                    </h2>
+                    <p class="section-description">Escolha suas datas, tipo de quarto e faça sua reserva em poucos cliques</p>
+                </div>
+
+                <!-- Formulário de Reserva -->
+                <form id="reservation-form" class="reservation-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="checkin">Data de Entrada</label>
+                            <input type="date" id="checkin" name="checkin" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="checkout">Data de Saída</label>
+                            <input type="date" id="checkout" name="checkout" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="room-type">Tipo de Quarto</label>
+                            <select id="room-type" name="room_type" class="form-control" required>
+                                <option value="">Selecione o tipo de quarto</option>
+                                <option value="individual">Individual - R$ 140/noite</option>
+                                <option value="duplo">Duplo - R$ 170/noite</option>
+                                <option value="triplo">Triplo - R$ 200/noite</option>
+                                <option value="quadruplo">Quadruplo - R$ 250/noite</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="guests">Número de Hóspedes</label>
+                            <select id="guests" name="guests" class="form-control" required>
+                                <option value="">Selecione</option>
+                                <option value="1">1 pessoa</option>
+                                <option value="2">2 pessoas</option>
+                                <option value="3">3 pessoas</option>
+                                <option value="4">4 pessoas</option>
+                                <option value="5+">5 ou mais pessoas</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nome Completo</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Telefone</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cpf">CPF</label>
+                            <input type="text" id="cpf" name="cpf" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Observações (opcional)</label>
+                        <textarea id="message" name="message" class="form-control" rows="4" placeholder="Informações adicionais, pedidos especiais, etc."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-reservation">
+                        <i class="fas fa-check"></i> Confirmar Reserva
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Seção de Informações -->
+        <section class="info-section">
+            <div class="container">
+                <div class="info-grid">
+                    <div class="info-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Check-in/Check-out</h3>
+                        <p>Check-in: 12h00 | Check-out: 11h00</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-credit-card"></i>
+                        <h3>Formas de Pagamento</h3>
+                        <p>Cartão de crédito, débito, PIX ou dinheiro</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-paw"></i>
+                        <h3>Pet Friendly</h3>
+                        <p>Aceitamos animais de estimação com taxa adicional</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Reserva Segura</h3>
+                        <p>Seus dados são protegidos e a reserva é confirmada instantaneamente</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <h2>Hotel Manzoni</h2>
+                    </div>
+                    <p class="footer-about">Desde 2005, o Hotel Manzoni é referência em hospedagem no centro de Campo Grande, oferecendo conforto, praticidade e atendimento de qualidade para viajantes a negócios e lazer.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#inicio">Início</a></li>
+                        <li><a href="index.html#sobre">Sobre</a></li>
+                        <li><a href="index.html#acomodacoes">Acomodações</a></li>
+                        <li><a href="index.html#servicos">Serviços</a></li>
+                        <li><a href="index.html#galeria">Galeria</a></li>
+                        <li><a href="index.html#contato">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Contato</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Rua Barão do Rio Branco, 343<br>Bairro Amambaí, Campo Grande - MS</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>(67) 3253-2000</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>Contato@hotelmanzoni.com.br</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hotel Manzoni. Todos os direitos reservados.</p>
+                <p>CNPJ: 12.345.678/0001-90</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- WhatsApp Flutuante -->
+    <a href="https://wa.me/556732532000?text=Olá! Gostaria de fazer uma reserva no Hotel Manzoni." 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener"
+       aria-label="Falar pelo WhatsApp"
+       title="Falar pelo WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+    
+    <!-- Chatbot -->
+    <div class="chatbot-icon" aria-label="Chat de atendimento" role="button" tabindex="0">
+        <i class="fas fa-comments" aria-hidden="true"></i>
+    </div>
+    
+    <div class="chatbot-container" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="chatbot-title">
+        <div class="chatbot-header">
+            <h3 id="chatbot-title">Assistente Virtual</h3>
+            <button class="chatbot-close" aria-label="Fechar chat">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" role="log" aria-live="polite">
+            <div class="message bot">
+                <p>Olá! 👋 Sou o assistente virtual do Hotel Manzoni!</p>
+                <p>Posso ajudá-lo com:</p>
+                <p>🏨 Informações sobre quartos e preços<br>
+                📍 Localização e como chegar<br>
+                🕐 Horários e check-in/out<br>
+                🌟 Serviços disponíveis<br>
+                🐕 Política pet friendly<br>
+                📅 Como fazer reservas</p>
+                <p><strong>Digite sua pergunta ou experimente:</strong><br>
+                "Quanto custa o quarto?"<br>
+                "Onde fica o hotel?"<br>
+                "Aceitam animais?"</p>
+            </div>
+        </div>
+        <form class="chatbot-form" aria-labelledby="chatbot-form-title">
+            <h4 id="chatbot-form-title" class="sr-only">Enviar mensagem</h4>
+            <input type="text" placeholder="Digite sua mensagem..." aria-label="Digite sua mensagem">
+            <button type="submit" class="chatbot-send" aria-label="Enviar mensagem">
+                <i class="fas fa-paper-plane" aria-hidden="true"></i>
+            </button>
+        </form>
+    </div>
+    
+    <!-- Botão Voltar ao Topo -->
+    <button class="back-to-top" aria-label="Voltar ao topo" tabindex="0">
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+    </button>
+</body>
+</html> 

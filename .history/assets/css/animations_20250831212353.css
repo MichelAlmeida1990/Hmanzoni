@@ -1,0 +1,366 @@
+/* ===== ANIMAÇÕES ELEGANTES - HOTEL MANZONI ===== */
+
+/* ===== TYPEWRITER EFFECT ===== */
+.typewriter-text {
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+    .typewriter-text {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .typewriter-text {
+        font-size: 1.5rem;
+    }
+}
+
+.typewriter-line {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: typewriterFadeIn 0.8s ease-out forwards;
+}
+
+.typewriter-line:nth-child(1) {
+    animation-delay: 0.5s;
+}
+
+.typewriter-line:nth-child(2) {
+    animation-delay: 1.2s;
+}
+
+.typewriter-line.highlight {
+    color: var(--accent-color, #d4af37);
+    font-weight: 700;
+    position: relative;
+}
+
+.typewriter-line.highlight::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: var(--accent-color, #d4af37);
+    animation: blink 1s infinite;
+}
+
+@keyframes typewriterFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* ===== FADE IN ANIMATIONS ===== */
+.fade-in-text {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-out 1.8s forwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== HERO BUTTONS ===== */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-out 2.2s forwards;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent-color, #d4af37), #b8941f);
+    border: none;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 2px solid var(--accent-color, #d4af37);
+    color: var(--accent-color, #d4af37);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: var(--accent-color, #d4af37);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* ===== PULSE ANIMATION ===== */
+.pulse-animation {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    }
+    50% {
+        box-shadow: 0 4px 25px rgba(212, 175, 55, 0.6);
+    }
+    100% {
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    }
+}
+
+/* ===== SLIDE IN BUTTON ===== */
+.slide-in-btn {
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: slideInLeft 0.8s ease-out 2.5s forwards;
+}
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ===== HERO FEATURES ===== */
+.hero-features {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-out 2.8s forwards;
+}
+
+.feature-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(212, 175, 55, 0.4),
+        transparent
+    );
+    transition: left 0.5s ease;
+}
+
+.feature-badge:hover::before {
+    left: 100%;
+}
+
+.feature-badge:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+}
+
+.feature-badge i {
+    color: var(--accent-color, #d4af37);
+    font-size: 1.1rem;
+}
+
+/* ===== BOUNCE ANIMATION ===== */
+.bounce-animation {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* ===== SCROLL DOWN ARROW ===== */
+.scroll-down {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 3s forwards;
+}
+
+.scroll-down:hover {
+    color: var(--accent-color, #d4af37);
+    transform: translateX(-50%) scale(1.2);
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* ===== RESPONSIVE ANIMATIONS ===== */
+@media (max-width: 768px) {
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-features {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .typewriter-text {
+        text-align: center;
+    }
+    
+    .typewriter-line {
+        white-space: normal;
+        text-align: center;
+    }
+}
+
+/* ===== DARK THEME ADJUSTMENTS ===== */
+[data-theme="dark"] .feature-badge {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .feature-badge:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* ===== RIPPLE EFFECT ===== */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* ===== ANIMATE ON SCROLL ===== */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.animate-on-scroll.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== TYPEWRITER FINISHED STATE ===== */
+.typewriter-finished .typewriter-line.highlight::after {
+    animation: none;
+    opacity: 0;
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+@media (prefers-reduced-motion: reduce) {
+    .typewriter-text,
+    .fade-in-text,
+    .hero-buttons,
+    .hero-features,
+    .scroll-down,
+    .pulse-animation,
+    .bounce-animation,
+    .animate-on-scroll {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+    
+    .typewriter-line.highlight::after {
+        animation: none;
+        opacity: 1;
+    }
+    
+    .ripple {
+        animation: none;
+        display: none;
+    }
+} 
