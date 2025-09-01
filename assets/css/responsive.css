@@ -945,6 +945,256 @@ section {
     }
 }
 
+/* =========== IPHONE 14 E SIMILARES =========== */
+@media (max-width: 390px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .hero {
+        height: 460px;
+    }
+    
+    .hero-content {
+        padding: 0 15px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+        line-height: 1.1;
+    }
+    
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+    
+    .hero-buttons {
+        gap: 10px;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 280px;
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+    
+    .hero-features {
+        gap: 10px;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .feature-badge {
+        padding: 8px 12px;
+        font-size: 0.75rem;
+        min-width: auto;
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    /* Carrossel otimizado para iPhone 14 */
+    .rooms-carousel-container {
+        margin: 0 5px;
+        padding: 0.5rem;
+        border-radius: 10px;
+    }
+    
+    .rooms-carousel {
+        min-height: 300px;
+    }
+    
+    .room-visual {
+        height: 180px;
+    }
+    
+    .room-main-image {
+        height: 180px;
+    }
+    
+    .room-details {
+        padding: 0.5rem;
+    }
+    
+    .room-title {
+        font-size: 1.1rem;
+    }
+    
+    .room-description {
+        font-size: 0.8rem;
+    }
+    
+    .room-features {
+        grid-template-columns: 1fr;
+        gap: 0.3rem;
+    }
+    
+    .feature-item {
+        font-size: 0.7rem;
+        padding: 0.3rem;
+    }
+    
+    /* Controles do carrossel otimizados */
+    .carousel-controls {
+        margin-top: 0.5rem;
+        gap: 8px;
+    }
+    
+    .carousel-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 11px;
+    }
+    
+    .carousel-indicators {
+        margin-top: 0.5rem;
+        gap: 6px;
+    }
+    
+    .carousel-indicators button {
+        width: 5px;
+        height: 5px;
+    }
+    
+    .carousel-thumbnails {
+        margin-top: 0.5rem;
+        gap: 6px;
+    }
+    
+    .carousel-thumbnails img {
+        width: 35px;
+        height: 25px;
+        border-radius: 4px;
+    }
+}
+
+/* =========== POCO X3 PRO E SIMILARES =========== */
+@media (max-width: 393px) {
+    .container {
+        padding: 0 12px;
+    }
+    
+    .hero {
+        height: 480px;
+    }
+    
+    .hero-content {
+        padding: 0 18px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.1rem;
+        line-height: 1.1;
+    }
+    
+    .hero-content p {
+        font-size: 0.95rem;
+    }
+    
+    .hero-buttons {
+        gap: 12px;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+        padding: 14px 22px;
+        font-size: 15px;
+    }
+    
+    .hero-features {
+        gap: 12px;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .feature-badge {
+        padding: 10px 14px;
+        font-size: 0.8rem;
+        min-width: auto;
+        width: 100%;
+        max-width: 220px;
+    }
+    
+    /* Carrossel otimizado para POCO X3 Pro */
+    .rooms-carousel-container {
+        margin: 0 8px;
+        padding: 0.8rem;
+        border-radius: 12px;
+    }
+    
+    .rooms-carousel {
+        min-height: 320px;
+    }
+    
+    .room-visual {
+        height: 200px;
+    }
+    
+    .room-main-image {
+        height: 200px;
+    }
+    
+    .room-details {
+        padding: 0.8rem;
+    }
+    
+    .room-title {
+        font-size: 1.2rem;
+    }
+    
+    .room-description {
+        font-size: 0.85rem;
+    }
+    
+    .room-features {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.4rem;
+    }
+    
+    .feature-item {
+        font-size: 0.75rem;
+        padding: 0.4rem;
+    }
+    
+    /* Controles do carrossel otimizados */
+    .carousel-controls {
+        margin-top: 0.8rem;
+        gap: 10px;
+    }
+    
+    .carousel-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 12px;
+    }
+    
+    .carousel-indicators {
+        margin-top: 0.8rem;
+        gap: 7px;
+    }
+    
+    .carousel-indicators button {
+        width: 6px;
+        height: 6px;
+    }
+    
+    .carousel-thumbnails {
+        margin-top: 0.8rem;
+        gap: 7px;
+    }
+    
+    .carousel-thumbnails img {
+        width: 40px;
+        height: 28px;
+        border-radius: 5px;
+    }
+}
+
 /* =========== MOBILE EXTRA PEQUENO =========== */
 @media (max-width: 400px) {
     .container {
