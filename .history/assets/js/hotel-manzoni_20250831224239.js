@@ -133,155 +133,99 @@
             }
         },
 
-        // =========== BARRA LATERAL GLASSMORPHISM =========== 
-        setupSidebar: function() {
-            if (!this.elements.mobileMenuToggle || !this.elements.sidebarContainer || !this.elements.sidebarOverlay || !this.elements.sidebarClose) {
-                console.warn('Elementos da sidebar não encontrados');
+        // =========== MENU MOBILE =========== 
+        setupMobileMenu: function() {
+            if (!this.elements.mobileMenuToggle || !this.elements.navigation) {
+                console.warn('Elementos do menu mobile não encontrados');
                 return;
             }
 
-            console.log('Sidebar glassmorphism configurada com sucesso');
+            console.log('Menu mobile configurado com sucesso');
 
             // Configurar acessibilidade inicial
             this.elements.mobileMenuToggle.setAttribute('aria-expanded', 'false');
 
-            // Função para abrir sidebar
-            const openSidebar = () => {
-                this.elements.sidebarContainer.classList.add('active');
-                this.elements.sidebarOverlay.classList.add('active');
-                this.elements.body.classList.add('sidebar-open');
+            // Função para abrir menu
+            const openMenu = () => {
+                this.elements.navigation.classList.add('active');
+                this.elements.mobileMenuToggle.classList.add('active');
+                this.elements.body.classList.add('menu-open');
                 
                 // Atualizar acessibilidade
                 this.elements.mobileMenuToggle.setAttribute('aria-expanded', 'true');
                 
-                // Focar no primeiro link da sidebar
-                const firstLink = this.elements.sidebarContainer.querySelector('.sidebar-nav-link');
+                // Focar primeiro link
+                const firstLink = this.elements.navigation.querySelector('a');
                 if (firstLink) {
                     setTimeout(() => firstLink.focus(), 100);
                 }
-
-                // Adicionar classe de animação de entrada
-                this.elements.sidebarContainer.classList.add('entering');
-                setTimeout(() => {
-                    this.elements.sidebarContainer.classList.remove('entering');
-                }, 400);
                 
-                console.log('Sidebar aberta');
+                console.log('Menu aberto');
             };
 
-            // Função para fechar sidebar
-            const closeSidebar = () => {
-                // Adicionar classe de animação de saída
-                this.elements.sidebarContainer.classList.add('exiting');
+            // Função para fechar menu
+            const closeMenu = () => {
+                this.elements.navigation.classList.remove('active');
+                this.elements.mobileMenuToggle.classList.remove('active');
+                this.elements.body.classList.remove('menu-open');
                 
-                setTimeout(() => {
-                    this.elements.sidebarContainer.classList.remove('active', 'exiting');
-                    this.elements.sidebarOverlay.classList.remove('active');
-                    this.elements.body.classList.remove('sidebar-open');
-                    
-                    // Atualizar acessibilidade
-                    this.elements.mobileMenuToggle.setAttribute('aria-expanded', 'false');
-                }, 400);
+                // Atualizar acessibilidade
+                this.elements.mobileMenuToggle.setAttribute('aria-expanded', 'false');
                 
-                console.log('Sidebar fechada');
+                console.log('Menu fechado');
             };
 
-            // Event listeners
+            // Event listener para botão toggle
             this.elements.mobileMenuToggle.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                const isExpanded = this.elements.mobileMenuToggle.getAttribute('aria-expanded') === 'true';
-                
-                if (isExpanded) {
-                    closeSidebar();
-                } else {
-                    openSidebar();
-                }
-            });
-
-            // Fechar sidebar com botão X
-            this.elements.sidebarClose.addEventListener('click', (e) => {
-                e.preventDefault();
-                closeSidebar();
-            });
-
-            // Fechar sidebar ao clicar no overlay
-            this.elements.sidebarOverlay.addEventListener('click', (e) => {
-                if (e.target === this.elements.sidebarOverlay) {
-                    closeSidebar();
-                }
-            });
-
-            // Fechar sidebar ao clicar em um link
-            const sidebarLinks = this.elements.sidebarContainer.querySelectorAll('.sidebar-nav-link');
-            sidebarLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    closeSidebar();
-                });
-            });
-
-            // Fechar sidebar com ESC
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && this.elements.sidebarContainer.classList.contains('active')) {
-                    closeSidebar();
-                }
-            });
-
-            // Fechar sidebar ao redimensionar para desktop
-            window.addEventListener('resize', () => {
-                if (window.innerWidth > 768 && this.elements.sidebarContainer.classList.contains('active')) {
-                    closeSidebar();
-                }
-            });
-
-            // Navegação por seções com scroll suave
-            const sectionLinks = this.elements.sidebarContainer.querySelectorAll('[data-section]');
-            sectionLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
                     e.preventDefault();
-                    const targetId = link.getAttribute('data-section');
-                    const targetSection = document.getElementById(targetId);
+                    e.stopPropagation();
                     
-                    if (targetSection) {
-                        targetSection.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                    
-                    closeSidebar();
-                });
+                console.log('Botão do menu clicado');
+                
+                if (this.elements.navigation.classList.contains('active')) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
             });
 
-            // Atualizar link ativo baseado na seção visível
-            this.updateActiveSidebarLink = () => {
-                const sections = ['inicio', 'sobre', 'acomodacoes', 'servicos', 'galeria', 'contato'];
-                const scrollPosition = window.scrollY + 100;
+            // Fechar menu ao clicar em links
+            const navLinks = this.elements.navigation.querySelectorAll('a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    closeMenu();
+                    });
+                });
+                
+            // Fechar menu ao clicar no overlay
+            this.elements.body.addEventListener('click', (e) => {
+                if (this.elements.body.classList.contains('menu-open') && 
+                    !this.elements.navigation.contains(e.target) && 
+                    e.target !== this.elements.mobileMenuToggle && 
+                    !this.elements.mobileMenuToggle.contains(e.target)) {
+                    closeMenu();
+                }
+            });
 
-                sections.forEach(sectionId => {
-                    const section = document.getElementById(sectionId);
-                    const link = this.elements.sidebarContainer.querySelector(`[data-section="${sectionId}"]`);
-                    
-                    if (section && link) {
-                        const sectionTop = section.offsetTop;
-                        const sectionBottom = sectionTop + section.offsetHeight;
-                        
-                        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-                            // Remover classe ativa de todos os links
-                            sidebarLinks.forEach(l => l.classList.remove('active'));
-                            // Adicionar classe ativa ao link atual
-                            link.classList.add('active');
-                        }
+            // Fechar menu com ESC
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && this.elements.navigation.classList.contains('active')) {
+                    closeMenu();
+                    this.elements.mobileMenuToggle.focus();
+                }
+            });
+
+            // Navegação por teclado
+            navLinks.forEach((link, index) => {
+                link.addEventListener('keydown', (e) => {
+                    if (e.key === 'Tab' && e.shiftKey && index === 0) {
+                        e.preventDefault();
+                        this.elements.mobileMenuToggle.focus();
+                    } else if (e.key === 'Tab' && !e.shiftKey && index === navLinks.length - 1) {
+                        e.preventDefault();
+                        this.elements.mobileMenuToggle.focus();
                     }
                 });
-            };
-
-            // Atualizar link ativo no scroll
-            window.addEventListener('scroll', () => {
-                if (this.elements.sidebarContainer.classList.contains('active')) {
-                    this.updateActiveSidebarLink();
-                }
             });
         },
 

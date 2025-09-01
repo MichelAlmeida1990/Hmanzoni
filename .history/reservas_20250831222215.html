@@ -26,7 +26,6 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/lightbox.css">
     <link rel="stylesheet" href="assets/css/animations.css">
-    <link rel="stylesheet" href="assets/css/sidebar.css">
     <link rel="stylesheet" href="assets/css/reservation.css">
     <link rel="stylesheet" href="assets/css/reservation-mobile-fixes.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -276,7 +275,7 @@
                     <img src="assets/images/common/logo.png" alt="Hotel Manzoni Logo">
                 </a>
             </div>
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menu de navegação" aria-expanded="false" aria-controls="sidebar-container">
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menu de navegação" aria-expanded="false" aria-controls="main-nav">
                 <i class="fas fa-bars"></i>
                 <span class="sr-only">Menu</span>
             </button>
@@ -299,137 +298,6 @@
             </div>
         </div>
     </header>
-
-    <!-- Barra Lateral Glassmorphism -->
-    <div class="sidebar-overlay" id="sidebar-overlay"></div>
-    <div class="sidebar-container" id="sidebar-container">
-        <div class="sidebar">
-            <!-- Header da Sidebar -->
-            <div class="sidebar-header">
-                <div class="sidebar-logo">
-                    <img src="assets/images/common/logo.png" alt="Hotel Manzoni Logo">
-                    <div>
-                        <h3>Hotel Manzoni</h3>
-                        <p class="sidebar-subtitle">Conforto e Elegância</p>
-                    </div>
-                </div>
-                <button class="sidebar-close" id="sidebar-close" aria-label="Fechar menu">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-
-            <!-- Conteúdo da Sidebar -->
-            <div class="sidebar-content">
-                <!-- Navegação -->
-                <div class="sidebar-nav">
-                    <h4 class="sidebar-nav-title">Navegação</h4>
-                    <ul class="sidebar-nav-list">
-                        <li class="sidebar-nav-item">
-                            <a href="index.html#inicio" class="sidebar-nav-link">
-                                <i class="fas fa-home"></i>
-                                <span>Início</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-nav-item">
-                            <a href="index.html#sobre" class="sidebar-nav-link">
-                                <i class="fas fa-info-circle"></i>
-                                <span>Sobre</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-nav-item">
-                            <a href="index.html#acomodacoes" class="sidebar-nav-link">
-                                <i class="fas fa-bed"></i>
-                                <span>Acomodações</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-nav-item">
-                            <a href="index.html#servicos" class="sidebar-nav-link">
-                                <i class="fas fa-concierge-bell"></i>
-                                <span>Serviços</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-nav-item">
-                            <a href="index.html#galeria" class="sidebar-nav-link">
-                                <i class="fas fa-images"></i>
-                                <span>Galeria</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-nav-item">
-                            <a href="reservas.html" class="sidebar-nav-link active">
-                                <i class="fas fa-calendar-check"></i>
-                                <span>Reservas</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-nav-item">
-                            <a href="index.html#contato" class="sidebar-nav-link">
-                                <i class="fas fa-envelope"></i>
-                                <span>Contato</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Informações de Contato -->
-                <div class="sidebar-section">
-                    <h4 class="sidebar-section-title">
-                        <i class="fas fa-phone"></i>
-                        Contato
-                    </h4>
-                    <div class="contact-info-item">
-                        <i class="fas fa-phone"></i>
-                        <span>(67) 3253-2000</span>
-                    </div>
-                    <div class="contact-info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Centro, Campo Grande - MS</span>
-                    </div>
-                    <div class="contact-info-item">
-                        <i class="fas fa-clock"></i>
-                        <span>Recepção 24h</span>
-                    </div>
-                    <div class="contact-info-item">
-                        <i class="fas fa-wifi"></i>
-                        <span>Wi-Fi Grátis</span>
-                    </div>
-                </div>
-
-                <!-- Redes Sociais -->
-                <div class="sidebar-section">
-                    <h4 class="sidebar-section-title">
-                        <i class="fas fa-share-alt"></i>
-                        Redes Sociais
-                    </h4>
-                    <div class="sidebar-social">
-                        <a href="https://facebook.com/hotelmanzoni" class="sidebar-social-link" target="_blank" rel="noopener" aria-label="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://instagram.com/hotelmanzoni" class="sidebar-social-link" target="_blank" rel="noopener" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://wa.me/556732532000" class="sidebar-social-link" target="_blank" rel="noopener" aria-label="WhatsApp">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Informações do Hotel -->
-                <div class="sidebar-section">
-                    <h4 class="sidebar-section-title">
-                        <i class="fas fa-star"></i>
-                        Sobre o Hotel
-                    </h4>
-                    <p style="color: rgba(44, 62, 80, 0.8); font-size: 0.9rem; line-height: 1.5; margin: 0;">
-                        Localizado estrategicamente no centro de Campo Grande, oferecemos 45 quartos modernos com conforto e elegância desde 2005.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Footer da Sidebar -->
-            <div class="sidebar-footer">
-                <p class="sidebar-footer-text">© 2024 Hotel Manzoni. Todos os direitos reservados.</p>
-            </div>
-        </div>
-    </div>
 
     <main>
         <section id="inicio" class="hero">

@@ -273,244 +273,72 @@
         max-width: 540px;
     }
     
-    /* =========== HEADER MOBILE =========== */
-header {
-    background-color: var(--background-color);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 15px 0;
-}
-
-header .container {
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    max-width: 100%;
-}
-
-/* Esconder navegação desktop no mobile */
-.main-navigation {
-    display: none !important;
-}
-
-/* Mostrar botão mobile */
-.mobile-menu-toggle {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 215, 0, 0.3);
-    color: #FFD700;
-    font-size: 22px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 12px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.2);
-}
-
-.mobile-menu-toggle:hover {
-    background-color: rgba(255, 215, 0, 0.2);
-    transform: scale(1.05);
-    box-shadow: 0 6px 16px rgba(255, 215, 0, 0.3);
-}
-
-.mobile-menu-toggle:active {
-    transform: scale(0.95);
-}
-
-/* Esconder theme toggle no mobile */
-.theme-toggle {
-    display: none;
-}
-
-/* Melhorar logo no mobile */
-.logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.logo img {
-    height: 45px;
-    transition: all 0.3s ease;
-}
-
-.logo:hover img {
-    transform: scale(1.05);
-}
+    .section-title {
+        font-size: 2rem;
+    }
     
-    /* =========== HERO MOBILE =========== */
-.section-title {
-    font-size: 2.2rem;
-    text-align: center;
-    margin-bottom: 1.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
-}
-
-.hero {
-    height: 600px;
-    background-attachment: scroll; /* Melhor performance mobile */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.hero-content {
-    text-align: center;
-    padding: 0 30px;
-    max-width: 100%;
-    width: 100%;
-}
-
-.hero-content h1 {
-    font-size: 2.8rem;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-    font-weight: 700;
-}
-
-.hero-content p {
-    font-size: 1.1rem;
-    margin: 1.5rem auto;
-    max-width: 90%;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.9);
-}
-
-.hero-buttons {
-    justify-content: center;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 2.5rem;
-    align-items: center;
-}
-
-.hero-buttons .btn {
-    width: 100%;
-    max-width: 300px;
-    padding: 15px 30px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border-radius: 12px;
-    transition: all 0.3s ease;
-}
-
-.hero-features {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 2rem;
-    flex-wrap: wrap;
-}
-
-.feature-badge {
-    padding: 12px 20px;
-    border-radius: 25px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 215, 0, 0.3);
-    color: #FFD700;
-    font-weight: 600;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s ease;
-}
-
-.feature-badge:hover {
-    background: rgba(255, 215, 0, 0.2);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
-}
+    .hero {
+        height: 500px;
+    }
     
-    /* =========== GRIDS MOBILE =========== */
-.room-grid,
-.service-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    padding: 0 20px;
-}
-
-.gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    padding: 0 15px;
-}
-
-.footer-widgets {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    text-align: center;
-    padding: 0 20px;
-}
-
-.footer-bottom {
-    flex-direction: column;
-    gap: 1.5rem;
-    text-align: center;
-    padding: 0 20px;
-}
-
-.footer-social {
-    justify-content: center;
-    gap: 15px;
-}
-
-.booking-widget {
-    padding: 2rem;
-    margin: 0 20px;
-    border-radius: 15px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 215, 0, 0.2);
-}
-
-.booking-widget__field {
-    flex: 0 0 100%;
-    margin-bottom: 20px;
-}
-
-.booking-widget__submit {
-    flex: 0 0 100%;
-    margin-top: 20px;
-}
-
-.about-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    padding: 0 20px;
-}
-
-/* Melhorar seções gerais no mobile */
-section {
-    padding: 60px 0;
-    text-align: center;
-}
-
-.container {
-    padding: 0 20px;
-    max-width: 100%;
-}
-
-/* Melhorar cards e elementos */
-.card, .room-card, .service-card {
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    margin: 0 auto;
-    max-width: 400px;
-}
-
-.card:hover, .room-card:hover, .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(255, 215, 0, 0.2);
-}
+    .hero-content {
+        text-align: center;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+        margin: 1rem auto;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+    
+    .room-grid,
+    .service-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .footer-widgets {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .footer-social {
+        justify-content: center;
+    }
+    
+    .booking-widget {
+        padding: 1.5rem;
+    }
+    
+    .booking-widget__field {
+        flex: 0 0 100%;
+    }
+    
+    .booking-widget__submit {
+        flex: 0 0 100%;
+    }
+    
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
     
     .about-image {
         height: 300px;
@@ -567,198 +395,6 @@ section {
     .booking-form-grid {
         grid-template-columns: 1fr;
     }
-    
-    /* =========== MELHORIAS ESPECÍFICAS MOBILE =========== */
-
-/* Melhorar carrossel mobile */
-.room-carousel {
-    margin: 0 -15px;
-}
-
-.room-carousel .slick-slide {
-    padding: 0 5px;
-}
-
-/* Melhorar galeria mobile */
-.gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-}
-
-.gallery-item {
-    aspect-ratio: 1;
-}
-
-/* Melhorar formulários mobile */
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-control {
-    padding: 15px;
-    font-size: 16px;
-    border-radius: 8px;
-}
-
-/* Melhorar botões mobile */
-.btn {
-    padding: 15px 25px;
-    font-size: 16px;
-    border-radius: 8px;
-    min-height: 48px;
-}
-
-/* Melhorar espaçamentos mobile */
-section {
-    padding: 60px 0;
-}
-
-.section-title {
-    margin-bottom: 30px;
-}
-
-/* Melhorar performance de animações mobile */
-.animate-on-scroll {
-    animation-duration: 0.8s;
-}
-
-/* Melhorar acessibilidade mobile */
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
-
-/* =========== MOBILE MUITO PEQUENO =========== */
-@media (max-width: 480px) {
-    .container {
-        padding: 0 15px;
-    }
-    
-    .hero {
-        height: 500px;
-    }
-    
-    .hero-content {
-        padding: 0 20px;
-    }
-    
-    .hero-content h1 {
-        font-size: 2.2rem;
-        line-height: 1.1;
-    }
-    
-    .hero-content p {
-        font-size: 1rem;
-        max-width: 95%;
-    }
-    
-    .hero-buttons {
-        gap: 15px;
-        margin-top: 2rem;
-    }
-    
-    .hero-buttons .btn {
-        padding: 14px 25px;
-        font-size: 1rem;
-        max-width: 280px;
-    }
-    
-    .hero-features {
-        gap: 15px;
-        margin-top: 1.5rem;
-    }
-    
-    .feature-badge {
-        padding: 10px 16px;
-        font-size: 0.8rem;
-    }
-    
-    .section-title {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-    }
-    
-    .gallery-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0 10px;
-    }
-    
-    .room-carousel {
-        margin: 0 -15px;
-    }
-    
-    .room-carousel .slick-slide {
-        padding: 0 5px;
-    }
-    
-    /* Melhorar sidebar em mobile pequeno */
-    .sidebar-container {
-        width: 100%;
-    }
-    
-    .sidebar-header {
-        padding: 20px 15px;
-    }
-    
-    .sidebar-content {
-        padding: 20px 15px;
-    }
-    
-    .sidebar-section {
-        padding: 20px 15px;
-        margin-bottom: 25px;
-    }
-    
-    .sidebar-footer {
-        padding: 20px 15px;
-    }
-    
-    /* Melhorar chatbot em mobile pequeno */
-    .chatbot-container {
-        width: 100%;
-        height: 100vh;
-        bottom: 0;
-        right: 0;
-        border-radius: 0;
-    }
-    
-    .chatbot-icon {
-        bottom: 20px;
-        right: 20px;
-        width: 60px;
-        height: 60px;
-        font-size: 24px;
-    }
-    
-    /* Melhorar espaçamentos gerais */
-    section {
-        padding: 50px 0;
-    }
-    
-    .room-grid,
-    .service-grid {
-        padding: 0 15px;
-        gap: 25px;
-    }
-    
-    .footer-widgets {
-        padding: 0 15px;
-        gap: 30px;
-    }
-    
-    .booking-widget {
-        margin: 0 15px;
-        padding: 1.5rem;
-    }
-}
     
     /* Melhorias específicas para formulários mobile */
     .form-row {
