@@ -1,0 +1,934 @@
+/* assets/js/hotel-manzoni.js - VERSÃO REESCRITA COMPLETA */
+
+(function() {
+    'use strict';
+
+    // =========== CONFIGURAÇÃO INICIAL =========== 
+    const HotelManzoni = {
+        // Elementos DOM
+        elements: {
+            preloader: null,
+            mobileMenuToggle: null,
+            navigation: null,
+            body: null,
+            chatbotIcon: null,
+            chatbotContainer: null,
+            backToTop: null
+        },
+
+        // =========== INICIALIZAÇÃO =========== 
+        init: function() {
+            console.log('Hotel Manzoni JS inicializado com sucesso!');
+            
+            // Aplicar tema inicial imediatamente
+            this.applyInitialTheme();
+            
+            // Esperar DOM carregar
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', this.setupElements.bind(this));
+            } else {
+                this.setupElements();
+            }
+        },
+
+        // =========== APLICAR TEMA INICIAL =========== 
+        applyInitialTheme: function() {
+            // Definir tema claro como padrão
+            let initialTheme = 'light';
+
+            // Carregar tema salvo ou usar tema claro como padrão
+            const savedTheme = localStorage.getItem('theme') || initialTheme;
+            
+            console.log('Aplicando tema inicial:', savedTheme);
+            
+            // Aplicar tema imediatamente
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            document.body.classList.remove('theme-light', 'theme-dark');
+            document.body.classList.add(`theme-${savedTheme}`);
+        },
+
+        // =========== CONFIGURAR ELEMENTOS =========== 
+        setupElements: function() {
+            // Encontrar elementos DOM
+            this.elements.preloader = document.querySelector('.preloader');
+            this.elements.mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            this.elements.navigation = document.querySelector('.main-navigation');
+            this.elements.sidebarContainer = document.getElementById('sidebar-container');
+            this.elements.sidebarOverlay = document.getElementById('sidebar-overlay');
+            this.elements.sidebarClose = document.getElementById('sidebar-close');
+            this.elements.body = document.body;
+            this.elements.chatbotIcon = document.querySelector('.chatbot-icon');
+            this.elements.chatbotContainer = document.querySelector('.chatbot-container');
+            this.elements.backToTop = document.querySelector('.back-to-top');
+
+            // Inicializar módulos
+            this.setupPreloader();
+            this.setupSidebar();
+            this.setupThemeToggle();
+            this.setupChatbot();
+            this.setupScrollEvents();
+            this.setupAccessibility();
+            this.setupPerformanceOptimizations();
+            this.setupRoomsCarousel();
+
+            console.log('Elementos do chatbot:', {
+                icon: !!this.elements.chatbotIcon,
+                container: !!this.elements.chatbotContainer
+            });
+        },
+
+        // =========== PRELOADER ANIMADO =========== 
+        setupPreloader: function() {
+            if (!this.elements.preloader) return;
+
+            const loadingNumber = document.querySelector('#loadingNumber');
+            const loadingCircle = document.querySelector('.loading-circle');
+            
+            if (loadingNumber && loadingCircle) {
+                let load = 0;
+                const loadingInterval = setInterval(() => {
+                    load += 1;
+                    if (load <= 100) {
+                        loadingNumber.innerHTML = load;
+                        loadingCircle.style.background = 'conic-gradient(from 0deg at 50% 50%, #D4AF37 0%, #B8941F ' + load + '%, #E9ECEF ' + load + '%)';
+                    } else {
+                        clearInterval(loadingInterval);
+                        // Aguardar um pouco mais para mostrar 100%
+                        setTimeout(() => {
+                            this.elements.preloader.classList.add('fade-out');
+                            setTimeout(() => {
+                                if (this.elements.preloader.parentNode) {
+                                    this.elements.preloader.parentNode.removeChild(this.elements.preloader);
+                                }
+                            }, 500);
+                        }, 300);
+                    }
+                }, 50);
+                
+                // Fallback caso algo dê errado
+                window.addEventListener('load', () => {
+                    setTimeout(() => {
+                        if (this.elements.preloader && this.elements.preloader.parentNode) {
+                            this.elements.preloader.classList.add('fade-out');
+                            setTimeout(() => {
+                                if (this.elements.preloader.parentNode) {
+                                    this.elements.preloader.parentNode.removeChild(this.elements.preloader);
+                                }
+                            }, 500);
+                        }
+                    }, 5000);
+                });
+            } else {
+                // Fallback para preloader simples
+                window.addEventListener('load', () => {
+                    setTimeout(() => {
+                        this.elements.preloader.classList.add('fade-out');
+                        setTimeout(() => {
+                            if (this.elements.preloader.parentNode) {
+                                this.elements.preloader.parentNode.removeChild(this.elements.preloader);
+                            }
+                        }, 500);
+                    }, 1000);
+                });
+            }
+        },
+
+        // =========== BARRA LATERAL GLASSMORPHISM =========== 
+        setupSidebar: function() {
+            if (!this.elements.mobileMenuToggle || !this.elements.sidebarContainer || !this.elements.sidebarOverlay || !this.elements.sidebarClose) {
+                console.warn('Elementos da sidebar não encontrados');
+                return;
+            }
+
+            console.log('Sidebar glassmorphism configurada com sucesso');
+
+            // Configurar acessibilidade inicial
+            this.elements.mobileMenuToggle.setAttribute('aria-expanded', 'false');
+
+            // Função para abrir sidebar
+            const openSidebar = () => {
+                this.elements.sidebarContainer.classList.add('active');
+                this.elements.sidebarOverlay.classList.add('active');
+                this.elements.body.classList.add('sidebar-open');
+                
+                // Apenas overflow hidden para evitar scroll da página principal
+                this.elements.body.style.overflow = 'hidden';
+                
+                // Atualizar acessibilidade
+                this.elements.mobileMenuToggle.setAttribute('aria-expanded', 'true');
+                
+                // Focar no primeiro link da sidebar
+                const firstLink = this.elements.sidebarContainer.querySelector('.sidebar-nav-link');
+                if (firstLink) {
+                    setTimeout(() => firstLink.focus(), 100);
+                }
+
+                // Adicionar classe de animação de entrada
+                this.elements.sidebarContainer.classList.add('entering');
+                setTimeout(() => {
+                    this.elements.sidebarContainer.classList.remove('entering');
+                }, 400);
+                
+                console.log('Sidebar aberta');
+            };
+
+            // Função para fechar sidebar
+            const closeSidebar = () => {
+                // Adicionar classe de animação de saída
+                this.elements.sidebarContainer.classList.add('exiting');
+                
+                setTimeout(() => {
+                    // Remover todas as classes da sidebar
+                    this.elements.sidebarContainer.classList.remove('active', 'exiting');
+                    this.elements.sidebarOverlay.classList.remove('active');
+                    this.elements.body.classList.remove('sidebar-open');
+                    
+                    // Restaurar overflow do body
+                    this.elements.body.style.overflow = '';
+                    
+                    // Atualizar acessibilidade
+                    this.elements.mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                }, 400);
+                
+                console.log('Sidebar fechada');
+            };
+
+            // Event listeners
+            this.elements.mobileMenuToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const isExpanded = this.elements.mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+                
+                console.log('Menu clicado, estado atual:', isExpanded);
+                console.log('Elementos da sidebar:', {
+                    container: this.elements.sidebarContainer,
+                    overlay: this.elements.sidebarOverlay,
+                    body: this.elements.body
+                });
+                
+                if (isExpanded) {
+                    closeSidebar();
+                } else {
+                    openSidebar();
+                }
+            });
+
+            // Fechar sidebar com botão X
+            this.elements.sidebarClose.addEventListener('click', (e) => {
+                e.preventDefault();
+                closeSidebar();
+            });
+
+            // Fechar sidebar ao clicar no overlay
+            this.elements.sidebarOverlay.addEventListener('click', (e) => {
+                if (e.target === this.elements.sidebarOverlay) {
+                    closeSidebar();
+                }
+            });
+
+            // Fechar sidebar ao clicar em um link
+            const sidebarLinks = this.elements.sidebarContainer.querySelectorAll('.sidebar-nav-link');
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    closeSidebar();
+                });
+            });
+
+            // Fechar sidebar com ESC
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && this.elements.sidebarContainer.classList.contains('active')) {
+                    closeSidebar();
+                }
+            });
+
+            // Fechar sidebar ao redimensionar para desktop
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768 && this.elements.sidebarContainer.classList.contains('active')) {
+                    closeSidebar();
+                }
+                
+                // Limpeza de emergência para garantir responsividade
+                this.cleanupBodyStyles();
+            });
+            
+            // Função de limpeza de emergência
+            this.cleanupBodyStyles = () => {
+                // Remover todas as classes residuais
+                this.elements.body.classList.remove('sidebar-open');
+                
+                // Restaurar overflow do body
+                this.elements.body.style.overflow = '';
+                
+                console.log('Estilos do body limpos');
+            };
+
+            // Listener para visibilidade da página (ajuda com problemas de responsividade)
+            document.addEventListener('visibilitychange', () => {
+                if (!document.hidden && this.elements.body.classList.contains('sidebar-open')) {
+                    // Se a página voltou a ficar visível e ainda tem sidebar-open, limpar
+                    setTimeout(() => {
+                        this.cleanupBodyStyles();
+                    }, 100);
+                }
+            });
+            
+            // Navegação por seções com scroll suave
+            const sectionLinks = this.elements.sidebarContainer.querySelectorAll('[data-section]');
+            sectionLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('data-section');
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                    
+                    closeSidebar();
+                });
+            });
+
+            // Atualizar link ativo baseado na seção visível
+            this.updateActiveSidebarLink = () => {
+                const sections = ['inicio', 'sobre', 'acomodacoes', 'servicos', 'galeria', 'contato'];
+                const scrollPosition = window.scrollY + 100;
+
+                sections.forEach(sectionId => {
+                    const section = document.getElementById(sectionId);
+                    const link = this.elements.sidebarContainer.querySelector(`[data-section="${sectionId}"]`);
+                    
+                    if (section && link) {
+                        const sectionTop = section.offsetTop;
+                        const sectionBottom = sectionTop + section.offsetHeight;
+                        
+                        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                            // Remover classe ativa de todos os links
+                            sidebarLinks.forEach(l => l.classList.remove('active'));
+                            // Adicionar classe ativa ao link atual
+                            link.classList.add('active');
+                        }
+                    }
+                });
+            };
+
+            // Atualizar link ativo no scroll
+            window.addEventListener('scroll', () => {
+                if (this.elements.sidebarContainer.classList.contains('active')) {
+                    this.updateActiveSidebarLink();
+                }
+            });
+        },
+
+        // =========== TOGGLE DE TEMA =========== 
+        setupThemeToggle: function() {
+            const themeButton = document.getElementById('theme-button');
+            if (!themeButton) {
+                console.log('Botão de tema não encontrado');
+                return;
+            }
+
+            console.log('Toggle de tema configurado');
+
+            // Obter tema atual
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 
+                                localStorage.getItem('theme') || 'light';
+            
+            // Atualizar ícone inicial
+            this.updateThemeButtonIcon(currentTheme);
+
+            // Event listener para toggle
+            themeButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+                    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                    
+                console.log('Alterando tema de', currentTheme, 'para', newTheme);
+                
+                // Aplicar novo tema
+                    document.documentElement.setAttribute('data-theme', newTheme);
+                document.body.classList.remove('theme-light', 'theme-dark');
+                document.body.classList.add(`theme-${newTheme}`);
+                    localStorage.setItem('theme', newTheme);
+                    
+                    // Atualizar ícone
+                this.updateThemeButtonIcon(newTheme);
+                
+                console.log('Tema alterado para:', newTheme);
+            });
+        },
+
+        // =========== ATUALIZAR ÍCONE DO TEMA =========== 
+        updateThemeButtonIcon: function(theme) {
+            const themeButton = document.getElementById('theme-button');
+            if (!themeButton) {
+                console.log('Botão de tema não encontrado para atualizar ícone');
+                return;
+            }
+
+            const icon = themeButton.querySelector('i');
+            if (!icon) {
+                console.log('Ícone do tema não encontrado');
+                return;
+            }
+
+            // Remover classes antigas
+            icon.classList.remove('fa-sun', 'fa-moon');
+            
+            // Adicionar classe correta
+            if (theme === 'dark') {
+                icon.classList.add('fa-sun');
+                console.log('Ícone alterado para sol (tema escuro ativo)');
+                themeButton.setAttribute('aria-label', 'Mudar para tema claro');
+                themeButton.setAttribute('title', 'Mudar para tema claro');
+            } else {
+                icon.classList.add('fa-moon');
+                console.log('Ícone alterado para lua (tema claro ativo)');
+                themeButton.setAttribute('aria-label', 'Mudar para tema escuro');
+                themeButton.setAttribute('title', 'Mudar para tema escuro');
+            }
+        },
+
+        // =========== CHATBOT INTELIGENTE =========== 
+        setupChatbot: function() {
+            if (!this.elements.chatbotIcon || !this.elements.chatbotContainer) {
+                console.log('Chatbot não encontrado, pulando configuração');
+                return;
+            }
+
+            console.log('Configurando chatbot inteligente...');
+
+            // Toggle chatbot
+            this.elements.chatbotIcon.addEventListener('click', () => {
+                this.elements.chatbotContainer.classList.toggle('active');
+                console.log('Chatbot toggled');
+            });
+
+            // Fechar chatbot
+            const chatbotClose = this.elements.chatbotContainer.querySelector('.chatbot-close');
+            if (chatbotClose) {
+                chatbotClose.addEventListener('click', () => {
+                    this.elements.chatbotContainer.classList.remove('active');
+                });
+            }
+
+            // Enviar mensagem
+            const chatbotForm = this.elements.chatbotContainer.querySelector('.chatbot-form');
+            const chatbotInput = this.elements.chatbotContainer.querySelector('.chatbot-form input');
+
+            if (chatbotForm && chatbotInput) {
+                chatbotForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const message = chatbotInput.value.trim();
+                    
+                    if (message) {
+                        this.addChatMessage(message, 'user');
+                        chatbotInput.value = '';
+                        
+                        // Processar resposta do bot
+                        setTimeout(() => {
+                            const response = this.processChatMessage(message);
+                            this.addChatMessage(response, 'bot');
+                        }, 800);
+                    }
+                });
+
+                // Enter para enviar
+                chatbotInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        chatbotForm.dispatchEvent(new Event('submit'));
+                    }
+                });
+            }
+        },
+
+        // =========== PROCESSAR MENSAGEM DO CHAT =========== 
+        processChatMessage: function(message) {
+            const lowerMessage = message.toLowerCase().trim();
+            
+            // Saudações
+            if (this.matchesPattern(lowerMessage, ["oi", "olá", "ola", "bom dia", "boa tarde", "boa noite", "ei", "hello", "hey"])) {
+                const responses = [
+                    "Olá! Bem-vindo ao Hotel Manzoni! 😊 Como posso ajudá-lo hoje?",
+                    "Oi! Sou o assistente virtual do Hotel Manzoni. Em que posso ajudá-lo?",
+                    "Olá! É um prazer falar com você. Como posso auxiliá-lo com sua estadia?"
+                ];
+                return responses[Math.floor(Math.random() * responses.length)];
+            }
+
+            // Despedidas
+            if (this.matchesPattern(lowerMessage, ["tchau", "obrigado", "obrigada", "valeu", "até logo", "bye", "thanks"])) {
+                const responses = [
+                    "Foi um prazer ajudá-lo! Esperamos vê-lo em breve no Hotel Manzoni! 🏨",
+                    "Obrigado por escolher o Hotel Manzoni! Tenha um ótimo dia! 😊",
+                    "Até logo! Estamos sempre aqui para ajudá-lo!"
+                ];
+                return responses[Math.floor(Math.random() * responses.length)];
+            }
+
+            // Preços e quartos
+            if (this.matchesPattern(lowerMessage, ["preço", "precos", "valor", "quanto custa", "diária", "diaria", "quartos", "acomodações", "acomodacoes"])) {
+                return `💰 **Nossos Preços (por diária):**\n\n` +
+                       `🏨 **Suíte Individual**: R$ 140\n` +
+                       `   1 pessoa com cama de casal\n\n` +
+                       `🏨 **Suíte Duplo**: R$ 170 (cama casal) / R$ 190 (camas individuais)\n` +
+                       `   2 pessoas\n\n` +
+                       `🏨 **Suíte Triplo**: R$ 200 (casal+solteiro) / R$ 220 (3 individuais)\n` +
+                       `   3 pessoas\n\n` +
+                       `🏨 **Suíte Quadruplo**: R$ 250\n` +
+                       `   4 pessoas (casal + 2 solteiros)\n\n` +
+                       `💰 **Pessoa adicional**: R$ 50\n` +
+                       `👶 **Crianças até 3 anos**: Gratuito\n` +
+                       `Todos os quartos incluem café da manhã! ☕`;
+            }
+
+            // Contato e localização
+            if (this.matchesPattern(lowerMessage, ["telefone", "contato", "endereço", "endereco", "onde fica", "localização", "localizacao", "como chegar"])) {
+                return `📍 **Hotel Manzoni - Informações de Contato:**\n\n` +
+                       `🏨 **Endereço**: Rua Barão do Rio Branco 343, Bairro Amambaí, CEP 79008-060, Campo Grande - MS\n\n` +
+                       `📞 **Telefone**: (67)3253-2000\n` +
+                       `📱 **WhatsApp**: (67)3253-2000\n` +
+                       `📧 **Email**: Contato@hotelmanzoni.com.br\n\n` +
+                       `🌟 Localização privilegiada em Campo Grande!`;
+            }
+
+            // Check-in/Check-out
+            if (this.matchesPattern(lowerMessage, ["check", "checkin", "checkout", "horário", "horario", "que horas"])) {
+                return `🕐 **Horários do Hotel:**\n\n` +
+                       `✅ **Check-in**: 12:00\n` +
+                       `✅ **Check-out**: 11:00\n` +
+                       `🕐 **Recepção**: 24 horas\n` +
+                       `☕ **Café da manhã**: 06:00 às 09:00\n\n` +
+                       `💡 Check-in antecipado sujeito à disponibilidade!`;
+            }
+
+            // Serviços
+            if (this.matchesPattern(lowerMessage, ["serviços", "servicos", "o que tem", "o que oferece", "comodidades", "wifi", "internet", "café", "cafe"])) {
+                return `🌟 **Nossos Serviços:**\n\n` +
+                       `✅ Café da manhã incluso (06:00 às 09:00)\n` +
+                       `✅ Wi-Fi gratuito\n` +
+                       `✅ Estacionamento (conforme disponibilidade)\n` +
+                       `✅ Recepção 24 horas\n` +
+                       `✅ Ar-condicionado em todos os quartos\n` +
+                       `✅ Televisão\n` +
+                       `✅ Frigobar\n\n` +
+                       `🎯 Tudo pensado para sua comodidade!`;
+            }
+
+            // Pet friendly
+            if (this.matchesPattern(lowerMessage, ["pet", "animal", "cachorro", "gato", "animais", "pode trazer"])) {
+                return `🐕 **Política Pet Friendly:**\n\n` +
+                       `✅ Sim! Aceitamos animais de estimação\n\n` +
+                       `💰 **Tarifas por diária:**\n` +
+                       `🐕 Pet porte pequeno: +R$ 40\n` +
+                       `🐕 Pet porte médio: +R$ 60\n` +
+                       `🐕 Pet porte grande: +R$ 80\n\n` +
+                       `📋 Necessário informar na reserva!`;
+            }
+
+            // Reservas
+            if (this.matchesPattern(lowerMessage, ["reserva", "reservar", "disponibilidade", "vaga", "booking"])) {
+                return `📅 **Para fazer sua reserva:**\n\n` +
+                       `📞 **Telefone**: (67)3253-2000\n` +
+                       `📱 **WhatsApp**: (67)3253-2000\n` +
+                       `📧 **Email**: Contato@hotelmanzoni.com.br\n\n` +
+                       `🎯 Nossa equipe verificará a disponibilidade!\n\n` +
+                       `💡 **Dica**: Reserve com antecedência!`;
+            }
+
+            // Estacionamento
+            if (this.matchesPattern(lowerMessage, ["estacionamento", "estacionar", "carro", "vaga", "garage", "garagem"])) {
+                return `🚗 **Estacionamento:**\n\n` +
+                       `✅ **Incluso** na diária\n` +
+                       `📋 **Disponibilidade**: Conforme vagas disponíveis\n` +
+                       `🕐 **Funcionamento**: 24 horas\n` +
+                       `📍 **Localização**: No próprio hotel\n\n` +
+                       `🎯 Uma preocupação a menos!`;
+            }
+
+            // Crianças
+            if (this.matchesPattern(lowerMessage, ["crianças", "criancas", "criança", "filho", "filhos"])) {
+                return `👶 **Política para Crianças:**\n\n` +
+                       `✅ **Crianças até 3 anos**: Não pagam\n` +
+                       `🛏️ **Acomodação**: Na cama existente\n` +
+                       `💡 **Berço**: Disponível mediante solicitação\n\n` +
+                       `👨‍👩‍👧‍👦 Famílias são sempre bem-vindas!`;
+            }
+
+            // Resposta padrão
+            return `Desculpe, não entendi sua pergunta. 😅 Posso ajudá-lo com:\n\n` +
+                   `🏨 Informações sobre quartos e preços\n` +
+                   `📍 Localização e contato\n` +
+                   `🕐 Horários e check-in/out\n` +
+                   `🌟 Serviços do hotel\n` +
+                   `📅 Como fazer reservas\n` +
+                   `🐕 Política pet friendly\n\n` +
+                   `Experimente perguntar: "Quanto custa?" ou "Onde fica?"`;
+        },
+
+        // =========== VERIFICAR PADRÕES =========== 
+        matchesPattern: function(message, patterns) {
+            return patterns.some(pattern => message.includes(pattern));
+        },
+
+        // =========== ADICIONAR MENSAGEM CHAT =========== 
+        addChatMessage: function(text, type) {
+            const chatbotMessages = this.elements.chatbotContainer.querySelector('.chatbot-messages');
+            if (!chatbotMessages) return;
+            
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}`;
+            
+            // Processar formatação para mensagens do bot
+            if (type === 'bot') {
+                // Converter quebras de linha para <br>
+                let formattedText = text.replace(/\n/g, '<br>');
+                
+                // Converter **texto** para negrito
+                formattedText = formattedText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                
+                // Converter emojis e símbolos especiais para melhor visualização
+                formattedText = formattedText.replace(/✅/g, '<span style="color: #28a745;">✅</span>');
+                formattedText = formattedText.replace(/❌/g, '<span style="color: #dc3545;">❌</span>');
+                formattedText = formattedText.replace(/💰/g, '<span style="color: #d4af37;">💰</span>');
+                formattedText = formattedText.replace(/🏨/g, '<span style="color: #007bff;">🏨</span>');
+                formattedText = formattedText.replace(/📞|📱|📧/g, '<span style="color: #28a745;">$&</span>');
+                
+                messageDiv.innerHTML = formattedText;
+                } else {
+                messageDiv.textContent = text;
+            }
+            
+            chatbotMessages.appendChild(messageDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            
+            // Adicionar animação de entrada
+            messageDiv.style.opacity = '0';
+            messageDiv.style.transform = 'translateY(10px)';
+            setTimeout(() => {
+                messageDiv.style.transition = 'all 0.3s ease';
+                messageDiv.style.opacity = '1';
+                messageDiv.style.transform = 'translateY(0)';
+            }, 100);
+        },
+
+        // =========== EVENTOS DE SCROLL =========== 
+        setupScrollEvents: function() {
+            // Back to top button
+            if (this.elements.backToTop) {
+                window.addEventListener('scroll', () => {
+                    if (window.pageYOffset > 300) {
+                        this.elements.backToTop.classList.add('active');
+                    } else {
+                        this.elements.backToTop.classList.remove('active');
+                    }
+                });
+                
+                this.elements.backToTop.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+
+            // Smooth scrolling para links âncora
+            document.querySelectorAll('a[href^="#"]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const href = link.getAttribute('href');
+                    if (href === '#') return;
+                    
+                    const target = document.querySelector(href);
+                    if (target) {
+                    e.preventDefault();
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        },
+
+        // =========== ACESSIBILIDADE =========== 
+        setupAccessibility: function() {
+            // Skip links
+            const skipLink = document.createElement('a');
+            skipLink.href = '#main';
+            skipLink.textContent = 'Pular para o conteúdo principal';
+            skipLink.className = 'sr-only';
+            skipLink.style.position = 'absolute';
+            skipLink.style.top = '-40px';
+            skipLink.style.left = '6px';
+            skipLink.style.transition = 'top 0.3s';
+            
+            skipLink.addEventListener('focus', () => {
+                skipLink.style.top = '6px';
+            });
+            
+            skipLink.addEventListener('blur', () => {
+                skipLink.style.top = '-40px';
+            });
+            
+            document.body.insertBefore(skipLink, document.body.firstChild);
+
+            // Detectar navegação por teclado
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Tab') {
+                    document.body.classList.add('keyboard-navigation');
+                }
+            });
+
+            document.addEventListener('mousedown', () => {
+                document.body.classList.remove('keyboard-navigation');
+            });
+        },
+
+        // =========== OTIMIZAÇÕES DE PERFORMANCE =========== 
+        setupPerformanceOptimizations: function() {
+            // Lazy loading de imagens
+            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+            lazyImages.forEach(img => {
+                if (img.complete) {
+                    this.handleLazyImageLoad(img);
+                } else {
+                    img.addEventListener('load', () => this.handleLazyImageLoad(img));
+                }
+            });
+
+            // Intersection Observer para lazy loading de imagens
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.complete) {
+                            this.handleLazyImageLoad(img);
+                    } else {
+                            img.addEventListener('load', () => this.handleLazyImageLoad(img));
+                        }
+                        observer.unobserve(img);
+                    }
+                });
+            }, {
+                rootMargin: '50px 0px', // Observar imagens que estão a 50px do viewport
+                threshold: 0.1 // 10% do elemento deve estar visível
+            });
+
+            // Observar todas as imagens que ainda não foram observadas
+            document.querySelectorAll('img:not([loading="lazy"])').forEach(img => {
+                observer.observe(img);
+            });
+        },
+
+        // Função auxiliar para lazy loading de imagens
+        handleLazyImageLoad: function(img) {
+            if (img.dataset.src) {
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+                img.removeAttribute('loading');
+            }
+        },
+
+        // =========== CARROSSEL INOVADOR DE QUARTOS =========== 
+        setupRoomsCarousel: function() {
+            const carousel = document.getElementById('roomsCarousel');
+            const slides = document.querySelectorAll('.room-slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const indicators = document.querySelectorAll('.indicator');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            
+            if (!carousel || slides.length === 0) {
+                console.log('Carrossel de quartos não encontrado');
+                return;
+            }
+            
+            let currentSlide = 0;
+            let isTransitioning = false;
+            let autoSlideInterval;
+            
+            // Função para mostrar slide específico
+            const showSlide = (index, direction = 'next') => {
+                if (isTransitioning) return;
+                
+                isTransitioning = true;
+                
+                // Remove classes ativas
+                slides.forEach(slide => {
+                    slide.classList.remove('active', 'prev', 'slide-in-right', 'slide-in-left');
+                });
+                
+                indicators.forEach(indicator => {
+                    indicator.classList.remove('active');
+                });
+                
+                thumbnails.forEach(thumbnail => {
+                    thumbnail.classList.remove('active');
+                });
+                
+                // Atualiza índice atual
+                currentSlide = index;
+                
+                // Adiciona classes ativas
+                slides[currentSlide].classList.add('active');
+                
+                // Adiciona animação baseada na direção
+                if (direction === 'next') {
+                    slides[currentSlide].classList.add('slide-in-right');
+                } else {
+                    slides[currentSlide].classList.add('slide-in-left');
+                }
+                
+                indicators[currentSlide].classList.add('active');
+                thumbnails[currentSlide].classList.add('active');
+                
+                // Reset da transição
+                setTimeout(() => {
+                    isTransitioning = false;
+                    slides[currentSlide].classList.remove('slide-in-right', 'slide-in-left');
+                }, 800);
+            };
+            
+            // Próximo slide
+            const nextSlide = () => {
+                const next = (currentSlide + 1) % slides.length;
+                showSlide(next, 'next');
+            };
+            
+            // Slide anterior
+            const prevSlide = () => {
+                const prev = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(prev, 'prev');
+            };
+            
+            // Auto-slide
+            const startAutoSlide = () => {
+                autoSlideInterval = setInterval(nextSlide, 5000);
+            };
+            
+            const stopAutoSlide = () => {
+                clearInterval(autoSlideInterval);
+            };
+            
+            // Event listeners para controles
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    stopAutoSlide();
+                    nextSlide();
+                    startAutoSlide();
+                });
+            }
+            
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    stopAutoSlide();
+                    prevSlide();
+                    startAutoSlide();
+                });
+            }
+            
+            // Event listeners para indicadores
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    if (index !== currentSlide) {
+                        stopAutoSlide();
+                        const direction = index > currentSlide ? 'next' : 'prev';
+                        showSlide(index, direction);
+                        startAutoSlide();
+                            }
+                        });
+                    });
+            
+            // Event listeners para thumbnails
+            thumbnails.forEach((thumbnail, index) => {
+                thumbnail.addEventListener('click', () => {
+                    if (index !== currentSlide) {
+                        stopAutoSlide();
+                        const direction = index > currentSlide ? 'next' : 'prev';
+                        showSlide(index, direction);
+                        startAutoSlide();
+                    }
+                });
+            });
+            
+            // Controle por teclado
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    stopAutoSlide();
+                    prevSlide();
+                    startAutoSlide();
+                } else if (e.key === 'ArrowRight') {
+                    stopAutoSlide();
+                    nextSlide();
+                    startAutoSlide();
+                }
+            });
+            
+            // Pausar auto-slide no hover
+            carousel.addEventListener('mouseenter', stopAutoSlide);
+            carousel.addEventListener('mouseleave', startAutoSlide);
+            
+            // Touch/swipe support
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            carousel.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            
+            carousel.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+            
+            const handleSwipe = () => {
+                const swipeThreshold = 50;
+                const diff = touchStartX - touchEndX;
+                
+                if (Math.abs(diff) > swipeThreshold) {
+                    stopAutoSlide();
+                    if (diff > 0) {
+                        nextSlide();
+                    } else {
+                        prevSlide();
+                    }
+                    startAutoSlide();
+                }
+            };
+            
+            // Hotspots interativos
+            const hotspots = document.querySelectorAll('.hotspot');
+            hotspots.forEach(hotspot => {
+                hotspot.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const tooltip = hotspot.querySelector('.hotspot-tooltip');
+                    if (tooltip) {
+                        tooltip.style.opacity = tooltip.style.opacity === '1' ? '0' : '1';
+                        tooltip.style.visibility = tooltip.style.visibility === 'visible' ? 'hidden' : 'visible';
+                    }
+                });
+            });
+            
+            // Inicializar auto-slide
+            startAutoSlide();
+            
+            console.log('Carrossel de quartos configurado com sucesso!');
+        }
+    };
+
+    // =========== INICIALIZAR =========== 
+        HotelManzoni.init();
+
+    // Expor para debug
+    window.HotelManzoni = HotelManzoni;
+
+})();
+
+            
+            

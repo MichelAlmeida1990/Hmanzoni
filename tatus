@@ -1,0 +1,5 @@
+[33mc266552[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m feat: corrigir sidebar mobile - abrir da esquerda, fundo transparente e textos dourados
+[33md0efe4a[m Fix: Corrigir erros de sintaxe JavaScript e melhorar preloader - Corrigido erro de sintaxe na linha 213 do hotel-manzoni.js - Melhorado sistema de preloader para evitar travamento - Aplicado glassmorphism dourado transparente ao sidebar - Removido carousel 'Nosso Hotel' e seções desnecessárias - Simplificado Hero section removendo badges
+[33m3c0a01b[m feat: aplica glassmorphism no assistente virtual com efeitos elegantes
+[33m8044d81[m feat: implementa preloader animado com glassmorphism e efeitos pulsantes dourados
+[33m5bfec2c[m feat: atualiza imagens dos quartos e adiciona efeitos de reflexo dourado nos botões sociais
