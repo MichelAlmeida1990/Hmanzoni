@@ -171,12 +171,4 @@ section {
 }
 
 /* =========== RESPONSIVO BASE =========== */
-@media (max-width: 768px) {
-    .container {
-        padding: 0 15px;
-    }
-    
-    section {
-        padding: 60px 0;
-    }
-}
+/* REMOVIDO - CONFLITO COM RESPONSIVE.CSS */
