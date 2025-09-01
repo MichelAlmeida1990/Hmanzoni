@@ -151,6 +151,12 @@
                 this.elements.sidebarOverlay.classList.add('active');
                 this.elements.body.classList.add('sidebar-open');
                 
+                // Apenas overflow hidden para evitar scroll da página principal
+                this.elements.body.style.overflow = 'hidden';
+                
+                // Garantir que o body não se desloque - SEM position fixed
+                this.elements.body.style.position = 'relative';
+                
                 // Atualizar acessibilidade
                 this.elements.mobileMenuToggle.setAttribute('aria-expanded', 'true');
                 
@@ -175,9 +181,14 @@
                 this.elements.sidebarContainer.classList.add('exiting');
                 
                 setTimeout(() => {
+                    // Remover todas as classes da sidebar
                     this.elements.sidebarContainer.classList.remove('active', 'exiting');
                     this.elements.sidebarOverlay.classList.remove('active');
                     this.elements.body.classList.remove('sidebar-open');
+                    
+                    // Restaurar overflow e position do body
+                    this.elements.body.style.overflow = '';
+                    this.elements.body.style.position = '';
                     
                     // Atualizar acessibilidade
                     this.elements.mobileMenuToggle.setAttribute('aria-expanded', 'false');
@@ -192,6 +203,13 @@
                 e.stopPropagation();
                 
                 const isExpanded = this.elements.mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+                
+                console.log('Menu clicado, estado atual:', isExpanded);
+                console.log('Elementos da sidebar:', {
+                    container: this.elements.sidebarContainer,
+                    overlay: this.elements.sidebarOverlay,
+                    body: this.elements.body
+                });
                 
                 if (isExpanded) {
                     closeSidebar();
@@ -233,8 +251,32 @@
                 if (window.innerWidth > 768 && this.elements.sidebarContainer.classList.contains('active')) {
                     closeSidebar();
                 }
+                
+                // Limpeza de emergência para garantir responsividade
+                this.cleanupBodyStyles();
             });
+            
+            // Função de limpeza de emergência
+            this.cleanupBodyStyles = () => {
+                // Remover todas as classes residuais
+                this.elements.body.classList.remove('sidebar-open');
+                
+                // Restaurar overflow do body
+                this.elements.body.style.overflow = '';
+                
+                console.log('Estilos do body limpos');
+            };
 
+            // Listener para visibilidade da página (ajuda com problemas de responsividade)
+            document.addEventListener('visibilitychange', () => {
+                if (!document.hidden && this.elements.body.classList.contains('sidebar-open')) {
+                    // Se a página voltou a ficar visível e ainda tem sidebar-open, limpar
+                    setTimeout(() => {
+                        this.cleanupBodyStyles();
+                    }, 100);
+                }
+            });
+            
             // Navegação por seções com scroll suave
             const sectionLinks = this.elements.sidebarContainer.querySelectorAll('[data-section]');
             sectionLinks.forEach(link => {
