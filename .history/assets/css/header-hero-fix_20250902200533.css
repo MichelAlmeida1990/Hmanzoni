@@ -1,0 +1,72 @@
+/* ========================================
+   CORREÇÃO ESPECÍFICA HEADER + HERO - HOTEL MANZONI
+   ======================================== */
+
+/* =========== PROBLEMA 1: HEADER SOBREPONDO CONTEÚDO =========== */
+header {
+    /* Garantir que o header não sobreponha o conteúdo */
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+/* =========== PROBLEMA 2: SEÇÃO HERO SEM ESPAÇAMENTO =========== */
+.hero {
+    /* Adicionar padding-top para compensar o header fixo */
+    padding-top: 80px !important;
+    margin-top: 0 !important;
+}
+
+.hero-content {
+    /* Garantir que o conteúdo não seja cortado */
+    padding-top: 20px !important;
+    margin-top: 0 !important;
+}
+
+/* =========== PROBLEMA 3: RESPONSIVIDADE MOBILE =========== */
+@media (max-width: 768px) {
+    .hero {
+        /* Ajustar altura e espaçamento no mobile */
+        height: auto !important;
+        min-height: 500px !important;
+        padding-top: 100px !important;
+        padding-bottom: 40px !important;
+    }
+    
+    .hero-content {
+        /* Centralizar conteúdo no mobile */
+        padding: 20px 20px 0 20px !important;
+        text-align: center !important;
+    }
+    
+    .hero-content h1 {
+        /* Ajustar tamanho do texto no mobile */
+        font-size: 2.5rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .hero-content p {
+        /* Ajustar parágrafo no mobile */
+        font-size: 1rem !important;
+        margin-bottom: 25px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        /* Ajustes para telas muito pequenas */
+        padding-top: 80px !important;
+        padding-bottom: 30px !important;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem !important;
+    }
+    
+    .hero-content p {
+        font-size: 0.9rem !important;
+    }
+}
