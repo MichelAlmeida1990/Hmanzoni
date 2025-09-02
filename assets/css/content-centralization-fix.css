@@ -1,0 +1,207 @@
+/* ========================================
+   CORREÇÃO DE CENTRALIZAÇÃO DO CONTEÚDO - HOTEL MANZONI
+   ======================================== */
+
+/* =========== CORREÇÃO GERAL DE CENTRALIZAÇÃO =========== */
+.hero,
+.about,
+.accommodations,
+.services,
+.gallery,
+.contact {
+    /* Garantir que todas as seções tenham conteúdo centralizado */
+    text-align: center !important;
+}
+
+/* =========== CORREÇÃO ESPECÍFICA DO HERO =========== */
+.hero-content {
+    /* Centralizar todo o conteúdo do hero */
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 800px !important;
+    margin: 0 auto !important;
+}
+
+.hero-content h1 {
+    /* Centralizar títulos */
+    text-align: center !important;
+    width: 100% !important;
+}
+
+.hero-content p {
+    /* Centralizar parágrafos */
+    text-align: center !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+}
+
+.hero-buttons {
+    /* Centralizar botões */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    gap: 20px !important;
+}
+
+.hero-features {
+    /* Centralizar badges de features */
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 20px !important;
+    width: 100% !important;
+}
+
+/* =========== CORREÇÃO DAS SEÇÕES PRINCIPAIS =========== */
+.section-header {
+    /* Centralizar cabeçalhos das seções */
+    text-align: center !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+}
+
+.section-title {
+    /* Centralizar títulos das seções */
+    text-align: center !important;
+    width: 100% !important;
+}
+
+.section-description {
+    /* Centralizar descrições das seções */
+    text-align: center !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+}
+
+/* =========== CORREÇÃO DO CARROSSEL =========== */
+.rooms-carousel-container {
+    /* Centralizar container do carrossel */
+    text-align: center !important;
+    width: 100% !important;
+}
+
+.room-slide {
+    /* Centralizar slides */
+    text-align: center !important;
+    width: 100% !important;
+}
+
+.room-story {
+    /* Centralizar conteúdo dos slides */
+    text-align: center !important;
+    width: 100% !important;
+}
+
+/* =========== CORREÇÃO RESPONSIVA MOBILE =========== */
+@media (max-width: 768px) {
+    .hero-content {
+        /* Ajustes específicos para mobile */
+        padding: 0 20px !important;
+        text-align: center !important;
+    }
+    
+    .hero-content h1 {
+        /* Centralizar títulos no mobile */
+        text-align: center !important;
+        font-size: 2.5rem !important;
+        line-height: 1.2 !important;
+    }
+    
+    .hero-content p {
+        /* Centralizar parágrafos no mobile */
+        text-align: center !important;
+        font-size: 1rem !important;
+        max-width: 100% !important;
+    }
+    
+    .hero-buttons {
+        /* Centralizar botões no mobile */
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+    }
+    
+    .hero-buttons .btn {
+        /* Centralizar botões individuais */
+        width: 100% !important;
+        max-width: 280px !important;
+        margin: 0 auto !important;
+    }
+    
+    .hero-features {
+        /* Centralizar features no mobile */
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        gap: 15px !important;
+    }
+    
+    .feature-badge {
+        /* Centralizar badges individuais */
+        text-align: center !important;
+        justify-content: center !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content {
+        /* Ajustes para telas muito pequenas */
+        padding: 0 15px !important;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem !important;
+    }
+    
+    .hero-content p {
+        font-size: 0.9rem !important;
+    }
+    
+    .hero-buttons .btn {
+        max-width: 250px !important;
+        padding: 12px 20px !important;
+        font-size: 1rem !important;
+    }
+    
+    .hero-features {
+        gap: 10px !important;
+    }
+    
+    .feature-badge {
+        padding: 10px 15px !important;
+        font-size: 0.8rem !important;
+    }
+}
+
+/* =========== CORREÇÃO DE CONTAINERS =========== */
+.container {
+    /* Garantir que containers estejam centralizados */
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+    max-width: 1200px !important;
+    width: 100% !important;
+}
+
+/* =========== CORREÇÃO DE GRIDS =========== */
+.grid {
+    /* Centralizar grids */
+    display: grid !important;
+    place-items: center !important;
+    width: 100% !important;
+}
+
+/* =========== CORREÇÃO DE FLEXBOX =========== */
+.flex-container {
+    /* Centralizar containers flexbox */
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+}
