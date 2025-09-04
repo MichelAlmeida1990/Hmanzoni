@@ -16,29 +16,22 @@
 
         // Tipos de quarto disponíveis
         roomTypes: {
-            'individual': {
-                name: 'Quarto Individual',
+            'simples': {
+                name: 'Quarto Simples',
                 description: 'Ideal para viagens de negócios',
-                basePrice: 140.00,
-                capacity: 1,
+                basePrice: 120.00,
+                capacity: 2,
                 amenities: ['Wi-Fi', 'TV', 'Ar condicionado', 'Banheiro privativo']
             },
             'duplo': {
                 name: 'Quarto Duplo',
                 description: 'Conforto para casais',
-                basePrice: 170.00,
+                basePrice: 150.00,
                 capacity: 2,
                 amenities: ['Wi-Fi', 'TV', 'Ar condicionado', 'Banheiro privativo', 'Cama queen']
             },
-            'triplo': {
-                name: 'Quarto Triplo',
-                description: 'Perfeito para famílias',
-                basePrice: 200.00,
-                capacity: 3,
-                amenities: ['Wi-Fi', 'TV', 'Ar condicionado', 'Banheiro privativo', 'Múltiplas camas']
-            },
-            'quadruplo': {
-                name: 'Quarto Quadruplo',
+            'suite': {
+                name: 'Suíte',
                 description: 'Luxo e conforto',
                 basePrice: 250.00,
                 capacity: 4,
@@ -67,8 +60,7 @@
 
         // Inicialização
         init: function() {
-            console.log('🚀 Motor de Reserva inicializado');
-            console.log('📋 Formulário encontrado:', document.getElementById('reservation-form'));
+            console.log('Motor de Reserva inicializado');
             this.setupElements();
             this.bindEvents();
             this.initializeCalendar();
@@ -87,13 +79,6 @@
 
         // Vincular eventos
         bindEvents: function() {
-            console.log('🔗 Configurando eventos...');
-            console.log('📅 Date inputs encontrados:', this.elements.dateInputs);
-            console.log('🏨 Room type select:', this.elements.roomTypeSelect);
-            console.log('👥 Guests input:', this.elements.guestsInput);
-            console.log('📋 Formulário:', this.elements.reservationForm);
-            console.log('🔘 Botão de reserva:', this.elements.bookingButton);
-
             if (this.elements.dateInputs) {
                 this.elements.dateInputs.forEach(input => {
                     input.addEventListener('change', this.handleDateChange.bind(this));
@@ -110,18 +95,14 @@
 
             // Prevenir submissão normal do formulário e usar JavaScript
             if (this.elements.reservationForm) {
-                console.log('✅ Evento de submit adicionado ao formulário');
                 this.elements.reservationForm.addEventListener('submit', (e) => {
-                    console.log('📤 Formulário submetido!');
                     e.preventDefault();
                     this.handleBooking();
                 });
             }
 
             if (this.elements.bookingButton) {
-                console.log('✅ Evento de click adicionado ao botão');
                 this.elements.bookingButton.addEventListener('click', (e) => {
-                    console.log('🔘 Botão clicado!');
                     e.preventDefault();
                     this.handleBooking();
                 });
@@ -418,7 +399,7 @@
                 checkout_date: data.checkout,
                 guests_count: parseInt(data.guests),
                 room_type: data.room_type,
-                observations: data.message || ''
+                observations: data.observations || ''
             };
 
             console.log('🔄 Dados mapeados:', mappedData);
@@ -471,7 +452,7 @@
             try {
                 console.log('📤 Enviando dados para reserva:', data);
                 
-                const response = await fetch('http://localhost:3001/api/bookings', {
+                const response = await fetch('http://localhost:3000/api/bookings', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

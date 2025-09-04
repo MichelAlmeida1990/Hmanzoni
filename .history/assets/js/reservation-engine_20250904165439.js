@@ -16,29 +16,22 @@
 
         // Tipos de quarto disponíveis
         roomTypes: {
-            'individual': {
-                name: 'Quarto Individual',
+            'simples': {
+                name: 'Quarto Simples',
                 description: 'Ideal para viagens de negócios',
-                basePrice: 140.00,
-                capacity: 1,
+                basePrice: 120.00,
+                capacity: 2,
                 amenities: ['Wi-Fi', 'TV', 'Ar condicionado', 'Banheiro privativo']
             },
             'duplo': {
                 name: 'Quarto Duplo',
                 description: 'Conforto para casais',
-                basePrice: 170.00,
+                basePrice: 150.00,
                 capacity: 2,
                 amenities: ['Wi-Fi', 'TV', 'Ar condicionado', 'Banheiro privativo', 'Cama queen']
             },
-            'triplo': {
-                name: 'Quarto Triplo',
-                description: 'Perfeito para famílias',
-                basePrice: 200.00,
-                capacity: 3,
-                amenities: ['Wi-Fi', 'TV', 'Ar condicionado', 'Banheiro privativo', 'Múltiplas camas']
-            },
-            'quadruplo': {
-                name: 'Quarto Quadruplo',
+            'suite': {
+                name: 'Suíte',
                 description: 'Luxo e conforto',
                 basePrice: 250.00,
                 capacity: 4,

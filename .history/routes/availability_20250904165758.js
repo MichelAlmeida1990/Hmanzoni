@@ -8,7 +8,7 @@ const router = express.Router();
 router.get('/', [
     query('checkin_date').isDate().withMessage('Data de entrada inválida'),
     query('checkout_date').isDate().withMessage('Data de saída inválida'),
-    query('room_type').optional().isIn(['individual', 'duplo', 'triplo', 'quadruplo']).withMessage('Tipo de quarto inválido')
+    query('room_type').optional().isIn(['simples', 'duplo', 'suite']).withMessage('Tipo de quarto inválido')
 ], async (req, res) => {
     try {
         // Validar parâmetros
@@ -128,7 +128,7 @@ router.get('/', [
 router.get('/calendar', [
     query('year').isInt({ min: 2024, max: 2030 }).withMessage('Ano inválido'),
     query('month').isInt({ min: 1, max: 12 }).withMessage('Mês inválido'),
-    query('room_type').optional().isIn(['individual', 'duplo', 'triplo', 'quadruplo']).withMessage('Tipo de quarto inválido')
+    query('room_type').optional().isIn(['simples', 'duplo', 'suite']).withMessage('Tipo de quarto inválido')
 ], async (req, res) => {
     try {
         const errors = validationResult(req);
